@@ -1,0 +1,50 @@
+---
+import Brand from "@/assets/Brand.astro";
+import HeroText from "./HeroText.astro";
+---
+
+<section class="hero relative h-screen w-full overflow-hidden">
+  <div class="hero-text absolute inset-0 z-10 flex items-center justify-center">
+    <HeroText />
+  </div>
+
+  <div class="logo absolute top-full left-1/2 w-full max-w-8xl -translate-x-1/2 px-30">
+    <Brand className="w-full" />
+  </div>
+
+  <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 scale-90">
+    <!-- <video
+      autoplay
+      loop
+      muted
+      playsinline
+      class="h-auto max-w-4xl rounded-2xl shadow-2xl"
+    >
+      <source src="/hero-video.mp4" type="video/mp4" />
+    </video> -->
+    <iframe
+      class="h-auto aspect-video max-w-4xl w-full"
+      src="https://www.youtube.com/embed/Rc4LqYM65As?si=ZKauBrSrh3AVzMOn"
+      referrerpolicy="strict-origin-when-cross-origin"
+    ></iframe>
+  </div>
+</section>
+
+<script>
+  import { initHeroAnimations } from "@gsap/animations";
+
+  const init = () => {
+    const text = document.querySelector(".hero-text") as HTMLElement;
+    const logo = document.querySelector(".logo") as HTMLElement;
+    const video = document.querySelector(".hero-video") as HTMLElement;
+
+    const header = document.querySelector("header") as HTMLElement;
+
+    if (text && logo && video && header) {
+      initHeroAnimations(text, logo, video, header);
+    }
+  };
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>

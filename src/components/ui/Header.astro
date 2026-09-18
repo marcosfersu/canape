@@ -1,0 +1,50 @@
+---
+import BrandMenu from "@/assets/BrandMenu.astro";
+---
+
+<header class="fixed right-0 top-10 z-50 pointer-events-auto">
+  <nav class="group flex flex-col justify-between px-8 py-4 bg-background/80 backdrop-blur-md translate-x-1/2">
+    <div class="mb-10">
+      <BrandMenu className="w-10 h-auto" />
+    </div>
+
+    <ul
+      class="flex flex-col text-custom-red uppercase text-sm tracking-widest
+        [&_span]:inline-block [&_span]:transition-all [&_span]:duration-500 [&_span]:ease-out
+        
+        [&_span]:group-hover:-translate-x-[calc(100%-30px)]
+        
+        [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
+        
+        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+    >
+      <li>
+        <a href="#manifiesto" class="hover:text-primary transition-colors">
+          <span>MANIFIESTO</span>
+        </a>
+      </li>
+      <li>
+        <a href="#universo" class="hover:text-primary transition-colors">
+          <span>UNIVERSO</span>
+        </a>
+      </li>
+      <li>
+        <a href="#experiencias" class="hover:text-primary transition-colors">
+          <span>EXPERIENCIAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="#journal" class="hover:text-primary transition-colors">
+          <span>Journal</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contacto" class="hover:text-primary transition-colors">
+          <span>Contacto</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
