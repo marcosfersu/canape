@@ -1,0 +1,28 @@
+---
+export interface GalleryItem {
+  src: string;
+  alt: string;
+  className?: string;
+  style?: string; // O Record<string, string> si prefieres objetos de estilos
+  speed?: number;
+}
+
+interface Props {
+  className?: string;
+  items?: GalleryItem[];
+}
+
+const { className = "", items = [] } = Astro.props;
+---
+
+<div class:list={["relative w-full", className]}>
+  {items.map((item) => (
+    <div
+      class:list={["parallax-item absolute w-100", item.className]}
+      style={item.style}
+      data-speed={item.speed ?? "0.5"}
+    >
+      <img src={item.src} alt={item.alt} class="block w-full h-auto" />
+    </div>
+  ))}
+</div>

@@ -3,7 +3,7 @@ import BrandMenu from "@/assets/BrandMenu.astro";
 ---
 
 <header class="fixed right-0 top-10 z-50 pointer-events-auto">
-  <nav class="group flex flex-col justify-between px-8 py-4 bg-background/80 backdrop-blur-md translate-x-1/2">
+  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-4 pb-10 translate-x-29">
     <div class="mb-10">
       <BrandMenu className="w-10 h-auto" />
     </div>
@@ -46,5 +46,89 @@ import BrandMenu from "@/assets/BrandMenu.astro";
         </a>
       </li>
     </ul>
+    <ul
+      class="flex flex-col text-custom-red uppercase text-sm tracking-widest mt-5
+        [&_span]:inline-block [&_span]:transition-all [&_span]:duration-500 [&_span]:ease-out [&_span]:group-hover:-translate-x-[calc(100%-30px)]
+                [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
+        
+        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+    >
+      <li>
+        <a href="#universo" class="hover:text-primary transition-colors">
+          <span>INSTAGRAM</span>
+        </a>
+      </li>
+      <li>
+        <a href="#universo" class="hover:text-primary transition-colors">
+          <span>MAIL@CANAPE.COM</span>
+        </a>
+      </li>
+      <li>
+        <a href="#universo" class="hover:text-primary transition-colors">
+          <span>Whatsapp</span>
+        </a>
+      </li>
+    </ul>
+    <div
+      class="text-custom-red uppercase text-sm tracking-widest mt-3
+        [&_ul]:transition-all [&_ul]:duration-500 [&_ul]:ease-out [&_ul]:group-hover:-translate-x-[calc(100%-30px)]
+                [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
+        
+        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+    >
+      <ul class="inline-flex flex-row gap-4">
+        <li>
+          <a href="#universo" class="hover:text-primary transition-colors">
+            <span>ESP</span>
+          </a>
+        </li>
+        <li>
+          <a href="#universo" class="hover:text-primary transition-colors">
+            <span>POR</span>
+          </a>
+        </li>
+        <li>
+          <a href="#universo" class="hover:text-primary transition-colors">
+            <span>ENG</span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
+<div class="fixed right-16 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
+<div class="fixed left-16 bottom-10 z-50 pointer-events-auto">
+  <button
+    id="theme-toggle-btn"
+    class="border-custom-red text-custom-red border px-4 py-1 flex justify-center items-center rounded-full hover:bg-custom-red-hover transition-colors cursor-pointer text-sm header-mood"
+  >
+    <span class="translate-y-px">CAMBIAR EL MOOD</span>
+  </button>
+</div>
+
+<script>
+  const themes = ["red", "blue", "dark"];
+
+  const setupThemeToggle = () => {
+    const btn = document.getElementById("theme-toggle-btn");
+    const htmlEl = document.documentElement;
+
+    if (!btn) return;
+
+    btn.addEventListener("click", () => {
+      const currentTheme = htmlEl.getAttribute("data-theme") || "red";
+      const currentIndex = themes.indexOf(currentTheme);
+      const nextTheme = themes[(currentIndex + 1) % themes.length];
+
+      htmlEl.setAttribute("data-theme", nextTheme);
+      localStorage.setItem("theme", nextTheme);
+    });
+  };
+
+  setupThemeToggle();
+  document.addEventListener("astro:page-load", setupThemeToggle);
+</script>

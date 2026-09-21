@@ -1,0 +1,74 @@
+---
+import HeroTextIcon from "@/assets/HeroTextIcon.astro";
+import Gallery, { type GalleryItem } from "@/components/ui/Gallery.astro";
+
+const galleryImages: GalleryItem[] = [
+  {
+    src: "/img-test.png",
+    alt: "Gallery 1",
+    style: "left: 15%; top: 20vh;",
+    speed: 0.3,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 2",
+    className: "",
+    style: "left: 50%; top: 70vh;",
+    speed: 0.8,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 3",
+    style: "left: 85%; top: 30vh;",
+    speed: 1.2,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 4",
+    style: "left: 30%; top: 120vh;",
+    speed: 1.2,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 4",
+    style: "left: 5%; top: 180vh;",
+    speed: 1.2,
+  },
+];
+---
+
+<section class="create-section absolute h-screen w-full inset-0">
+  <Gallery className="create-gallery" items={galleryImages} />
+  <div class="create-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
+    <div class="max-w-3xl flex flex-col items-center justify-center">
+      <h4 class="text-xs uppercase tracking-widest font-medium mb-2">
+        Del concepto a la mesa
+      </h4>
+      <h2 class="text-6xl md:text-5xl font-bold mb-4 uppercase">
+        No hacemos eventos, creamos universos
+      </h2>
+      <p class="text-sm md:text-base opacity-80 mb-6">
+        Desde el Concept Lab gestionamos y desarrollamos identidades para
+        terceros, transformando ideas en experiencias tangibles que la gente
+        recuerda.
+      </p>
+    </div>
+  </div>
+  <div class="create-roles absolute inset-0 z-10 px-6 pointer-events-auto flex flex-col items-center justify-center">
+    <div class="flex flex-col items-center max-w-2xl w-full relative justify-center text-center">
+      <h3
+        class="text-6xl md:text-5xl relative font-bold h-20 w-full max-w-2xl overflow-hidden uppercase flex flex-col items-center justify-center gap-10 [&_span]:absolute
+      before:content-['('] after:content-[')'] after:absolute before:absolute after:right-0 before:left-0
+      before:translate-x-(--pseudo-tx-before,-0.25rem)
+      after:translate-x-(--pseudo-tx-after,0.25rem)
+      before:opacity-(--pseudo-opacity,0) after:opacity-(--pseudo-opacity,0) transition-none"
+      >
+        <span class="item-roles">Curaduría</span>
+        <span class="item-roles">Dirección de Arte</span>
+        <span class="item-roles">Producción</span>
+        <span class="item-roles">Logística</span>
+      </h3>
+      <HeroTextIcon className="w-6 h-auto absolute top-[40%] -right-20 -translate-y-1/2 opacity-0 create-icon" />
+    </div>
+  </div>
+</section>

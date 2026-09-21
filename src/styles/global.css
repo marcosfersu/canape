@@ -4,8 +4,36 @@
 @import "tailwindcss";
 
 @theme {
-  --color-custom-white: #f9f5ec;
-  --color-custom-red: #dd3e3a;
+  --color-custom-white: var(--bg-color);
+  --color-custom-red: var(--accent-color);
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-altesse: "altesse-std-24pt", cursive, sans-serif;
+}
+
+/* 2. Paleta por defecto (Rojo / Crema) */
+:root,
+[data-theme="red"] {
+  --bg-color: #f9f5ec;
+  --accent-color: #dd3e3a;
+}
+
+/* 3. Segunda paleta (Azul) */
+[data-theme="blue"] {
+  --bg-color: #eef2f7;
+  --accent-color: #1d4ed8;
+}
+
+/* 4. Tercera paleta (Oscuro) */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --accent-color: #f9f5ec;
+}
+
+/* Transición suave global de colores al cambiar de tema */
+body {
+  background-color: var(--color-custom-white);
+  color: var(--color-custom-red);
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
 }

@@ -1,0 +1,52 @@
+---
+import HeroTextIcon from "@/assets/HeroTextIcon.astro";
+
+import Gallery, { type GalleryItem } from "@/components/ui/Gallery.astro";
+
+const galleryImages: GalleryItem[] = [
+  {
+    src: "/img-test.png",
+    alt: "Gallery 1",
+    style: "left: 15%; top: 20vh;",
+    speed: 0.3,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 2",
+    className: "",
+    style: "left: 50%; top: 70vh;",
+    speed: 0.8,
+  },
+  {
+    src: "/img-test.png",
+    alt: "Gallery 3",
+    style: "left: 85%; top: 30vh;",
+    speed: 1.2,
+  },
+];
+---
+
+<section class="hospitality-section absolute h-screen w-full inset-0">
+  <Gallery className="hospitality-gallery" items={galleryImages} />
+  <div class="hospitality-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
+    <div class="max-w-lg flex flex-col items-center justify-center">
+      <HeroTextIcon className="size-5 mb-3" />
+      <h4 class="text-xs uppercase tracking-widest font-medium mb-2">
+        El arte de recibir bien
+      </h4>
+      <h2 class="text-6xl md:text-5xl font-bold mb-4 uppercase">
+        Hospitalidad con carácter
+      </h2>
+      <p class="text-sm md:text-base opacity-80 mb-6">
+        Diseñamos encuentros y atmósferas con identidad, donde cada detalle hace
+        que estar ahí se vuelva especial
+      </p>
+      <a
+        href="#"
+        class="inline-block border-b border-current pb-1 text-xs uppercase tracking-wider hover:opacity-75 transition-opacity"
+      >
+        conocé nuestro universo
+      </a>
+    </div>
+  </div>
+</section>
