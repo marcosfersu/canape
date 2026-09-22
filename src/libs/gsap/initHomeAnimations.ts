@@ -12,8 +12,21 @@ export const initHomeAnimations = () => {
   const CreateSection = document.querySelector(
     ".create-section",
   ) as HTMLElement;
+  const UniverseSection = document.querySelector(
+    ".universe-section",
+  ) as HTMLElement;
+  const ExperimentSection = document.querySelector(
+    ".experiment-section",
+  ) as HTMLElement;
 
-  if (!home || !hero || !HospitalitySection || !CreateSection) return;
+  if (
+    !home ||
+    !hero ||
+    !HospitalitySection ||
+    !CreateSection ||
+    !UniverseSection
+  )
+    return;
 
   const text = hero.querySelector(".hero-text") as HTMLElement;
   const logo = hero.querySelector(".logo") as HTMLElement;
@@ -45,21 +58,22 @@ export const initHomeAnimations = () => {
 
   const createRoles = CreateSection.querySelector<HTMLElement>(".create-roles");
 
+  const universeImages =
+    UniverseSection.querySelector<HTMLElement>(".universe-images");
+
   if (!text || !logo || !video) return;
 
-  // Timeline maestra centralizada
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: home,
       start: "top top",
-      end: () => `+=${window.innerHeight * 14}`,
+      end: () => `+=${window.innerHeight * 20}`,
       scrub: 1,
       pin: true,
       anticipatePin: 1,
     },
   });
 
-  // Pasamos 'tl' y los elementos correspondientes a cada módulo
   animateHero(tl, {
     hero,
     text,
@@ -86,7 +100,6 @@ export const initHomeAnimations = () => {
   // TRANSICIÓN HERO → HOSPITALITY (Puro movimiento Y)
   // ==========================================
 
-  // 1. El Hero sube hacia arriba hasta salir de pantalla
   tl.to(
     hero,
     {
@@ -97,7 +110,6 @@ export const initHomeAnimations = () => {
     7,
   );
 
-  // 2. HospitalitySection entra desde 100vh abajo (sin opacidad)
   tl.fromTo(
     HospitalitySection,
     {
@@ -108,9 +120,9 @@ export const initHomeAnimations = () => {
       ease: "none",
       duration: 5,
     },
-    4, // Se ejecutan exactamente en paralelo en el segundo 7
+    4,
   );
-  // 2. HospitalitySection entra desde 100vh abajo (sin opacidad)
+
   tl.to(
     HospitalitySection,
     {
@@ -118,7 +130,7 @@ export const initHomeAnimations = () => {
       ease: "none",
       duration: 5,
     },
-    12, // Se ejecutan exactamente en paralelo en el segundo 7
+    12,
   );
   tl.fromTo(
     CreateSection,
@@ -130,7 +142,19 @@ export const initHomeAnimations = () => {
       ease: "none",
       duration: 5,
     },
-    10, // Se ejecutan exactamente en paralelo en el segundo 7
+    10,
+  );
+  tl.fromTo(
+    UniverseSection,
+    {
+      yPercent: 100,
+    },
+    {
+      yPercent: 0,
+      ease: "none",
+      duration: 5,
+    },
+    36,
   );
   tl.to(
     CreateSection,
@@ -140,7 +164,47 @@ export const initHomeAnimations = () => {
       ease: "none",
       duration: 8,
     },
-    34, // Se ejecutan exactamente en paralelo en el segundo 7
+    36,
+  );
+
+  // ==========================================
+  // RECORRIDO HORIZONTAL DE IMÁGENES EN UNIVERSE
+  // ==========================================
+
+  gsap.set(universeImages, { x: "100vw" });
+
+  tl.to(
+    universeImages,
+    {
+      x: "-120vw",
+      ease: "none",
+      duration: 12,
+    },
+    41,
+  );
+
+  tl.to(
+    UniverseSection,
+    {
+      yPercent: -100,
+      opacity: 0,
+      ease: "none",
+      duration: 8,
+    },
+    50,
+  );
+
+  tl.fromTo(
+    ExperimentSection,
+    {
+      yPercent: 100,
+    },
+    {
+      yPercent: 0,
+      ease: "none",
+      duration: 5,
+    },
+    50,
   );
   return tl;
 };

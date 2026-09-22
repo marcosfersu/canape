@@ -51,7 +51,7 @@ export const animateCreate = (
       ease: "none",
       duration: 5,
     },
-    16,
+    20,
   );
 
   tl.to(
@@ -61,11 +61,11 @@ export const animateCreate = (
       ease: "none",
       duration: 5,
     },
-    16,
+    20,
   );
 
   const stepDuration = 3;
-  const startTime = 18;
+  const startTime = 20;
 
   // Cambia la opacidad a 1 y resetea ambas posiciones X a 0px en el segundo 18
   if (rolesHeading && iconCreate) {

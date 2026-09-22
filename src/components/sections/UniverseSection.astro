@@ -1,0 +1,68 @@
+---
+import ArrowIcon from "@/assets/ArrowIcon.astro";
+---
+
+<section class="universe-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
+  <div class="universe-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-2xl px-6 pointer-events-auto">
+    <h2 class="text-9xl font-bold mb-4">UNIVERSO</h2>
+    <p class="mb-6 text-center max-w-md uppercase">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.
+    </p>
+    <ArrowIcon className="size-14 mt-4" />
+  </div>
+
+  <!-- Imágenes para la animación de recorrido horizontal -->
+  <div class="universe-images absolute w-full h-full max-h-[60vh] flex items-center top-1/2 -translate-y-1/2 justify-start gap-2 z-10">
+    <div class="universe-img-container relative max-h-[60vh] h-full flex items-center justify-start gap-2">
+      <img
+        src="/img-test.png"
+        alt="Universo 1"
+        class="universe-img w-auto h-full object-cover z-10"
+      />
+      <div class="absolute flex flex-col items-center justify-start text-center gap-2 w-full z-20 text-white uppercase">
+        <h4 class="text-3xl font-bold flex gap-10">
+          <span>(</span> Estudio de Experiencias
+          <span>)</span>
+        </h4>
+        <div class="text-xl font-light [&_p]:leading-tight">
+          <p>El corazón de Canapé.</p>
+          <p>Encuentros contemporáneos.</p>
+        </div>
+      </div>
+    </div>
+    <div class="universe-img-container relative max-h-[60vh] h-full flex items-center justify-start gap-2">
+      <img
+        src="/img-test.png"
+        alt="Universo 1"
+        class="universe-img w-auto h-full object-cover z-10"
+      />
+      <div class="absolute flex flex-col items-center justify-start text-center gap-2 w-full z-20 text-white uppercase">
+        <h4 class="text-3xl font-bold flex gap-10">
+          <span>(</span> Casa Canapé
+          <span>)</span>
+        </h4>
+        <div class="text-xl font-light [&_p]:leading-tight">
+          <p>Nuestro espacio anfitrión.</p>
+          <p>La materialización de nuestro mundo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="universe-img-container relative max-h-[60vh] h-full flex items-center justify-start gap-2">
+      <img
+        src="/img-test.png"
+        alt="Universo 1"
+        class="universe-img w-auto h-full object-cover z-10"
+      />
+      <div class="absolute flex flex-col items-center justify-start text-center gap-2 w-full z-20 text-white uppercase">
+        <h4 class="text-3xl font-bold flex gap-10">
+          <span>(</span> Catering & Food
+          <span>)</span>
+        </h4>
+        <div class="text-xl font-light [&_p]:leading-tight">
+          <p>El primer bocado.</p>
+          <p>Cocina con alma y sin pretensiones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
