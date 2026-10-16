@@ -10,26 +10,32 @@
   --font-altesse: "altesse-std-24pt", cursive, sans-serif;
 }
 
-/* 2. Paleta por defecto (Rojo / Crema) */
 :root,
 [data-theme="red"] {
   --bg-color: #f9f5ec;
   --accent-color: #dd3e3a;
 }
 
-/* 3. Segunda paleta (Azul) */
-[data-theme="blue"] {
-  --bg-color: #eef2f7;
-  --accent-color: #1d4ed8;
+[data-theme="brown"] {
+  --bg-color: #3b312e;
+  --accent-color: #f4bace;
 }
 
-/* 4. Tercera paleta (Oscuro) */
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --accent-color: #f9f5ec;
+[data-theme="green"] {
+  --bg-color: #549d70;
+  --accent-color: #3b312e;
 }
 
-/* Transición suave global de colores al cambiar de tema */
+[data-theme="pink"] {
+  --bg-color: #f4bace;
+  --accent-color: #ea4838;
+}
+
+[data-theme="light-blue"] {
+  --bg-color: #f9f5ec;
+  --accent-color: #bce0f0;
+}
+
 body {
   background-color: var(--color-custom-white);
   color: var(--color-custom-red);

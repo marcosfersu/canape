@@ -1,16 +1,17 @@
 ---
 import BrandMenu from "@/assets/BrandMenu.astro";
+import LangMenu from "./LangMenu.astro";
 ---
 
 <header class="fixed right-0 top-10 z-50 pointer-events-auto">
-  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-4 pb-10 translate-x-29">
+  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-4 pb-10 translate-x-35">
     <div class="mb-10">
       <BrandMenu className="w-10 h-auto" />
     </div>
 
     <ul
       class="flex flex-col text-custom-red uppercase text-sm tracking-widest
-        [&_span]:inline-block [&_span]:transition-all [&_span]:duration-500 [&_span]:ease-out
+        [&_span]:inline-block [&_span]:transition-all [&_a]:transition-transform [&_a]:duration-500 [&_span]:duration-500 [&_span]:ease-out [&_a]:ease-out
         
         [&_span]:group-hover:-translate-x-[calc(100%-30px)]
         
@@ -21,27 +22,47 @@ import BrandMenu from "@/assets/BrandMenu.astro";
         [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
     >
       <li>
-        <a href="#manifiesto" class="hover:text-primary transition-colors">
+        <a
+          href="#manifiesto"
+          class="hover:text-primary transition-colors"
+          data-nav="hero"
+        >
           <span>MANIFIESTO</span>
         </a>
       </li>
       <li>
-        <a href="#universo" class="hover:text-primary transition-colors">
+        <a
+          href="#universo"
+          class="hover:text-primary transition-colors"
+          data-nav="hospitality"
+        >
           <span>UNIVERSO</span>
         </a>
       </li>
       <li>
-        <a href="#experiencias" class="hover:text-primary transition-colors">
+        <a
+          href="#experiencias"
+          class="hover:text-primary transition-colors"
+          data-nav="create"
+        >
           <span>EXPERIENCIAS</span>
         </a>
       </li>
       <li>
-        <a href="#journal" class="hover:text-primary transition-colors">
+        <a
+          href="#journal"
+          class="hover:text-primary transition-colors"
+          data-nav="service"
+        >
           <span>Journal</span>
         </a>
       </li>
       <li>
-        <a href="#contacto" class="hover:text-primary transition-colors">
+        <a
+          href="#contacto"
+          class="hover:text-primary transition-colors"
+          data-nav="about"
+        >
           <span>Contacto</span>
         </a>
       </li>
@@ -73,35 +94,19 @@ import BrandMenu from "@/assets/BrandMenu.astro";
     </ul>
     <div
       class="text-custom-red uppercase text-sm tracking-widest mt-3
-        [&_ul]:transition-all [&_ul]:duration-500 [&_ul]:ease-out [&_ul]:group-hover:-translate-x-[calc(100%-30px)]
+        [&_ul]:transition-transform [&_a]:transition-transform [&_ul]:duration-500 [&_ul]:ease-out [&_ul]:group-hover:-translate-x-[calc(100%-30px)]
                 [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
         [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
         
         [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
         [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
     >
-      <ul class="inline-flex flex-row gap-4">
-        <li>
-          <a href="#universo" class="hover:text-primary transition-colors">
-            <span>ESP</span>
-          </a>
-        </li>
-        <li>
-          <a href="#universo" class="hover:text-primary transition-colors">
-            <span>POR</span>
-          </a>
-        </li>
-        <li>
-          <a href="#universo" class="hover:text-primary transition-colors">
-            <span>ENG</span>
-          </a>
-        </li>
-      </ul>
+      <LangMenu />
     </div>
   </nav>
 </header>
-<div class="fixed right-16 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
-<div class="fixed left-16 bottom-10 z-50 pointer-events-auto">
+<div class="fixed right-10 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
+<div class="fixed left-10 bottom-10 z-50 pointer-events-auto">
   <button
     id="theme-toggle-btn"
     class="border-custom-red text-custom-red border px-4 py-1 flex justify-center items-center rounded-full hover:bg-custom-red-hover transition-colors cursor-pointer text-sm header-mood"
@@ -110,14 +115,75 @@ import BrandMenu from "@/assets/BrandMenu.astro";
   </button>
 </div>
 
+<style is:global>
+  header nav a.is-active {
+    font-weight: bold;
+    display: flex;
+    transform: translateX(30px);
+    text-decoration: underline;
+    position: relative;
+  }
+
+  header nav.group:hover a.is-active {
+    font-weight: bold;
+    display: flex;
+    transform: translateX(-12px);
+  }
+
+  header nav a.is-active span::before,
+  header nav a.is-active span::after {
+    opacity: 1;
+  }
+
+  header nav a.is-active span::before {
+    transform: translateX(0.25rem);
+  }
+
+  header nav a.is-active span::after {
+    transform: translateX(-0.25rem);
+  }
+
+  header nav a.is-active:hover span::before {
+    transform: translateX(-0.25rem);
+  }
+
+  header nav a.is-active:hover span::after {
+    transform: translateX(0.25rem);
+  }
+
+  header nav a.is-active .assent {
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--color-custom-red);
+    transform: translateY(-50%) translateX(0);
+    transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  header nav.group:hover a.is-active .assent {
+    transform: translateY(-50%) translateX(var(--assent-shift, 0px));
+  }
+</style>
+
 <script>
-  const themes = ["red", "blue", "dark"];
+  const themes = ["red", "brown", "green", "pink", "light-blue"];
 
   const setupThemeToggle = () => {
     const btn = document.getElementById("theme-toggle-btn");
     const htmlEl = document.documentElement;
 
-    if (!btn) return;
+    // Recuperar el tema guardado
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme && themes.includes(savedTheme)) {
+      htmlEl.setAttribute("data-theme", savedTheme);
+    }
+
+    if (!btn || btn.dataset.initialized === "true") return;
+
+    btn.dataset.initialized = "true";
 
     btn.addEventListener("click", () => {
       const currentTheme = htmlEl.getAttribute("data-theme") || "red";

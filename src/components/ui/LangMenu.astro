@@ -1,0 +1,75 @@
+---
+const { currentLocale } = Astro;
+
+const languages = [
+  { code: "es", label: "ESP" },
+  { code: "pt", label: "POR" },
+  { code: "en", label: "ENG" },
+];
+---
+
+<ul class="inline-flex flex-row gap-4">
+  {languages.map(({ code, label }) => (
+    <li>
+      <a
+        href={`/${code !== "es" ? code : ""}`}
+        class:list={[
+          "hover:text-primary transition-colors",
+          { active: currentLocale === code },
+        ]}
+        aria-current={currentLocale === code ? "page" : undefined}
+      >
+        <span>{label}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  span::before {
+    content: "(";
+    opacity: 0;
+    transition: all 300ms;
+    transform: translateX(-0.75rem);
+    display: inline-block;
+  }
+
+  span:hover::before {
+    opacity: 1;
+    transform: translateX(-0.15rem);
+  }
+
+  span::after {
+    content: ")";
+    opacity: 0;
+    transition: all 300ms;
+    transform: translateX(0.75rem);
+    display: inline-block;
+  }
+
+  span:hover::after {
+    opacity: 1;
+    transform: translateX(0.15rem);
+  }
+
+  ul li a.active {
+    font-weight: bold;
+  }
+
+  ul li a.active span::before,
+  ul li a.active span::after {
+    opacity: 1;
+  }
+
+  ul li a.active span::before {
+    transform: translateX(0.5rem);
+  }
+
+  ul li a.active span::after {
+    transform: translateX(-0.5rem);
+  }
+
+  ul li a.active span {
+    pointer-events: none;
+  }
+</style>

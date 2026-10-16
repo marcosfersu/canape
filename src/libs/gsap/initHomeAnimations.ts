@@ -2,66 +2,38 @@ import { gsap } from "./index";
 import { animateHero } from "./animateHero";
 import { animateHospitality } from "./animateHospitality";
 import { animateCreate } from "./animateCreate";
+import { animateAbout } from "./animateAbout";
+import { animatedLoop } from "./animateLoop";
+import { animateService } from "./animateService";
+import { setupActiveNav } from "./setupActiveNav";
+import { positions } from "../const/positions";
+import { animateGallery } from "./animateGallery";
+import { galleryImages } from "../const/gallery.config";
 
 export const initHomeAnimations = () => {
   const home = document.querySelector(".home") as HTMLElement;
-  const hero = document.querySelector(".hero") as HTMLElement;
-  const HospitalitySection = document.querySelector(
+
+  const heroSection = document.querySelector(".hero-section") as HTMLElement;
+
+  const hospitalitySection = document.querySelector(
     ".hospitality-section",
   ) as HTMLElement;
-  const CreateSection = document.querySelector(
+
+  const createSection = document.querySelector(
     ".create-section",
   ) as HTMLElement;
-  const UniverseSection = document.querySelector(
-    ".universe-section",
-  ) as HTMLElement;
-  const ExperimentSection = document.querySelector(
-    ".experiment-section",
+
+  const serviceSection = document.querySelector(
+    ".service-section",
   ) as HTMLElement;
 
-  if (
-    !home ||
-    !hero ||
-    !HospitalitySection ||
-    !CreateSection ||
-    !UniverseSection
-  )
-    return;
+  const aboutSection = document.querySelector(".about-section") as HTMLElement;
 
-  const text = hero.querySelector(".hero-text") as HTMLElement;
-  const logo = hero.querySelector(".logo") as HTMLElement;
-  const video = hero.querySelector(".hero-video") as HTMLElement;
+  const loopSection = document.querySelector(".loop-section") as HTMLElement;
 
-  const header = document.querySelector("header") as HTMLElement;
-  const headerBox = document.querySelector(".header-box") as HTMLElement;
-  const headerMood = document.querySelector(".header-mood") as HTMLElement;
-
-  const HospitalityGallery = HospitalitySection.querySelector(
-    ".hospitality-gallery",
+  const gallerySection = document.querySelector(
+    ".gallery-section",
   ) as HTMLElement;
-
-  const CreateGallery = CreateSection.querySelector(
-    ".create-gallery",
-  ) as HTMLElement;
-
-  const HospitalText = HospitalitySection.querySelector(
-    ".hospitality-text",
-  ) as HTMLElement;
-
-  const items =
-    HospitalityGallery.querySelectorAll<HTMLElement>(".parallax-item");
-
-  const itemsCreate =
-    CreateGallery.querySelectorAll<HTMLElement>(".parallax-item");
-
-  const CreateText = CreateSection.querySelector<HTMLElement>(".create-text");
-
-  const createRoles = CreateSection.querySelector<HTMLElement>(".create-roles");
-
-  const universeImages =
-    UniverseSection.querySelector<HTMLElement>(".universe-images");
-
-  if (!text || !logo || !video) return;
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -71,140 +43,32 @@ export const initHomeAnimations = () => {
       scrub: 1,
       pin: true,
       anticipatePin: 1,
+      onLeave: (self) => {
+        self.getTween()?.pause();
+        self.scroll(self.start);
+        self.animation?.progress(0);
+        self.update();
+      },
     },
   });
 
-  animateHero(tl, {
-    hero,
-    text,
-    logo,
-    video,
-    headerElements: [header, headerBox].filter(Boolean) as HTMLElement[],
-    headerMood,
-  });
+  setupActiveNav(tl);
 
-  animateHospitality(tl, {
-    HospitalGallery: CreateGallery,
-    items,
-    HospitalText,
-  });
+  animateHero(tl, heroSection, positions.hero);
 
-  animateCreate(tl, {
-    CreateGallery,
-    itemsCreate,
-    CreateText,
-    createRoles,
-  });
+  animateHospitality(tl, hospitalitySection, positions.hospitality);
 
-  // ==========================================
-  // TRANSICIÓN HERO → HOSPITALITY (Puro movimiento Y)
-  // ==========================================
+  animateCreate(tl, createSection, positions.create);
 
-  tl.to(
-    hero,
-    {
-      yPercent: -100,
-      ease: "none",
-      duration: 1.5,
-    },
-    7,
-  );
+  animateService(tl, serviceSection, positions.service);
 
-  tl.fromTo(
-    HospitalitySection,
-    {
-      yPercent: 100,
-    },
-    {
-      yPercent: 0,
-      ease: "none",
-      duration: 5,
-    },
-    4,
-  );
+  animateAbout(tl, aboutSection, positions.about);
 
-  tl.to(
-    HospitalitySection,
-    {
-      yPercent: -100,
-      ease: "none",
-      duration: 5,
-    },
-    12,
-  );
-  tl.fromTo(
-    CreateSection,
-    {
-      yPercent: 100,
-    },
-    {
-      yPercent: 0,
-      ease: "none",
-      duration: 5,
-    },
-    10,
-  );
-  tl.fromTo(
-    UniverseSection,
-    {
-      yPercent: 100,
-    },
-    {
-      yPercent: 0,
-      ease: "none",
-      duration: 5,
-    },
-    36,
-  );
-  tl.to(
-    CreateSection,
-    {
-      yPercent: -100,
-      opacity: 0,
-      ease: "none",
-      duration: 8,
-    },
-    36,
-  );
+  animatedLoop(tl, loopSection, positions.loop);
 
-  // ==========================================
-  // RECORRIDO HORIZONTAL DE IMÁGENES EN UNIVERSE
-  // ==========================================
+  animateGallery(tl, gallerySection, galleryImages);
 
-  gsap.set(universeImages, { x: "100vw" });
+  tl.to({}, { duration: 2 }, 75);
 
-  tl.to(
-    universeImages,
-    {
-      x: "-120vw",
-      ease: "none",
-      duration: 12,
-    },
-    41,
-  );
-
-  tl.to(
-    UniverseSection,
-    {
-      yPercent: -100,
-      opacity: 0,
-      ease: "none",
-      duration: 8,
-    },
-    50,
-  );
-
-  tl.fromTo(
-    ExperimentSection,
-    {
-      yPercent: 100,
-    },
-    {
-      yPercent: 0,
-      ease: "none",
-      duration: 5,
-    },
-    50,
-  );
   return tl;
 };

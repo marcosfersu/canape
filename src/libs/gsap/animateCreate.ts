@@ -1,22 +1,21 @@
 import { gsap } from "./index";
 
-interface GalleryElements {
-  CreateGallery: HTMLElement;
-  itemsCreate: NodeListOf<HTMLElement>;
-  CreateText: HTMLElement | null;
-  createRoles: HTMLElement | null;
-}
-
 export const animateCreate = (
   tl: gsap.core.Timeline,
-  elements: GalleryElements,
+  section: HTMLElement,
+  time: readonly number[],
 ) => {
-  const { CreateGallery, itemsCreate, CreateText, createRoles } = elements;
-  const speeds = [0.3, 0.4, 1.2];
+  if (!section) return;
+
+  const CreateText = section.querySelector<HTMLElement>(".create-text");
+
+  const createRoles = section.querySelector<HTMLElement>(".create-roles");
 
   const itemsRoles = createRoles?.querySelectorAll<HTMLElement>(".item-roles");
   const rolesHeading = createRoles?.querySelector<HTMLElement>("h3");
   const iconCreate = createRoles?.querySelector<HTMLElement>(".create-icon");
+
+  // Set () characters and roles
 
   itemsRoles?.forEach((item) => {
     gsap.set(item, { yPercent: 150 });
@@ -24,35 +23,35 @@ export const animateCreate = (
 
   if (rolesHeading) {
     gsap.set(rolesHeading, {
-      "--pseudo-opacity": 1,
-      "--pseudo-tx-before": "-1rem", // Negativo directo para desplazar a la izquierda
-      "--pseudo-tx-after": "1rem", // Positivo directo para desplazar a la derecha
+      "--pseudo-opacity": 0,
+      "--pseudo-tx-before": "-1rem",
+      "--pseudo-tx-after": "1rem",
     });
   }
 
-  itemsCreate.forEach((item, index) => {
-    const speed = speeds[index] ?? 0.5;
+  const [start, end] = time;
 
-    tl.to(
-      item,
-      {
-        y: -window.innerHeight * 4.5 * speed,
-        ease: "none",
-        duration: 24,
-      },
-      12,
-    );
-  });
-
-  tl.to(
-    CreateText,
+  // Show section
+  tl.fromTo(
+    section,
     {
-      yPercent: -100,
+      yPercent: 100,
+    },
+    {
+      yPercent: 0,
       ease: "none",
       duration: 5,
     },
-    20,
+    start,
   );
+
+  if (CreateText) {
+    tl.to(
+      CreateText,
+      { yPercent: -100, ease: "none", duration: 5 },
+      start + 10,
+    );
+  }
 
   tl.to(
     createRoles,
@@ -61,23 +60,19 @@ export const animateCreate = (
       ease: "none",
       duration: 5,
     },
-    20,
+    start + 10,
   );
 
-  const stepDuration = 3;
-  const startTime = 20;
-
-  // Cambia la opacidad a 1 y resetea ambas posiciones X a 0px en el segundo 18
   if (rolesHeading && iconCreate) {
     tl.to(
       rolesHeading,
       {
         "--pseudo-opacity": 1,
-        "--pseudo-tx-before": "1rem", // Negativo directo para desplazar a la izquierda
-        "--pseudo-tx-after": "-1rem", // Positivo directo para desplazar a la derecha
+        "--pseudo-tx-before": "1rem",
+        "--pseudo-tx-after": "-1rem",
         duration: 0.5,
       },
-      startTime,
+      start + 10,
     );
 
     tl.to(
@@ -86,21 +81,21 @@ export const animateCreate = (
         opacity: 1,
         duration: 0.5,
       },
-      startTime,
+      start + 10,
     );
   }
 
   itemsRoles?.forEach((item, index) => {
-    const time = startTime + index * 4;
+    const timeRole = start + 10 + index * 4;
 
     tl.to(
       item,
       {
         yPercent: 0,
         ease: "power2.inOut",
-        duration: stepDuration,
+        duration: 3,
       },
-      time,
+      timeRole,
     );
 
     if (index < itemsRoles.length - 1) {
@@ -109,10 +104,21 @@ export const animateCreate = (
         {
           yPercent: -150,
           ease: "power2.inOut",
-          duration: stepDuration,
+          duration: 3,
         },
-        time + 4,
+        timeRole + 4,
       );
     }
   });
+
+  tl.to(
+    section,
+    {
+      yPercent: -100,
+      opacity: 0,
+      ease: "none",
+      duration: 8,
+    },
+    end,
+  );
 };

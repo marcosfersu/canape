@@ -1,0 +1,68 @@
+{
+  "SEO_TITLE_1": "Canapé",
+  "SEO_TITLE_2": "- Creative Events & Hospitality Studio",
+  "SEO_DESCRIPTION": "A creative studio from Mendoza, Argentina, specializing in events, brand experiences and hospitality. We create distinctive experiences that connect people and cultures.",
+  "SEO": {
+    "HOME_TITLE": "Canapé - Creative Events & Hospitality Studio",
+    "HOME_DESCRIPTION": "A creative studio from Mendoza, Argentina, specializing in events, brand experiences and hospitality.",
+    "UNIVERSE_TITLE": "Universe - Canapé",
+    "UNIVERSE_DESCRIPTION": "Discover the world of Canapé, a creative studio specializing in events, experiences and hospitality.",
+    "CONTACT_TITLE": "Contact - Canapé",
+    "CONTACT_DESCRIPTION": "Get in touch with Canapé to create events, brand experiences and hospitality concepts.",
+    "LEGAL_NOTICE_TITLE": "Legal Notice - Canapé",
+    "LEGAL_NOTICE_DESCRIPTION": "Read the legal terms and responsibilities associated with using the Canapé website.",
+    "PRIVACY_POLICY_TITLE": "Privacy Policy - Canapé",
+    "PRIVACY_POLICY_DESCRIPTION": "Learn how Canapé collects, uses and protects users' personal data.",
+    "COOKIES_TITLE": "Cookie Policy - Canapé",
+    "COOKIES_DESCRIPTION": "Learn how cookies and similar technologies are used on the Canapé website.",
+    "ERROR_404_TITLE": "404 Page Not Found - Canapé",
+    "ERROR_404_DESCRIPTION": "The page you're looking for doesn't exist or isn't available. Return to the homepage or contact Canapé."
+  },
+  "HERO": {
+    "LINE_1": "CREATIVE STUDIO",
+    "LINE_2": "EVENT SPECIALISTS",
+    "LINE_3": "EXPERIENCES & HOSPITALITY",
+    "LINE_4_1": "MENDOZA",
+    "LINE_4_2": "WORLD",
+    "UNIVERSE": "universe",
+    "CONTACT": "contact"
+  },
+  "HOSPITALITY": {
+    "TITLE_1": "The art of making people feel welcome",
+    "TITLE_2": "Hospitality with character",
+    "DESCRIPTION": "We create distinctive experiences and atmospheres where every detail makes every moment feel special.",
+    "CTA": "discover our world"
+  },
+  "CREATE": {
+    "TITLE_1": "Concept Lab: From concept to table",
+    "TITLE_2": "We don't plan events, we create worlds",
+    "DESCRIPTION": "At Concept Lab, we develop and shape identities for our clients, turning ideas into tangible experiences that people remember.",
+    "ROLES": ["Curation", "Art Direction", "Production", "Logistics"]
+  },
+  "SERVICES": {
+    "TITLE": "Services",
+    "HEADING": "what we do",
+    "ITEMS": [
+      {
+        "TITLE": "brand experiences",
+        "DESCRIPTION": "your brand has a story to tell. we bring it to life. we create launches, activations, pop-ups and anniversaries that turn brand identity into memorable, distinctive experiences."
+      },
+      {
+        "TITLE": "creative direction & hospitality consulting",
+        "DESCRIPTION": "a fresh perspective to give your project direction. we develop concepts, shape atmospheres and rethink the art of welcoming people. from opening a new space to reinventing an existing one, we combine creativity and operational expertise to make every idea distinctive and practical."
+      },
+      {
+        "TITLE": "end-to-end event design & production",
+        "DESCRIPTION": "you bring the occasion. we take care of the rest. we design and produce weddings, destination weddings, private celebrations and corporate events, from the first idea to the final detail."
+      }
+    ]
+  },
+  "ABOUT": {
+    "HEADING": "Behind Canapé",
+    "NAME": "Esteban Bravo",
+    "ROLE": "Creative director and natural-born host",
+    "BIO_1": "My perspective was shaped by a background in industrial design and years of experience in hospitality and gastronomy. I see every project as a whole: the idea, the space, the rhythm, the details and, above all, how people experience it.",
+    "BIO_2": "I'm drawn to places with character, thoughtful decisions and generous hospitality, where everyone can feel they belong.",
+    "BIO_3": "Canapé grew out of this way of seeing and creating: blending the familiar with the unexpected to craft gatherings and atmospheres with a distinct identity."
+  }
+}

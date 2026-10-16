@@ -1,29 +1,27 @@
 ---
 import HeroTextIcon from "@/assets/HeroTextIcon.astro";
+import { getI18N } from "@/i18n/";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
 ---
 
 <div class="text-custom-red">
   <h1 class="text-4xl max-w-xl flex flex-col md:text-[2.2rem] uppercase text-justify leading-snug">
     <span class="flex justify-between items-center">
       <HeroTextIcon className="size-8" />
-      <span class="block text-right">ESTUDIO CREATIVO</span>
+      <span class="block text-right">{i18n.HERO.LINE_1}</span>
     </span>
-    <span class="block [text-align-last:justify]">
-      ESPECIALIZADO EN EVENTOS
-    </span>
-    <span class="block [text-align-last:justify]">
-      EXPERIENCIAS & HOSPITALIDAD
-    </span>
+    <span class="block [text-align-last:justify]">{i18n.HERO.LINE_2}</span>
+    <span class="block [text-align-last:justify]">{i18n.HERO.LINE_3}</span>
     <span class="flex justify-between items-center gap-8">
-      <span class="">DE MENDOZA</span>
+      <span class="">{i18n.HERO.LINE_4_1}</span>
       <div class="h-0.5 flex-1 bg-custom-red"></div>
-      <span class="">AL MUNDO</span>
+      <span class="">{i18n.HERO.LINE_4_2}</span>
     </span>
   </h1>
   <div class="md:text-4xl font-altesse flex justify-between mt-6">
-    <h4 class="border-b cursor-pointer">universo</h4>
-    <h4 class="border-b cursor-pointer">contacto</h4>
+    <h4 class="border-b cursor-pointer">{i18n.HERO.UNIVERSE}</h4>
+    <h4 class="border-b cursor-pointer">{i18n.HERO.CONTACT}</h4>
   </div>
 </div>
-
-<script></script>

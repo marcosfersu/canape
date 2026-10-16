@@ -1,0 +1,68 @@
+{
+  "SEO_TITLE_1": "Canapé",
+  "SEO_TITLE_2": "- Estudio creativo de eventos y hospitalidad",
+  "SEO_DESCRIPTION": "Estudio creativo de Mendoza especializado en eventos, experiencias de marca y hospitalidad. Creamos experiencias con identidad que conectan personas y culturas.",
+  "SEO": {
+    "HOME_TITLE": "Canapé - Estudio creativo de eventos y hospitalidad",
+    "HOME_DESCRIPTION": "Estudio creativo de Mendoza especializado en eventos, experiencias de marca y hospitalidad.",
+    "UNIVERSE_TITLE": "Universo - Canapé",
+    "UNIVERSE_DESCRIPTION": "Descubrí el universo de Canapé, un estudio creativo especializado en eventos, experiencias y hospitalidad.",
+    "CONTACT_TITLE": "Contacto - Canapé",
+    "CONTACT_DESCRIPTION": "Contactate con Canapé para crear eventos, experiencias de marca y propuestas de hospitalidad.",
+    "LEGAL_NOTICE_TITLE": "Aviso legal - Canapé",
+    "LEGAL_NOTICE_DESCRIPTION": "Consultá las condiciones legales y las responsabilidades relacionadas con el uso del sitio web de Canapé.",
+    "PRIVACY_POLICY_TITLE": "Política de privacidad - Canapé",
+    "PRIVACY_POLICY_DESCRIPTION": "Conocé cómo Canapé recopila, utiliza y protege los datos personales de los usuarios.",
+    "COOKIES_TITLE": "Política de cookies - Canapé",
+    "COOKIES_DESCRIPTION": "Conocé cómo se utilizan las cookies y tecnologías similares en el sitio web de Canapé.",
+    "ERROR_404_TITLE": "404 Página no encontrada - Canapé",
+    "ERROR_404_DESCRIPTION": "La página que buscás no existe o no está disponible. Volvé al inicio o contactate con Canapé."
+  },
+  "HERO": {
+    "LINE_1": "ESTUDIO CREATIVO",
+    "LINE_2": "ESPECIALIZADO EN EVENTOS",
+    "LINE_3": "EXPERIENCIAS & HOSPITALIDAD",
+    "LINE_4_1": "DE MENDOZA",
+    "LINE_4_2": "AL MUNDO",
+    "UNIVERSE": "universo",
+    "CONTACT": "contacto"
+  },
+  "HOSPITALITY": {
+    "TITLE_1": "El arte de recibir bien",
+    "TITLE_2": "Hospitalidad con carácter",
+    "DESCRIPTION": "Diseñamos encuentros y atmósferas con identidad, donde cada detalle hace que estar ahí se vuelva especial",
+    "CTA": "conocé nuestro universo"
+  },
+  "CREATE": {
+    "TITLE_1": "Concept Lab: Del concepto a la mesa",
+    "TITLE_2": "No hacemos eventos, creamos universos",
+    "DESCRIPTION": "Desde el Concept Lab gestionamos y desarrollamos identidades para terceros, transformando ideas en experiencias tangibles que la gente recuerda.",
+    "ROLES": ["Curaduría", "Dirección de Arte", "Producción", "Logística"]
+  },
+  "SERVICES": {
+    "TITLE": "Servicios",
+    "HEADING": "lo que hacemos",
+    "ITEMS": [
+      {
+        "TITLE": "experiencias de marca",
+        "DESCRIPTION": "tu marca tiene algo para contar. hacemos que se viva. creamos lanzamientos, activaciones, pop-ups y aniversarios que traducen su identidad en experiencias con carácter."
+      },
+      {
+        "TITLE": "dirección creativa & consultoría de hospitalidad",
+        "DESCRIPTION": "una mirada fresca para darle dirección a tu proyecto. desarrollamos conceptos, definimos atmósferas y mejoramos la forma de recibir. desde abrir las puertas de un nuevo espacio hasta reinventar uno existente, unimos creatividad y experiencia operativa para que cada idea tenga identidad y funcione en la práctica."
+      },
+      {
+        "TITLE": "diseño & producción integral de eventos",
+        "DESCRIPTION": "vos traé el motivo. nosotros hacemos el resto. diseñamos y producimos bodas, destination weddings, celebraciones privadas y eventos empresariales. de la primera idea al último detalle."
+      }
+    ]
+  },
+  "ABOUT": {
+    "HEADING": "Detrás de Canapé",
+    "NAME": "Esteban Bravo",
+    "ROLE": "Director creativo y anfitrión por naturaleza",
+    "BIO_1": "Mi mirada se formó entre el diseño industrial y años de experiencia en hospitalidad y gastronomía. Entiendo cada proyecto como un todo: la idea, el espacio, el ritmo, los detalles y, sobre todo, la forma en que las personas lo viven.",
+    "BIO_2": "Me interesan los lugares con carácter, las decisiones que tienen sentido y una hospitalidad generosa, donde todos puedan encontrar su lugar.",
+    "BIO_3": "Canapé nace de esa manera de mirar y de hacer: mezclar lo heredado con lo inesperado para crear encuentros y atmósferas con una identidad propia."
+  }
+}

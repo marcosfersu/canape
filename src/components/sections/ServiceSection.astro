@@ -1,0 +1,32 @@
+---
+import ArrowIcon from "@/assets/ArrowIcon.astro";
+import { getI18N } from "@/i18n/";
+
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+---
+
+<section class="service-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
+  <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl px-6 pointer-events-auto">
+    <h4 class="text-2xl uppercase tracking-widest font-light">
+      {i18n.SERVICES.TITLE}
+    </h4>
+
+    <h2 class="text-[12rem] font-altesse font-light mb-10 leading-tight">
+      {i18n.SERVICES.HEADING}
+    </h2>
+
+    <div>
+      <ul class="flex gap-16">
+        {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }) => (
+          <li class="mb-6 text-center max-w-xl w-full uppercase">
+            <h3 class="font-bold text-xl mb-2">{TITLE}</h3>
+            <p>{DESCRIPTION}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <ArrowIcon className="size-14 mt-4" />
+  </div>
+</section>

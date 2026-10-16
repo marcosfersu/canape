@@ -1,32 +1,5 @@
 ---
-import CreateSection from "@/components/sections/CreateSection.astro";
-import Hero from "../components/sections/Hero.astro";
-import Layout from "../layouts/Layout.astro";
-import HospitalitySection from "@/components/sections/HospitalitySection.astro";
-import UniverseSection from "@/components/sections/UniverseSection.astro";
-import ExperimentSection from "@/components/sections/ExperimentSection.astro";
+import App from "@/components/pages/App.astro";
 ---
 
-<Layout>
-  <main class="home min-h-screen">
-    <div class="home-animation">
-      <Hero />
-      <HospitalitySection />
-      <CreateSection />
-      <UniverseSection />
-      <ExperimentSection />
-    </div>
-  </main>
-</Layout>
-
-<script>
-  import { initHomeAnimations } from "@/libs/gsap/initHomeAnimations";
-
-  const init = () => {
-    initHomeAnimations();
-  };
-
-  init();
-
-  document.addEventListener("astro:page-load", init);
-</script>
+<App />
