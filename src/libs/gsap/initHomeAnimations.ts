@@ -9,37 +9,35 @@ import { setupActiveNav } from "./setupActiveNav";
 import { positions } from "../const/positions";
 import { animateGallery } from "./animateGallery";
 import { galleryImages } from "../const/gallery.config";
+import { animateJournal } from "./animateJournal";
+import { animateContact } from "./animateContact";
 
 export const initHomeAnimations = () => {
+  const animations = {
+    hero: animateHero,
+    hospitality: animateHospitality,
+    create: animateCreate,
+    service: animateService,
+    about: animateAbout,
+    journal: animateJournal,
+    contact: animateContact,
+    loop: animatedLoop,
+  };
+
   const home = document.querySelector(".home") as HTMLElement;
 
-  const heroSection = document.querySelector(".hero-section") as HTMLElement;
-
-  const hospitalitySection = document.querySelector(
-    ".hospitality-section",
-  ) as HTMLElement;
-
-  const createSection = document.querySelector(
-    ".create-section",
-  ) as HTMLElement;
-
-  const serviceSection = document.querySelector(
-    ".service-section",
-  ) as HTMLElement;
-
-  const aboutSection = document.querySelector(".about-section") as HTMLElement;
-
-  const loopSection = document.querySelector(".loop-section") as HTMLElement;
-
-  const gallerySection = document.querySelector(
-    ".gallery-section",
-  ) as HTMLElement;
+  const elements = Object.fromEntries(
+    [...Object.keys(positions), "gallery"].map((section) => [
+      section,
+      document.querySelector(`.${section}-section`),
+    ]),
+  ) as Record<keyof typeof positions | "gallery", HTMLElement | null>;
 
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: home,
       start: "top top",
-      end: () => `+=${window.innerHeight * 20}`,
+      end: () => `+=${window.innerHeight * Object.keys(positions).length}`,
       scrub: 1,
       pin: true,
       anticipatePin: 1,
@@ -54,21 +52,17 @@ export const initHomeAnimations = () => {
 
   setupActiveNav(tl);
 
-  animateHero(tl, heroSection, positions.hero);
+  Object.entries(animations).forEach(([section, animate]) => {
+    animate(
+      tl,
+      elements[section as keyof typeof positions]!,
+      positions[section as keyof typeof positions],
+    );
+  });
 
-  animateHospitality(tl, hospitalitySection, positions.hospitality);
+  animateGallery(tl, elements.gallery!, galleryImages);
 
-  animateCreate(tl, createSection, positions.create);
-
-  animateService(tl, serviceSection, positions.service);
-
-  animateAbout(tl, aboutSection, positions.about);
-
-  animatedLoop(tl, loopSection, positions.loop);
-
-  animateGallery(tl, gallerySection, galleryImages);
-
-  tl.to({}, { duration: 2 }, 75);
+  tl.to({}, { duration: 2 }, positions.loop[1]);
 
   return tl;
 };

@@ -1,0 +1,16 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<button
+  class:list={[
+    "font-altesse border-b border-custom-red/30 text-2xl lowercase inline cursor-pointer hover:border-custom-red",
+    className,
+  ]}
+>
+  <slot />
+</button>

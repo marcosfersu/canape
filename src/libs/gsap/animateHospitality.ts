@@ -1,5 +1,3 @@
-import { gsap } from "./index";
-
 export const animateHospitality = (
   tl: gsap.core.Timeline,
   section: HTMLElement,

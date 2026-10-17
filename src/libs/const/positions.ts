@@ -4,5 +4,7 @@ export const positions = {
   create: [12, 38],
   service: [38, 54],
   about: [54, 75],
-  loop: [75, 75],
+  journal: [75, 90],
+  contact: [90, 105],
+  loop: [105, 110],
 } as const;

@@ -134,6 +134,10 @@ import LangMenu from "./LangMenu.astro";
   header nav a.is-active span::after {
     opacity: 1;
   }
+  header nav a span::before,
+  header nav a span::after {
+    font-weight: 100;
+  }
 
   header nav a.is-active span::before {
     transform: translateX(0.25rem);

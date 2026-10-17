@@ -1,0 +1,27 @@
+---
+import Button from "../ui/Button.astro";
+---
+
+<section class="journal-section absolute h-screen w-full inset-0">
+  <div class="absolute inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto">
+    <div class="max-w-4xl flex flex-col items-center justify-center">
+      <h2 class="font-altesse text-[10rem] lowercase">Canapé Journal</h2>
+      <div class="max-w-md px-2 w-full">
+        <p class="font-bold uppercase mb-5">Del concepto a la mesa</p>
+        <p class="font-medium uppercase">
+          SUSCRIBITE A NUESTRO NEWSLETTER Y RECIBÍ LA MEJOR INFORMACIÓN
+        </p>
+      </div>
+    </div>
+    <div class="max-w-lg w-full flex items-center gap-5 flex-col">
+      <input
+        type="email"
+        name="email"
+        placeholder="TUMAIL@GMAIL.COM"
+        required
+        class="text-center placeholder:text-center text-xl w-full placeholder:text-custom-red focus:placeholder:text-custom-red/20 border-b focus:outline-none focus:shadow-[inset_0_-1px_0_0_var(--color-custom-red)]"
+      />
+      <Button>Suscribirme</Button>
+    </div>
+  </div>
+</section>
