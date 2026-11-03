@@ -40,20 +40,20 @@
     "ROLES": ["Curaduría", "Dirección de Arte", "Producción", "Logística"]
   },
   "SERVICES": {
-    "TITLE": "Servicios",
-    "HEADING": "lo que hacemos",
+    "TITLE": "NUESTROS SERVICIOS",
+    "HEADING": ["Damos forma a", "cada idea"],
     "ITEMS": [
+      {
+        "TITLE": "diseño & producción integral de eventos",
+        "DESCRIPTION": "vos traé el motivo, nosotros hacemos el resto. bodas, destination weddings, celebraciones privadas y eventos empresariales, de la primera idea al último detalle."
+      },
+      {
+        "TITLE": "dirección creativa & consultoría de hospitalidad",
+        "DESCRIPTION": "una mirada fresca para darle dirección a tu proyecto. desarrollamos conceptos, atmósferas y formas de recibir que unen creatividad y experiencia operativa: ideas con identidad que funcionan en la práctica."
+      },
       {
         "TITLE": "experiencias de marca",
         "DESCRIPTION": "tu marca tiene algo para contar. hacemos que se viva. creamos lanzamientos, activaciones, pop-ups y aniversarios que traducen su identidad en experiencias con carácter."
-      },
-      {
-        "TITLE": "dirección creativa & consultoría de hospitalidad",
-        "DESCRIPTION": "una mirada fresca para darle dirección a tu proyecto. desarrollamos conceptos, definimos atmósferas y mejoramos la forma de recibir. desde abrir las puertas de un nuevo espacio hasta reinventar uno existente, unimos creatividad y experiencia operativa para que cada idea tenga identidad y funcione en la práctica."
-      },
-      {
-        "TITLE": "diseño & producción integral de eventos",
-        "DESCRIPTION": "vos traé el motivo. nosotros hacemos el resto. diseñamos y producimos bodas, destination weddings, celebraciones privadas y eventos empresariales. de la primera idea al último detalle."
       }
     ]
   },

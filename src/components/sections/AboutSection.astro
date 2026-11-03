@@ -7,20 +7,27 @@ const i18n = getI18N({ currentLocale });
 
 <section class="about-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
   <div class="inset-0 z-10 flex flex-col items-center justify-center relative text-center max-w-2xl px-6 pointer-events-auto">
-    <p class="about-head text-center text-xl max-w-md uppercase">
+    <p class="about-head text-center text-xl max-w-md uppercase show-text">
       {i18n.ABOUT.HEADING}
     </p>
 
-    <h2 class="about-title-1 text-center font-altesse text-[12rem] leading-tight">
+    <h2 class="about-title-1 text-center font-altesse text-[12rem] leading-tight show-text">
       EstebanBravo
     </h2>
 
     <div class="absolute -z-10 about-img">
-      <img src="./EstebanBravo.png" class="max-h-[80vh] w-auto" alt="" />
+      <!-- Contenedor máscara con overflow: hidden -->
+      <div class="overflow-hidden h-[80vh]">
+        <img
+          src="./EstebanBravo.png"
+          class="reveal-img h-full w-auto object-cover"
+          alt="Esteban Bravo"
+        />
+      </div>
     </div>
   </div>
 
-  <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-4">
+  <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-4 show-element">
     <h2 class="text-6xl font-semibold">{i18n.ABOUT.NAME}</h2>
 
     <h4 class="font-semibold">{i18n.ABOUT.ROLE}</h4>

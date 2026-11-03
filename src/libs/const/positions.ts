@@ -1,10 +1,10 @@
 export const positions = {
-  hero: [0, 5],
-  hospitality: [4, 12],
-  create: [12, 38],
-  service: [38, 54],
-  about: [54, 75],
-  journal: [75, 90],
-  contact: [90, 105],
-  loop: [105, 110],
+  hero: [0, 16],
+  hospitality: [16, 26],
+  create: [26, 56],
+  service: [56, 86],
+  about: [86, 126],
+  journal: [126, 136],
+  contact: [136, 146],
+  loop: [146, 156],
 } as const;

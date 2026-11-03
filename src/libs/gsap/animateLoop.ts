@@ -13,7 +13,7 @@ export const animatedLoop = (
     {
       yPercent: 0,
       ease: "none",
-      duration: 5,
+      duration: 10,
     },
     start,
   );

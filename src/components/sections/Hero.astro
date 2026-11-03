@@ -4,7 +4,8 @@ import HeroText from "./HeroText.astro";
 ---
 
 <section class="hero-section absolute h-screen w-full overflow-hidden">
-  <div class="hero-text absolute inset-0 z-10 flex items-center justify-center">
+  <div class="hero-bg absolute inset-0 w-full h-full bg-custom-white z-100 select-none pointer-events-none"></div>
+  <div class="hero-text absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
     <HeroText />
   </div>
 
@@ -12,7 +13,7 @@ import HeroText from "./HeroText.astro";
     <Brand className="w-full" />
   </div>
 
-  <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 scale-90">
+  <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90">
     <!-- <video
       autoplay
       loop
@@ -22,10 +23,11 @@ import HeroText from "./HeroText.astro";
     >
       <source src="/hero-video.mp4" type="video/mp4" />
     </video> -->
-    <iframe
+    <!-- <iframe
       class="h-auto aspect-video max-w-4xl w-full"
       src="https://www.youtube.com/embed/Rc4LqYM65As?si=ZKauBrSrh3AVzMOn"
       referrerpolicy="strict-origin-when-cross-origin"
-    ></iframe>
+    ></iframe> -->
+    <img src="/public/images/img-test-2.webp" alt="Test Image" />
   </div>
 </section>

@@ -29,12 +29,25 @@ import ContactSection from "../sections/ContactSection.astro";
 
 <script>
   import { initHomeAnimations } from "@/libs/gsap/initHomeAnimations";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  window.history.scrollRestoration = "manual";
 
   const init = () => {
-    initHomeAnimations();
+    ScrollTrigger.clearScrollMemory("manual");
+
+    window.scrollTo(0, 0);
+
+    requestAnimationFrame(() => {
+      initHomeAnimations();
+    });
   };
 
-  init();
+  if (document.readyState === "complete") {
+    init();
+  } else {
+    window.addEventListener("load", init, { once: true });
+  }
 
   document.addEventListener("astro:page-load", init);
 </script>

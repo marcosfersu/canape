@@ -6,21 +6,27 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<div class="text-custom-red">
-  <h1 class="text-4xl max-w-xl flex flex-col md:text-[2.2rem] uppercase text-justify leading-snug">
+<div class="text-custom-red w-65 overflow-hidden">
+  <h1 class="max-w-base flex flex-col text-base uppercase text-justify leading-snug">
     <span class="flex justify-between items-center">
-      <HeroTextIcon className="size-8" />
-      <span class="block text-right">{i18n.HERO.LINE_1}</span>
+      <HeroTextIcon className="size-4" />
+      <span class="block text-right hero-typing whitespace-nowrap">
+        {i18n.HERO.LINE_1}
+      </span>
     </span>
-    <span class="block [text-align-last:justify]">{i18n.HERO.LINE_2}</span>
-    <span class="block [text-align-last:justify]">{i18n.HERO.LINE_3}</span>
-    <span class="flex justify-between items-center gap-8">
-      <span class="">{i18n.HERO.LINE_4_1}</span>
+    <span class="block [text-align-last:justify] hero-typing whitespace-nowrap">
+      {i18n.HERO.LINE_2}
+    </span>
+    <span class="block [text-align-last:justify] hero-typing whitespace-nowrap">
+      {i18n.HERO.LINE_3}
+    </span>
+    <span class="flex justify-between items-center gap-4">
+      <span class="hero-typing whitespace-nowrap">{i18n.HERO.LINE_4_1}</span>
       <div class="h-0.5 flex-1 bg-custom-red"></div>
-      <span class="">{i18n.HERO.LINE_4_2}</span>
+      <span class="hero-typing whitespace-nowrap">{i18n.HERO.LINE_4_2}</span>
     </span>
   </h1>
-  <div class="md:text-4xl font-altesse flex justify-between mt-6">
+  <div class="text-2xl font-altesse flex justify-between mt-6">
     <h4 class="border-b cursor-pointer">{i18n.HERO.UNIVERSE}</h4>
     <h4 class="border-b cursor-pointer">{i18n.HERO.CONTACT}</h4>
   </div>

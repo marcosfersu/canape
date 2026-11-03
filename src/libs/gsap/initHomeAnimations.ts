@@ -12,7 +12,11 @@ import { galleryImages } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
 
+let homeTimeline: gsap.core.Timeline | null = null;
+
 export const initHomeAnimations = () => {
+  homeTimeline?.scrollTrigger?.kill();
+  homeTimeline?.kill();
   const animations = {
     hero: animateHero,
     hospitality: animateHospitality,
@@ -64,5 +68,6 @@ export const initHomeAnimations = () => {
 
   tl.to({}, { duration: 2 }, positions.loop[1]);
 
+  homeTimeline = tl;
   return tl;
 };

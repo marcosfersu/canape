@@ -1,3 +1,4 @@
+import { animateShowText } from "./animateShowText";
 import { gsap } from "./index";
 
 export const animateCreate = (
@@ -15,8 +16,6 @@ export const animateCreate = (
   const rolesHeading = createRoles?.querySelector<HTMLElement>("h3");
   const iconCreate = createRoles?.querySelector<HTMLElement>(".create-icon");
 
-  // Set () characters and roles
-
   itemsRoles?.forEach((item) => {
     gsap.set(item, { yPercent: 150 });
   });
@@ -30,8 +29,8 @@ export const animateCreate = (
   }
 
   const [start, end] = time;
+  const duration = end - start;
 
-  // Show section
   tl.fromTo(
     section,
     {
@@ -40,15 +39,19 @@ export const animateCreate = (
     {
       yPercent: 0,
       ease: "none",
-      duration: 5,
+      duration: 10,
     },
     start,
   );
 
+  const showText = animateShowText(section, start + 4);
+
+  tl.call(() => showText.play(), [], showText.position);
+
   if (CreateText) {
     tl.to(
       CreateText,
-      { yPercent: -100, ease: "none", duration: 5 },
+      { yPercent: -100, ease: "none", duration: 10 },
       start + 10,
     );
   }
@@ -60,7 +63,7 @@ export const animateCreate = (
       ease: "none",
       duration: 5,
     },
-    start + 10,
+    start + 15,
   );
 
   if (rolesHeading && iconCreate) {
@@ -72,7 +75,7 @@ export const animateCreate = (
         "--pseudo-tx-after": "-1rem",
         duration: 0.5,
       },
-      start + 10,
+      start + 15,
     );
 
     tl.to(
@@ -81,12 +84,12 @@ export const animateCreate = (
         opacity: 1,
         duration: 0.5,
       },
-      start + 10,
+      start + 15,
     );
   }
 
   itemsRoles?.forEach((item, index) => {
-    const timeRole = start + 10 + index * 4;
+    const timeRole = start + 15 + index * 4;
 
     tl.to(
       item,
@@ -115,9 +118,8 @@ export const animateCreate = (
     section,
     {
       yPercent: -100,
-      opacity: 0,
       ease: "none",
-      duration: 8,
+      duration: 10,
     },
     end,
   );

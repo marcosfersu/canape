@@ -4,29 +4,53 @@ import { getI18N } from "@/i18n/";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+
+const images = [
+  "/images/1.webp",
+  "/images/2.webp",
+  "/images/3.webp",
+  "/images/4.webp",
+];
 ---
 
-<section class="service-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
-  <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl px-6 pointer-events-auto">
-    <h4 class="text-2xl uppercase tracking-widest font-light">
-      {i18n.SERVICES.TITLE}
+<section class="service-section bg-custom-white absolute h-screen w-full inset-0 flex flex-col items-center justify-center">
+  <div class="create-images flex flex-row gap-4 absolute overflow-visible">
+    {images.map((image) => (
+      <div class="create-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">
+        <img
+          src={image}
+          alt=""
+          class="h-full w-auto max-w-none object-contain"
+        />
+      </div>
+    ))}
+  </div>
+  <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl pointer-events-auto">
+    <h4 class="text-base uppercase tracking-widest font-light show-text mb-10">
+      <span>{i18n.SERVICES.TITLE}</span>
     </h4>
 
-    <h2 class="text-[12rem] font-altesse font-light mb-10 leading-tight">
-      {i18n.SERVICES.HEADING}
+    <h2 class="text-[12rem] font-altesse font-light mb-14 leading-45 show-text">
+      <span class="block">{i18n.SERVICES.HEADING[0]}</span>
+      <span class="block font-sans uppercase">{i18n.SERVICES.HEADING[1]}</span>
     </h2>
 
-    <div>
-      <ul class="flex gap-16">
-        {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }) => (
-          <li class="mb-6 text-center max-w-xl w-full uppercase">
-            <h3 class="font-bold text-xl mb-2">{TITLE}</h3>
-            <p>{DESCRIPTION}</p>
+    <div class="service-items w-full show-element">
+      <ul class="flex gap-14">
+        {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }, index) => (
+          <li
+            class:list={[
+              "mb-6 text-center w-full uppercase",
+              index === 1 ? "flex-[1.3]" : "flex-1",
+            ]}
+          >
+            <h3 class="font-bold text-xl mb-2 leading-tight">{TITLE}</h3>
+            <p class="text-base">{DESCRIPTION}</p>
           </li>
         ))}
       </ul>
     </div>
 
-    <ArrowIcon className="size-14 mt-4" />
+    <ArrowIcon class="size-14 mt-4" />
   </div>
 </section>

@@ -7,7 +7,7 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
 <section class="contact-section absolute h-screen w-full inset-0">
   <div class="absolute inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto uppercase max-w-6xl m-auto text-9xl">
     <div class="relative">
-      <h2>
+      <h2 class="show-text">
         <span class="font-altesse capitalize w-full block text-[13rem]">
           Pasá
         </span>
@@ -16,10 +16,10 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
       <img
         src="/gifs/leo.gif"
         alt="Leo"
-        class="w-32 h-auto absolute -z-10 -bottom-16 left-1/2 -translate-x-1/2"
+        class="w-32 h-auto absolute -z-10 -bottom-16 left-1/2 -translate-x-1/2 show-element"
       />
     </div>
-    <div class="flex gap-20">
+    <div class="flex gap-20 show-element">
       {LinksShaders.map((text) => (
         <Button class="text-6xl">{text}</Button>
       ))}

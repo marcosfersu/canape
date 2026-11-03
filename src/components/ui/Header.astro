@@ -4,13 +4,13 @@ import LangMenu from "./LangMenu.astro";
 ---
 
 <header class="fixed right-0 top-10 z-50 pointer-events-auto">
-  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-4 pb-10 translate-x-35">
+  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-4 pb-10 translate-x-30">
     <div class="mb-10">
-      <BrandMenu className="w-10 h-auto" />
+      <BrandMenu className="w-7 h-auto" />
     </div>
 
     <ul
-      class="flex flex-col text-custom-red uppercase text-sm tracking-widest
+      class="flex flex-col text-custom-red uppercase text-[0.7rem] tracking-widest
         [&_span]:inline-block [&_span]:transition-all [&_a]:transition-transform [&_a]:duration-500 [&_span]:duration-500 [&_span]:ease-out [&_a]:ease-out
         
         [&_span]:group-hover:-translate-x-[calc(100%-30px)]
@@ -68,7 +68,7 @@ import LangMenu from "./LangMenu.astro";
       </li>
     </ul>
     <ul
-      class="flex flex-col text-custom-red uppercase text-sm tracking-widest mt-5
+      class="flex flex-col text-custom-red uppercase text-[0.7rem] tracking-widest mt-5
         [&_span]:inline-block [&_span]:transition-all [&_span]:duration-500 [&_span]:ease-out [&_span]:group-hover:-translate-x-[calc(100%-30px)]
                 [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
         [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
@@ -93,7 +93,7 @@ import LangMenu from "./LangMenu.astro";
       </li>
     </ul>
     <div
-      class="text-custom-red uppercase text-sm tracking-widest mt-3
+      class="text-custom-red uppercase text-[0.7rem] tracking-widest mt-3
         [&_ul]:transition-transform [&_a]:transition-transform [&_ul]:duration-500 [&_ul]:ease-out [&_ul]:group-hover:-translate-x-[calc(100%-30px)]
                 [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
         [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
@@ -172,7 +172,7 @@ import LangMenu from "./LangMenu.astro";
 </style>
 
 <script>
-  const themes = ["red", "brown", "green", "pink", "light-blue"];
+  const themes = ["red", "brown", "light-blue", "green", "pink"];
 
   const setupThemeToggle = () => {
     const btn = document.getElementById("theme-toggle-btn");

@@ -1,4 +1,5 @@
 import { gsap } from "./index";
+import { animateHeroTyping } from "./animateHeroTyping";
 
 export const animateHero = (
   tl: gsap.core.Timeline,
@@ -7,6 +8,8 @@ export const animateHero = (
 ) => {
   if (!section) return;
 
+  // Elements
+  const bg = section.querySelector(".hero-bg") as HTMLElement;
   const text = section.querySelector(".hero-text") as HTMLElement;
   const logo = section.querySelector(".logo") as HTMLElement;
   const video = section.querySelector(".hero-video") as HTMLElement;
@@ -17,86 +20,112 @@ export const animateHero = (
 
   if (!text || !logo || !video) return;
 
+  const [start, end] = time;
+
   const headerElements = [header, headerBox].filter(
     (el): el is HTMLElement => el !== null,
   );
 
-  // Init menu
+  // Initial states
   gsap.set(headerElements, { opacity: 0, x: 100 });
 
   if (headerMood) {
     gsap.set(headerMood, { opacity: 0, x: -100 });
   }
 
-  const [start, end] = time;
+  gsap.set(video, {
+    clipPath: "inset(100% 0% 0% 0%)",
+  });
 
-  // 1. Escala Texto
-  tl.to(text, { scale: 0.8, duration: 1, ease: "none" }, start);
+  // Intro callbacks
+  gsap.delayedCall(0.5, () => {
+    gsap.set(bg, { opacity: 0, display: "none" });
+    animateHeroTyping(0.3, 0.04, 0.35, 8);
+  });
 
+  gsap.delayedCall(2, () => {
+    gsap.to(headerElements, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    if (headerMood) {
+      gsap.to(headerMood, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+  });
+
+  // Hero timeline
+
+  // Text scale down
+  tl.to(
+    text,
+    {
+      scale: 0.8,
+      duration: 1,
+      ease: "none",
+    },
+    start,
+  );
+
+  // Logo entrance and exit
   tl.fromTo(
     logo,
     { top: "100%" },
-    { top: "0%", duration: 1.5, ease: "none" },
-    start + 0.5,
+    {
+      top: "-100%",
+      duration: 12,
+      ease: "none",
+    },
+    start + 1,
   );
 
+  // Video reveal
   tl.to(
     video,
     {
-      opacity: 1,
+      clipPath: "inset(0% 0% 0% 0%)",
+      duration: 5,
+      ease: "none",
+    },
+    start + 4,
+  );
+
+  // Video hide
+  tl.to(
+    video,
+    {
+      clipPath: "inset(0% 0% 100% 0%)",
+      duration: 5,
+      ease: "none",
+    },
+    start + 10,
+  );
+
+  // Text scale up
+  tl.to(
+    text,
+    {
       scale: 1,
-      pointerEvents: "auto",
-      duration: 1,
-      ease: "power2.out",
+      duration: 4,
+      ease: "none",
     },
-    start + 2.5,
+    start + 10,
   );
 
-  tl.to(logo, { yPercent: -100, duration: 1, ease: "power1.in" }, start + 4.5);
-
-  tl.to(
-    video,
-    {
-      opacity: 0,
-      scale: 0.9,
-      pointerEvents: "none",
-      duration: 0.4,
-      ease: "power2.out",
-    },
-    start + 4.5,
-  );
-
-  // Show menu
-  if (headerElements.length) {
-    tl.to(
-      headerElements,
-      { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
-      start + 4.8,
-    );
-  }
-
-  if (headerMood) {
-    tl.to(
-      headerMood,
-      { opacity: 1, x: 0, duration: 1, ease: "power2.out" },
-      start + 4.8,
-    );
-  }
-
-  // tl.to(
-  //   text,
-  //   { yPercent: -100, opacity: 0, duration: 1.5, ease: "power1.in" },
-  //   time + 5.8,
-  // );
-
-  // End Section
+  // Section exit
   tl.to(
     section,
     {
-      opacity: 0,
       yPercent: -100,
+      duration: 10,
       ease: "none",
-      duration: 5,
     },
     end,
   );

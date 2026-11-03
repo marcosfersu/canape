@@ -14,28 +14,28 @@ export type GalleryImageConfig = {
 export const galleryImages = [
   // Hospitality
   {
-    src: "/images/manifiesto-1.webp",
+    src: "/images/3.webp",
     section: "hospitality",
     progress: 0.3,
     duration: 13,
-    x: 15,
-    width: 15,
+    x: 20,
+    width: 25,
   },
   {
-    src: "/images/manifiesto-2.webp",
+    src: "/images/5.webp",
     section: "hospitality",
     progress: 0.6,
-    duration: 6,
+    duration: 12,
     x: 50,
     width: 15,
   },
   {
-    src: "/images/manifiesto-3.webp",
+    src: "/images/6.webp",
     section: "hospitality",
     progress: 0.4,
     duration: 10,
-    x: 98,
-    width: 15,
+    x: 90,
+    width: 20,
   },
   // Create
   {
