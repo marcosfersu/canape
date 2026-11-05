@@ -7,6 +7,19 @@ const i18n = getI18N({ currentLocale });
 ---
 
 <section class="hospitality-section absolute h-screen w-full inset-0">
+  <div class="hospitality-images absolute h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+    <ul class="flex gap-4 mx-4 h-[80vh]">
+      <li class="flex-1">
+        <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
+      </li>
+      <li class="flex-1">
+        <img class="w-full h-full object-cover" src="/images/1.webp" alt="" />
+      </li>
+      <li class="flex-1">
+        <img class="w-full h-full object-cover" src="/images/4.webp" alt="" />
+      </li>
+    </ul>
+  </div>
   <div class="hospitality-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
     <div class="max-w-2xl flex flex-col items-center justify-center">
       <HeroTextIcon className="size-12 mb-4" />

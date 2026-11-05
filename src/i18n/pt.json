@@ -18,6 +18,35 @@
     "ERROR_404_TITLE": "404 Página não encontrada - Canapé",
     "ERROR_404_DESCRIPTION": "A página que você procura não existe ou não está disponível. Volte à página inicial ou entre em contato com a Canapé."
   },
+  "HEADER": {
+    "NAVIGATION": {
+      "MANIFESTO": "MANIFIESTO",
+      "UNIVERSE": "UNIVERSO",
+      "EXPERIENCES": "EXPERIENCIAS",
+      "JOURNAL": "JOURNAL",
+      "CONTACT": "CONTACTO"
+    },
+    "SOCIAL": {
+      "INSTAGRAM": "INSTAGRAM",
+      "EMAIL": "MAIL@CANAPE.COM",
+      "WHATSAPP": "WHATSAPP"
+    },
+    "LANGUAGES": {
+      "ES": "ES",
+      "EN": "EN",
+      "PT": "PT"
+    },
+    "THEME": {
+      "TOGGLE": "CAMBIAR EL MOOD"
+    },
+    "HERO": {
+      "LINE_1": "CREATIVE STUDIO",
+      "LINE_2": "EVENT SPECIALISTS",
+      "LINE_3": "EXPERIENCES & HOSPITALITY",
+      "LINE_4_1": "MENDOZA",
+      "LINE_4_2": "WORLD"
+    }
+  },
   "HERO": {
     "LINE_1": "ESTÚDIO CRIATIVO",
     "LINE_2": "ESPECIALIZADO EM EVENTOS",

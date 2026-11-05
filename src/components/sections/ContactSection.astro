@@ -5,7 +5,32 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
 ---
 
 <section class="contact-section absolute h-screen w-full inset-0">
-  <div class="absolute inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto uppercase max-w-6xl m-auto text-9xl">
+  <div class="contact-images absolute h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+    <ul class="flex gap-4 mx-4 h-[80vh]">
+      <li class="flex-1">
+        <img
+          class="w-full h-full object-cover"
+          src="/images/contact-1.webp"
+          alt=""
+        />
+      </li>
+      <li class="flex-1">
+        <img
+          class="w-full h-full object-cover"
+          src="/images/contact-2.webp"
+          alt=""
+        />
+      </li>
+      <li class="flex-1">
+        <img
+          class="w-full h-full object-cover"
+          src="/images/contact-3.webp"
+          alt=""
+        />
+      </li>
+    </ul>
+  </div>
+  <div class="absolute contact-text inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto uppercase max-w-6xl m-auto text-9xl">
     <div class="relative">
       <h2 class="show-text">
         <span class="font-altesse capitalize w-full block text-[13rem]">

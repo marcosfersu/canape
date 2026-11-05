@@ -7,19 +7,20 @@ const i18n = getI18N({ currentLocale });
 
 <section class="about-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
   <div class="inset-0 z-10 flex flex-col items-center justify-center relative text-center max-w-2xl px-6 pointer-events-auto">
-    <p class="about-head text-center text-xl max-w-md uppercase show-text">
+    <p class="about-head text-center text-xl max-w-md uppercase">
       {i18n.ABOUT.HEADING}
     </p>
 
-    <h2 class="about-title-1 text-center font-altesse text-[12rem] leading-tight show-text">
+    <h2 class="about-title-1 text-center font-altesse text-[12rem] leading-tight">
       EstebanBravo
     </h2>
 
     <div class="absolute -z-10 about-img">
       <!-- Contenedor máscara con overflow: hidden -->
-      <div class="overflow-hidden h-[80vh]">
+      <div class="overflow-hidden relative h-[80vh]">
+        <div class="absolute bg-img w-full h-full bg-custom-white z-10"></div>
         <img
-          src="./EstebanBravo.png"
+          src="./images/EstebanBravo.webp"
           class="reveal-img h-full w-auto object-cover"
           alt="Esteban Bravo"
         />
@@ -27,12 +28,12 @@ const i18n = getI18N({ currentLocale });
     </div>
   </div>
 
-  <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-4 show-element">
+  <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-6 show-element">
     <h2 class="text-6xl font-semibold">{i18n.ABOUT.NAME}</h2>
 
-    <h4 class="font-semibold">{i18n.ABOUT.ROLE}</h4>
+    <h4 class="font-semibold text-sm">{i18n.ABOUT.ROLE}</h4>
 
-    <div class="flex flex-col gap-4 text-justify">
+    <div class="flex flex-col gap-4 text-center text-sm">
       <p>{i18n.ABOUT.BIO_1}</p>
       <p>{i18n.ABOUT.BIO_2}</p>
       <p>{i18n.ABOUT.BIO_3}</p>

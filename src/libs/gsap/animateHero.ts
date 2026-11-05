@@ -60,6 +60,9 @@ export const animateHero = (
       });
     }
   });
+  gsap.delayedCall(1, () => {
+    document.body.classList.remove("no-scroll");
+  });
 
   // Hero timeline
 

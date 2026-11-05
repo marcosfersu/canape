@@ -25,9 +25,9 @@ export const animateService = (
     {
       xPercent: -100,
       ease: "none",
-      duration: 20,
+      duration: 25,
     },
-    start + 5,
+    start + 2,
   );
 
   tl.fromTo(

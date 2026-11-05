@@ -18,20 +18,49 @@
     "ERROR_404_TITLE": "404 Página no encontrada - Canapé",
     "ERROR_404_DESCRIPTION": "La página que buscás no existe o no está disponible. Volvé al inicio o contactate con Canapé."
   },
+  "HEADER": {
+    "NAVIGATION": {
+      "MANIFESTO": "MANIFIESTO",
+      "UNIVERSE": "UNIVERSO",
+      "EXPERIENCES": "EXPERIENCIAS",
+      "JOURNAL": "JOURNAL",
+      "CONTACT": "CONTACTO"
+    },
+    "SOCIAL": {
+      "INSTAGRAM": "INSTAGRAM",
+      "EMAIL": "MAIL@CANAPE.COM",
+      "WHATSAPP": "WHATSAPP"
+    },
+    "LANGUAGES": {
+      "ES": "ES",
+      "EN": "EN",
+      "PT": "PT"
+    },
+    "THEME": {
+      "TOGGLE": "CAMBIAR EL MOOD"
+    },
+    "HERO": {
+      "LINE_1": "CREATIVE STUDIO",
+      "LINE_2": "EVENT SPECIALISTS",
+      "LINE_3": "EXPERIENCES & HOSPITALITY",
+      "LINE_4_1": "MENDOZA",
+      "LINE_4_2": "WORLD"
+    }
+  },
   "HERO": {
     "LINE_1": "ESTUDIO CREATIVO",
     "LINE_2": "ESPECIALIZADO EN EVENTOS",
     "LINE_3": "EXPERIENCIAS & HOSPITALIDAD",
     "LINE_4_1": "DE MENDOZA",
     "LINE_4_2": "AL MUNDO",
-    "UNIVERSE": "universo",
+    "UNIVERSE": "servicios",
     "CONTACT": "contacto"
   },
   "HOSPITALITY": {
     "TITLE_1": "El arte de recibir bien",
     "TITLE_2": "Hospitalidad con carácter",
     "DESCRIPTION": "Diseñamos encuentros y atmósferas con identidad, donde cada detalle hace que estar ahí se vuelva especial",
-    "CTA": "conocé nuestro universo"
+    "CTA": "conocé nuestro servicios"
   },
   "CREATE": {
     "TITLE_1": "Concept Lab: Del concepto a la mesa",
@@ -44,7 +73,7 @@
     "HEADING": ["Damos forma a", "cada idea"],
     "ITEMS": [
       {
-        "TITLE": "diseño & producción integral de eventos",
+        "TITLE": "diseño & producción integral de eventos",
         "DESCRIPTION": "vos traé el motivo, nosotros hacemos el resto. bodas, destination weddings, celebraciones privadas y eventos empresariales, de la primera idea al último detalle."
       },
       {
