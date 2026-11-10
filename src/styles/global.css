@@ -43,3 +43,13 @@ body {
     background-color 0.5s ease,
     color 0.5s ease;
 }
+
+:is(.contact-section, .hospitality-section) {
+  --contact-translate: 100vw;
+}
+
+@media (max-width: 900px) {
+  :is(.contact-section, .hospitality-section) {
+    --contact-translate: 200vw;
+  }
+}

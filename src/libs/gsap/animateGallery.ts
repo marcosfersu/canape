@@ -7,6 +7,7 @@ export const animateGallery = (
   container: HTMLElement,
   images: GalleryImageConfig[],
 ) => {
+  console.log(container, images);
   if (!container || !images.length) return;
 
   const elements = images.map((image) => {
@@ -48,6 +49,5 @@ export const animateGallery = (
 
 const getTimelinePosition = (image: GalleryImageConfig) => {
   const [start, end] = positions[image.section];
-  console.log(start + (end - start) * image.progress);
   return start + (end - start) * image.progress;
 };

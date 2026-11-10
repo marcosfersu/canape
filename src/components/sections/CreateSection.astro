@@ -7,28 +7,28 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<section class="create-section absolute h-screen w-full inset-0">
+<section class="create-section absolute h-screen w-full inset-0 z-99">
   <div class="create-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
-    <div class="max-w-4xl flex flex-col items-center justify-center">
-      <h4 class="text-2xl uppercase tracking-widest font-light mb-4 show-text">
+    <div class="lg:max-w-4xl flex flex-col items-center justify-center">
+      <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
         {i18n.CREATE.TITLE_1}
       </h4>
 
-      <h2 class="text-4xl md:text-6xl font-bold mb-4 uppercase show-text">
+      <h2 class="lg:text-4xl text-3xl md:text-6xl font-bold mb-4 uppercase show-text">
         {i18n.CREATE.TITLE_2}
       </h2>
 
-      <p class="text-base md:text-base opacity-80 mb-6 uppercase px-2 show-text">
+      <p class="lg:text-base text-sm opacity-80 mb-6 uppercase lg:px-2 show-text">
         {i18n.CREATE.DESCRIPTION}
       </p>
     </div>
-    <ArrowIcon class="text-custom-red size-14 mt-10" />
+    <ArrowIcon class="text-custom-red size-14 lg:mt-10" />
   </div>
 
   <div class="create-roles absolute inset-0 z-10 px-6 pointer-events-auto flex flex-col items-center justify-center">
     <div class="flex flex-col items-center max-w-2xl w-full relative justify-center text-center">
       <h3
-        class="text-6xl md:text-5xl relative font-bold h-20 w-full max-w-2xl overflow-hidden uppercase flex flex-col items-center justify-center gap-10 [&_span]:absolute
+        class="lg:text-6xl text-2xl leading-40 lg:leading-normal px-2 md:text-5xl relative font-bold h-20 w-full max-w-2xl overflow-hidden uppercase flex flex-col items-center justify-center gap-10 [&_span]:absolute
         before:content-['('] after:content-[')'] after:absolute before:absolute after:right-0 before:left-0
         before:translate-x-(--pseudo-tx-before,-0.25rem)
         after:translate-x-(--pseudo-tx-after,0.25rem)

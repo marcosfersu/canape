@@ -14,13 +14,17 @@ export const animateHospitality = (
   const [start, end] = time;
   const duration = end - start;
 
+  const computedStyle = getComputedStyle(section);
+  const translationValue =
+    computedStyle.getPropertyValue("--contact-translate").trim() || "100vw";
+
   gsap.set(images, {
     clipPath: "inset(0% 0% 0% 0%)",
   });
 
   tl.fromTo(
     images.filter((_, i) => i !== 1),
-    { y: "-100vw" },
+    { y: `-${translationValue}` },
     {
       y: 0,
       ease: "none",
@@ -31,7 +35,7 @@ export const animateHospitality = (
 
   tl.fromTo(
     imagesSection[1],
-    { y: "100vw" },
+    { y: `${translationValue}` },
     {
       y: 0,
       ease: "none",

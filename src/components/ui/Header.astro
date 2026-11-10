@@ -16,20 +16,75 @@ const nav = [
 ] as const;
 ---
 
-<header class="fixed right-0 top-10 z-50 pointer-events-auto">
-  <nav class="group flex flex-col justify-between pr-8 pl-32 pt-0 pb-10 translate-x-28">
-    <div class="mb-10">
+<header class="fixed right-0 lg:left-auto left-0 top-0 z-50 pointer-events-auto lg:top-10">
+  <!-- Mobile menu button -->
+
+  <div class="lg:hidden fixed flex flex-col items-center right-3 top-8 z-60">
+    <div class="mb-5">
+      <BrandMenu className="w-7 h-auto" />
+    </div>
+    <button
+      id="mobile-menu-btn"
+      class="text-custom-red uppercase text-xs tracking-widest [writing-mode:vertical-rl] rotate-180"
+      aria-expanded="false"
+      aria-controls="main-navigation"
+      aria-label="Open menu"
+    >
+      <span id="mobile-menu-label">MENÚ</span>
+    </button>
+  </div>
+  <!-- Navigation -->
+  <nav
+    id="main-navigation"
+    class="group fixed left-0 top-0 z-50
+      flex flex-col justify-end
+      h-dvh w-[min(85vw,360px)]
+      pl-25
+      overflow-y-auto
+      bg-custom-red
+      px-8 pt-24 pb-10
+      -translate-x-full
+      transition-transform duration-500 ease-out
+      lg:static lg:h-auto lg:w-auto
+      lg:overflow-visible
+      lg:bg-transparent
+      lg:pr-8 lg:pl-32 lg:pt-0 lg:pb-10
+      lg:translate-x-28
+      lg:transition-none"
+  >
+    <!-- Brand -->
+    <div class="mb-10 lg:block hidden">
       <BrandMenu className="w-7 h-auto" />
     </div>
 
+    <!-- Main navigation -->
     <ul
-      class="flex flex-col text-custom-red uppercase text-[0.6rem] tracking-widest
-        [&_span]:inline-block [&_span]:transition-all [&_a]:transition-transform [&_a]:duration-500 [&_span]:duration-500 [&_span]:ease-out [&_a]:ease-out
-        [&_span]:group-hover:-translate-x-[calc(100%-20px)]
-        [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
-        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
-        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
-        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+      class="flex flex-col gap-3 lg:gap-0
+        text-custom-white lg:text-custom-red uppercase text-xs lg:text-[0.6rem] tracking-widest
+        [&_span]:inline-block
+        [&_span]:transition-all
+        [&_span]:duration-500
+        [&_span]:ease-out
+        [&_a]:transition-transform
+        [&_a]:duration-500
+        [&_a]:ease-out
+        lg:[&_span]:group-hover:-translate-x-[calc(100%-20px)]
+        [&_span]:before:content-['(']
+        [&_span]:before:opacity-0
+        [&_span]:before:transition
+        [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100
+        [&_span]:hover:before:-translate-x-1
+        [&_span]:before:-translate-x-3
+        [&_span]:before:inline-block
+        [&_span]:after:content-[')']
+        [&_span]:after:opacity-0
+        [&_span]:after:transition
+        [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100
+        [&_span]:hover:after:translate-x-1
+        [&_span]:after:translate-x-3
+        [&_span]:after:inline-block"
     >
       {nav.map((item) => (
         <li>
@@ -44,18 +99,37 @@ const nav = [
       ))}
     </ul>
 
+    <!-- Social links -->
     <ul
-      class="flex flex-col text-custom-red uppercase text-[0.6rem] tracking-widest mt-5
-        [&_span]:inline-block [&_span]:transition-all [&_span]:duration-500 [&_span]:ease-out [&_span]:group-hover:-translate-x-[calc(100%-20px)]
-        [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
-        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
-        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
-        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+      class="flex flex-col order-2 lg:order-0 gap-3 lg:gap-0
+        text-custom-white lg:text-custom-red uppercase text-xs lg:text-[0.6rem] tracking-widest lg:mt-5 mt-15
+        [&_span]:inline-block
+        [&_span]:transition-all
+        [&_span]:duration-500
+        [&_span]:ease-out
+        lg:[&_span]:group-hover:-translate-x-[calc(100%-20px)]
+        [&_span]:before:content-['(']
+        [&_span]:before:opacity-0
+        [&_span]:before:transition
+        [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100
+        [&_span]:hover:before:-translate-x-1
+        [&_span]:before:-translate-x-3
+        [&_span]:before:inline-block
+        [&_span]:after:content-[')']
+        [&_span]:after:opacity-0
+        [&_span]:after:transition
+        [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100
+        [&_span]:hover:after:translate-x-1
+        [&_span]:after:translate-x-3
+        [&_span]:after:inline-block"
     >
       <li>
         <a
           href="https://instagram.com/"
           target="_blank"
+          rel="noopener noreferrer"
           class="hover:text-primary transition-colors"
         >
           <span>{i18n.HEADER.SOCIAL.INSTAGRAM}</span>
@@ -75,6 +149,7 @@ const nav = [
         <a
           href="https://wa.me/"
           target="_blank"
+          rel="noopener noreferrer"
           class="hover:text-primary transition-colors"
         >
           <span>{i18n.HEADER.SOCIAL.WHATSAPP}</span>
@@ -82,88 +157,134 @@ const nav = [
       </li>
     </ul>
 
+    <!-- Language selector -->
     <div
-      class="text-custom-red uppercase text-[0.6rem] tracking-widest mt-3
-        [&_ul]:transition-transform [&_a]:transition-transform [&_ul]:duration-500 [&_ul]:ease-out [&_ul]:group-hover:-translate-x-[calc(100%-20px)]
-        [&_span]:before:content-['('] [&_span]:before:opacity-0 [&_span]:before:transition [&_span]:before:duration-300
-        [&_span]:hover:before:opacity-100 [&_span]:hover:before:-translate-x-1 [&_span]:before:-translate-x-3 [&_span]:before:inline-block
-        [&_span]:after:content-[')'] [&_span]:after:opacity-0 [&_span]:after:transition [&_span]:after:duration-300
-        [&_span]:hover:after:opacity-100 [&_span]:hover:after:translate-x-1 [&_span]:after:translate-x-3 [&_span]:after:inline-block"
+      class="text-custom-white gap-3 lg:gap-0 lg:text-custom-red uppercase text-xs lg:text-[0.6rem] tracking-widest lg:mt-3 mt-15
+        [&_ul]:transition-transform
+        [&_ul]:duration-500
+        [&_ul]:ease-out
+        lg:[&_ul]:group-hover:-translate-x-[calc(100%-20px)]
+        [&_span]:before:content-['(']
+        [&_span]:before:opacity-0
+        [&_span]:before:transition
+        [&_span]:before:duration-300
+        [&_span]:hover:before:opacity-100
+        [&_span]:hover:before:-translate-x-1
+        [&_span]:before:-translate-x-3
+        [&_span]:before:inline-block
+        [&_span]:after:content-[')']
+        [&_span]:after:opacity-0
+        [&_span]:after:transition
+        [&_span]:after:duration-300
+        [&_span]:hover:after:opacity-100
+        [&_span]:hover:after:translate-x-1
+        [&_span]:after:translate-x-3
+        [&_span]:after:inline-block"
     >
       <LangMenu />
     </div>
   </nav>
 </header>
 
+<!-- Mobile backdrop -->
+<button
+  id="mobile-menu-backdrop"
+  class="fixed inset-0 z-40 hidden lg:hidden"
+  aria-label="Close menu"
+></button>
+
+<!-- Header text -->
 <div class="fixed right-10 top-10 z-50 pointer-events-auto text-sm text-custom-red header-text uppercase">
   <p></p>
 </div>
 
-<div class="fixed right-10 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
+<!-- Header box -->
+<div class="fixed hidden lg:relative right-10 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
 
-<div class="fixed left-10 bottom-10 z-50 pointer-events-auto">
+<!-- Theme toggle -->
+<div class="fixed lg:left-10 right-3.5 bottom-8 [writing-mode:vertical-rl] rotate-180 lg:rotate-0 lg:[writing-mode:horizontal-tb] lg:bottom-10 z-50 pointer-events-auto">
   <button
     id="theme-toggle-btn"
-    class="border-custom-red text-custom-red border px-4 py-1 flex justify-center items-center rounded-full hover:bg-custom-red-hover transition-colors cursor-pointer text-xs header-mood"
+    class="border-custom-red text-custom-red border px-4 py-1
+      flex justify-center items-center rounded-full
+      hover:bg-custom-red-hover transition-colors
+      cursor-pointer text-xs header-mood"
   >
     <span class="translate-y-px">{i18n.HEADER.THEME.TOGGLE}</span>
   </button>
 </div>
 
 <style is:global>
-  header nav a.is-active {
-    font-weight: bold;
-    display: flex;
-    transform: translateX(30px);
-    text-decoration: underline;
-    position: relative;
-  }
+  @media (width >= 64rem /* 1024px */) {
+    header nav a.is-active {
+      font-weight: bold;
+      display: flex;
+      transform: translateX(30px);
+      text-decoration: underline;
+      position: relative;
+    }
 
-  header nav.group:hover a.is-active {
-    font-weight: bold;
-    display: flex;
-    transform: translateX(-12px);
-  }
+    header nav.group:hover a.is-active {
+      font-weight: bold;
+      display: flex;
+      transform: translateX(-12px);
+    }
 
-  header nav a.is-active span::before,
-  header nav a.is-active span::after {
-    opacity: 1;
-  }
+    header nav a.is-active span::before,
+    header nav a.is-active span::after {
+      opacity: 1;
+    }
 
-  header nav a span::before,
-  header nav a span::after {
-    font-weight: 100;
-  }
+    header nav a span::before,
+    header nav a span::after {
+      font-weight: 100;
+    }
 
-  header nav a.is-active span::before {
-    transform: translateX(0.25rem);
-  }
+    header nav a.is-active span::before {
+      transform: translateX(0.25rem);
+    }
 
-  header nav a.is-active span::after {
-    transform: translateX(-0.25rem);
-  }
+    header nav a.is-active span::after {
+      transform: translateX(-0.25rem);
+    }
 
-  header nav a.is-active:hover span::before {
-    transform: translateX(-0.25rem);
-  }
+    header nav a.is-active:hover span::before {
+      transform: translateX(-0.25rem);
+    }
 
-  header nav a.is-active:hover span::after {
-    transform: translateX(0.25rem);
-  }
+    header nav a.is-active:hover span::after {
+      transform: translateX(0.25rem);
+    }
 
-  header nav a.is-active .assent {
-    position: absolute;
-    left: -25px;
-    top: 50%;
-    width: 10px;
-    height: 10px;
-    background: var(--color-custom-red);
-    transform: translateY(-50%) translateX(0);
-    transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+    header nav a.is-active .assent {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      width: 10px;
+      height: 10px;
+      background: var(--color-custom-red);
+      transform: translateY(-50%) translateX(0);
+      transition: transform 500ms cubic-bezier(0, 0, 0.2, 1);
+    }
   }
 
   header nav.group:hover a.is-active .assent {
     transform: translateY(-50%) translateX(var(--assent-shift, 0px));
+  }
+
+  /* Mobile menu */
+  @media (max-width: 1023px) {
+    #main-navigation {
+      box-shadow: 10px 0 40px rgba(0, 0, 0, 0.05);
+    }
+
+    #main-navigation a.is-active {
+      transform: translateX(0);
+    }
+
+    #main-navigation a.is-active .assent {
+      display: none;
+    }
   }
 </style>
 
@@ -194,6 +315,68 @@ const nav = [
     });
   };
 
+  const setupMobileMenu = () => {
+    const btn = document.getElementById("mobile-menu-btn");
+    const nav = document.getElementById("main-navigation");
+    const backdrop = document.getElementById("mobile-menu-backdrop");
+    const label = document.getElementById("mobile-menu-label");
+
+    if (!btn || !nav || !backdrop || !label) return;
+    if (btn.dataset.initialized === "true") return;
+
+    btn.dataset.initialized = "true";
+
+    const closeMenu = () => {
+      nav.classList.add("-translate-x-full");
+      backdrop.classList.add("hidden");
+
+      btn.setAttribute("aria-expanded", "false");
+      btn.setAttribute("aria-label", "Open menu");
+      label.textContent = "MENÚ";
+
+      document.body.style.overflow = "";
+    };
+
+    const openMenu = () => {
+      nav.classList.remove("-translate-x-full");
+      backdrop.classList.remove("hidden");
+
+      btn.setAttribute("aria-expanded", "true");
+      btn.setAttribute("aria-label", "Close menu");
+      label.textContent = "CERRAR";
+
+      document.body.style.overflow = "hidden";
+    };
+
+    btn.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    backdrop.addEventListener("click", closeMenu);
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (window.innerWidth < 1024) closeMenu();
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeMenu();
+    });
+
+    // Close menu when switching to desktop
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 1024) closeMenu();
+    });
+  };
+
   setupThemeToggle();
-  document.addEventListener("astro:page-load", setupThemeToggle);
+  setupMobileMenu();
+
+  document.addEventListener("astro:page-load", () => {
+    setupThemeToggle();
+    setupMobileMenu();
+  });
 </script>

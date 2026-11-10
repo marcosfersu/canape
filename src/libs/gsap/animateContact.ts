@@ -16,6 +16,11 @@ export const animateContact = (
   const [start, end] = time;
   const duration = end - start;
 
+  // Detectar el valor de desplazamiento de forma dinámica desde el CSS (100vw u opciones mobile)
+  const computedStyle = getComputedStyle(section);
+  const translationValue =
+    computedStyle.getPropertyValue("--contact-translate").trim() || "100vw";
+
   const showText = animateShowText(section, start + 26);
 
   if (!showText) return;
@@ -28,7 +33,7 @@ export const animateContact = (
 
   tl.fromTo(
     images.filter((_, i) => i !== 1),
-    { y: "-100vw" },
+    { y: `-${translationValue}` },
     {
       y: 0,
       ease: "none",
@@ -39,7 +44,7 @@ export const animateContact = (
 
   tl.fromTo(
     imagesSection[1],
-    { y: "100vw" },
+    { y: translationValue },
     {
       y: 0,
       ease: "none",
@@ -57,6 +62,7 @@ export const animateContact = (
     },
     start + 17,
   );
+
   tl.fromTo(
     textSection,
     { yPercent: 100 },

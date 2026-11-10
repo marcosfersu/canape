@@ -8,7 +8,7 @@ import { animateService } from "./animateService";
 import { setupActiveNav } from "./setupActiveNav";
 import { positions } from "../const/positions";
 import { animateGallery } from "./animateGallery";
-import { galleryImages } from "../const/gallery.config";
+import { galleryImages, galleryImagesMobile } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
 
@@ -64,7 +64,13 @@ export const initHomeAnimations = () => {
     );
   });
 
-  animateGallery(tl, elements.gallery!, galleryImages);
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  animateGallery(
+    tl,
+    elements.gallery!,
+    isMobile ? galleryImagesMobile : galleryImages,
+  );
 
   tl.to({}, { duration: 2 }, positions.loop[1]);
 

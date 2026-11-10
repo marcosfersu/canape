@@ -8,14 +8,16 @@ const i18n = getI18N({ currentLocale });
 
 <section class="hospitality-section absolute h-screen w-full inset-0">
   <div class="hospitality-images absolute h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
-    <ul class="flex gap-4 mx-4 h-[80vh]">
-      <li class="flex-1">
+    <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-[80vh] overflow-hidden lg:overflow-visible">
+      <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
         <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
       </li>
-      <li class="flex-1">
+
+      <li class="shrink-0 w-[50vw] lg:w-auto lg:flex-1">
         <img class="w-full h-full object-cover" src="/images/1.webp" alt="" />
       </li>
-      <li class="flex-1">
+
+      <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
         <img class="w-full h-full object-cover" src="/images/4.webp" alt="" />
       </li>
     </ul>
@@ -23,16 +25,16 @@ const i18n = getI18N({ currentLocale });
   <div class="hospitality-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
     <div class="max-w-2xl flex flex-col items-center justify-center">
       <HeroTextIcon className="size-12 mb-4" />
-
+      <!-- 
       <h4 class="text-2xl uppercase tracking-widest font-light mb-4 show-text">
         {i18n.HOSPITALITY.TITLE_1}
-      </h4>
+      </h4> -->
 
-      <h2 class="text-4xl md:text-6xl font-bold mb-4 uppercase show-text">
+      <h2 class="lg:text-4xl text-3xl md:text-6xl font-bold mb-4 uppercase show-text">
         {i18n.HOSPITALITY.TITLE_2}
       </h2>
 
-      <p class="text-base md:text-base opacity-80 mb-6 uppercase max-w-md m-auto show-text">
+      <p class="lg:text-base text-sm opacity-80 mb-6 uppercase max-w-md m-auto show-text">
         {i18n.HOSPITALITY.DESCRIPTION}
       </p>
 
