@@ -7,8 +7,13 @@ export const animateGallery = (
   container: HTMLElement,
   images: GalleryImageConfig[],
 ) => {
-  console.log(container, images);
   if (!container || !images.length) return;
+
+  // Medidas estables del contenedor al inicializar la animación
+  const containerHeight = container.clientHeight;
+  const containerWidth = container.clientWidth;
+
+  if (!containerHeight || !containerWidth) return;
 
   const elements = images.map((image) => {
     const img = document.createElement("img");
@@ -18,23 +23,24 @@ export const animateGallery = (
     img.draggable = false;
     img.className = "gallery-image";
 
-    img.style.width = `${image.width ?? 25}vw`;
+    // El ancho se calcula respecto al contenedor, no al viewport
+    img.style.width = `${(containerWidth * (image.width ?? 25)) / 100}px`;
+
     img.style.left = `${image.x}%`;
 
     container.appendChild(img);
 
+    // Inicio del recorrido
     gsap.set(img, {
-      yPercent: 0,
-      y: () => window.innerHeight,
       xPercent: -50,
-      // opacity: 0,
+      y: containerHeight,
     });
 
+    // Final del recorrido
     tl.to(
       img,
       {
-        y: () => -window.innerHeight - img.offsetHeight,
-        // opacity: 1,
+        y: () => -(containerHeight + img.offsetHeight),
         duration: image.duration,
         ease: "none",
       },
@@ -49,5 +55,6 @@ export const animateGallery = (
 
 const getTimelinePosition = (image: GalleryImageConfig) => {
   const [start, end] = positions[image.section];
+
   return start + (end - start) * image.progress;
 };
