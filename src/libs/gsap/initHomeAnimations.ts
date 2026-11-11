@@ -6,7 +6,7 @@ import { animateAbout } from "./animateAbout";
 import { animatedLoop } from "./animateLoop";
 import { animateService } from "./animateService";
 import { setupActiveNav } from "./setupActiveNav";
-import { positions } from "../const/positions";
+import { positions, positionsMobile } from "../const/positions";
 import { animateGallery } from "./animateGallery";
 import { galleryImages, galleryImagesMobile } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
@@ -28,13 +28,14 @@ export const initHomeAnimations = () => {
     loop: animatedLoop,
   };
 
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
   const home = document.querySelector(".home") as HTMLElement;
 
   const elements = Object.fromEntries(
-    [...Object.keys(positions), "gallery"].map((section) => [
-      section,
-      document.querySelector(`.${section}-section`),
-    ]),
+    [...Object.keys(isMobile ? positionsMobile : positions), "gallery"].map(
+      (section) => [section, document.querySelector(`.${section}-section`)],
+    ),
   ) as Record<keyof typeof positions | "gallery", HTMLElement | null>;
 
   const tl = gsap.timeline({
@@ -56,6 +57,8 @@ export const initHomeAnimations = () => {
 
   setupActiveNav(tl);
 
+  console.log(isMobile ? positionsMobile : positions);
+
   Object.entries(animations).forEach(([section, animate]) => {
     animate(
       tl,
@@ -63,8 +66,6 @@ export const initHomeAnimations = () => {
       positions[section as keyof typeof positions],
     );
   });
-
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
   animateGallery(
     tl,

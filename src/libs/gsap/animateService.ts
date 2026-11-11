@@ -13,6 +13,8 @@ export const animateService = (
 
   const showText = animateShowText(section, start + 24);
 
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
   if (!showText) return;
 
   tl.call(() => showText.play(), [], showText.position);
@@ -25,9 +27,9 @@ export const animateService = (
     {
       xPercent: -100,
       ease: "none",
-      duration: 25,
+      duration: isMobile ? 40 : 25,
     },
-    start + 2,
+    start + (isMobile ? -2 : 2),
   );
 
   tl.fromTo(
@@ -40,7 +42,7 @@ export const animateService = (
       ease: "none",
       duration: 10,
     },
-    start + 20,
+    start + 22,
   );
 
   tl.fromTo(

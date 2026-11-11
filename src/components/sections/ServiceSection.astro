@@ -16,7 +16,7 @@ const images = [
 ];
 ---
 
-<section class="service-section bg-custom-white absolute h-screen w-full inset-0 flex flex-col items-center justify-center">
+<section class="service-section bg-custom-white absolute h-screen w-full inset-0 flex flex-col items-center justify-center z-999">
   <div class="create-images flex flex-row gap-4 absolute overflow-visible">
     {images.map((image) => (
       <div class="create-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">
@@ -29,19 +29,18 @@ const images = [
     ))}
   </div>
   <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl mx-10 pointer-events-auto">
-    <h4 class="text-base uppercase tracking-widest font-light show-text mb-10">
+    <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
       <span>{i18n.SERVICES.TITLE}</span>
     </h4>
-
-    <h2 class="text-[10rem] font-altesse font-light mb-14 leading-35 show-text">
+    <h2 class="lg:text-[10rem] text-6xl md:text-8xl font-altesse font-light mb-14 lg:leading-35 show-text">
       <span class="block">{i18n.SERVICES.HEADING[0]}</span>
-      <span class="block font-sans uppercase text-[8rem] tracking-tight font-medium">
+      <span class="block font-sans uppercase lg:text-[8rem] text-3xl md:text-6xl tracking-tight font-medium">
         {i18n.SERVICES.HEADING[1]}
       </span>
     </h2>
 
-    <div class="service-items w-full show-element">
-      <ul class="flex gap-14">
+    <div class="service-items w-full show-element lg:px-0 px-10">
+      <ul class="flex lg:flex-row flex-col gap-14">
         {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }, index) => (
           <li
             class:list={[
@@ -58,6 +57,6 @@ const images = [
       </ul>
     </div>
 
-    <ArrowIcon class="size-14 mt-4" />
+    <ArrowIcon class="size-14 lg:mt-4" />
   </div>
 </section>
