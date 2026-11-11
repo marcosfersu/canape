@@ -6,49 +6,43 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<section
-  class="hospitality-section absolute h-screen w-full inset-0 max-md:relative
-    max-md:h-screen
-    max-md:inset-auto
-    flex flex-col justify-between"
->
-  <div class="hospitality-images absolute max-md:relative max-md:h-auto h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
-    <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-[80vh] overflow-hidden lg:overflow-visible">
-      <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
-        <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
-      </li>
+<div class="hospitality-wrapper relative w-full lg:absolute max-md:h-[400vh]">
+  <section class="hospitality-section absolute h-screen w-full inset-0 max-md:sticky max-md:top-0 max-md:h-screen max-md:inset-auto max-md:overflow-hidden flex flex-col justify-between">
+    <div class="hospitality-images absolute max-md:absolute max-md:inset-0 max-md:h-screen h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+      <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-[80vh] max-md:h-[55vh] overflow-hidden lg:overflow-visible">
+        <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
+          <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
+        </li>
 
-      <li class="shrink-0 w-[50vw] lg:w-auto lg:flex-1">
-        <img class="w-full h-full object-cover" src="/images/1.webp" alt="" />
-      </li>
+        <li class="shrink-0 w-[50vw] lg:w-auto lg:flex-1">
+          <img class="w-full h-full object-cover" src="/images/1.webp" alt="" />
+        </li>
 
-      <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
-        <img class="w-full h-full object-cover" src="/images/4.webp" alt="" />
-      </li>
-    </ul>
-  </div>
-  <div class="hospitality-text max-md:relative max-md:h-auto absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
-    <div class="max-w-2xl flex flex-col items-center justify-center">
-      <HeroTextIcon className="size-12 mb-4" />
-      <!-- 
-      <h4 class="text-2xl uppercase tracking-widest font-light mb-4 show-text">
-        {i18n.HOSPITALITY.TITLE_1}
-      </h4> -->
-
-      <h2 class="lg:text-4xl text-3xl md:text-6xl font-bold mb-4 uppercase show-text">
-        {i18n.HOSPITALITY.TITLE_2}
-      </h2>
-
-      <p class="lg:text-base text-sm opacity-80 mb-6 uppercase max-w-md m-auto show-text">
-        {i18n.HOSPITALITY.DESCRIPTION}
-      </p>
-
-      <a
-        href="#"
-        class="inline-block border-b font-altesse border-current pb-1 text-2xl tracking-wider hover:opacity-75 transition-opacity show-text"
-      >
-        {i18n.HOSPITALITY.CTA}
-      </a>
+        <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
+          <img class="w-full h-full object-cover" src="/images/4.webp" alt="" />
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+
+    <div class="hospitality-text absolute max-md:absolute max-md:inset-0 max-md:h-screen inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
+      <div class="max-w-2xl flex flex-col items-center justify-center">
+        <HeroTextIcon className="size-12 mb-4" />
+
+        <h2 class="lg:text-4xl text-3xl md:text-6xl font-bold mb-4 uppercase show-text">
+          {i18n.HOSPITALITY.TITLE_2}
+        </h2>
+
+        <p class="lg:text-base text-sm opacity-80 mb-6 uppercase max-w-md m-auto show-text">
+          {i18n.HOSPITALITY.DESCRIPTION}
+        </p>
+
+        <a
+          href="#"
+          class="inline-block border-b font-altesse border-current pb-1 text-2xl tracking-wider hover:opacity-75 transition-opacity show-text"
+        >
+          {i18n.HOSPITALITY.CTA}
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

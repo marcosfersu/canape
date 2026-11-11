@@ -12,24 +12,37 @@ import { galleryImages, galleryImagesMobile } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
 import { animateHeroMobile } from "./mobile/animateHeroMobile";
+import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
 let mobileHeroTimeline: gsap.core.Timeline | null = null;
+let mobileHospitalityTimeline: gsap.core.Timeline | null = null;
 
 export const initHomeAnimations = () => {
   homeTimeline?.scrollTrigger?.kill();
   homeTimeline?.kill();
 
+  mobileHeroTimeline?.scrollTrigger?.kill();
   mobileHeroTimeline?.kill();
+
+  mobileHospitalityTimeline?.scrollTrigger?.kill();
+  mobileHospitalityTimeline?.kill();
 
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
   // MOBILE
   if (isMobile) {
     const hero = document.querySelector(".hero-section") as HTMLElement;
+    const hospitality = document.querySelector(
+      ".hospitality-section",
+    ) as HTMLElement;
 
     if (hero) {
       mobileHeroTimeline = animateHeroMobile(hero) ?? null;
+    }
+
+    if (hospitality) {
+      mobileHospitalityTimeline = animateHospitalityMobile(hospitality) ?? null;
     }
 
     return;
