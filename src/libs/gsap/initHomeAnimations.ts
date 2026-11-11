@@ -15,6 +15,8 @@ import { animateHeroMobile } from "./mobile/animateHeroMobile";
 import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
 import { animateCreateMobile } from "./mobile/animateCreateMobile";
 import { animateServiceMobile } from "./mobile/animateServiceMobile";
+import { animateAboutMobile } from "./mobile/animateAboutMobile";
+import { animateGalleryMobile } from "./mobile/animateGalleryMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
 
@@ -32,11 +34,15 @@ export const initHomeAnimations = () => {
     ) as HTMLElement;
     const create = document.querySelector(".create-section") as HTMLElement;
     const service = document.querySelector(".service-section") as HTMLElement;
+    const about = document.querySelector(".about-section") as HTMLElement;
+    const gallery = document.querySelector(".gallery-section") as HTMLElement;
 
     if (hero) animateHeroMobile(hero) ?? null;
     if (hospitality) animateHospitalityMobile(hospitality);
     if (create) animateCreateMobile(create);
     if (service) animateServiceMobile(service);
+    if (about) animateAboutMobile(about);
+    if (gallery) animateGalleryMobile(gallery, galleryImagesMobile);
 
     return;
   }
@@ -55,9 +61,10 @@ export const initHomeAnimations = () => {
   const home = document.querySelector(".home") as HTMLElement;
 
   const elements = Object.fromEntries(
-    [...Object.keys(isMobile ? positionsMobile : positions), "gallery"].map(
-      (section) => [section, document.querySelector(`.${section}-section`)],
-    ),
+    [...Object.keys(positions), "gallery"].map((section) => [
+      section,
+      document.querySelector(`.${section}-section`),
+    ]),
   ) as Record<keyof typeof positions | "gallery", HTMLElement | null>;
 
   const tl = gsap.timeline({
@@ -79,7 +86,7 @@ export const initHomeAnimations = () => {
 
   setupActiveNav(tl);
 
-  console.log(isMobile ? positionsMobile : positions);
+  console.log(positions);
 
   Object.entries(animations).forEach(([section, animate]) => {
     animate(
@@ -89,11 +96,7 @@ export const initHomeAnimations = () => {
     );
   });
 
-  animateGallery(
-    tl,
-    elements.gallery!,
-    isMobile ? galleryImagesMobile : galleryImages,
-  );
+  animateGallery(tl, elements.gallery!, galleryImages);
 
   tl.to({}, { duration: 2 }, positions.loop[1]);
 

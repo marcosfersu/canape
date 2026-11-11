@@ -5,38 +5,48 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<section class="about-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden">
-  <div class="inset-0 z-10 flex flex-col items-center justify-center relative text-center max-w-2xl px-6 pointer-events-auto">
-    <p class="about-head text-center text-xl max-w-md uppercase">
-      {i18n.ABOUT.HEADING}
-    </p>
+<div class="about-wrapper relative w-full lg:absolute max-md:h-[300vh]">
+  <section
+    class="about-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden
+      max-md:sticky
+      max-md:top-0
+      max-md:inset-auto
+      max-md:h-screen
+      max-md:w-full"
+  >
+    <div class="inset-0 z-10 flex flex-col items-center justify-center relative text-center max-w-2xl px-6 pointer-events-auto">
+      <p class="about-head text-center max-w-md lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
+        {i18n.ABOUT.HEADING}
+      </p>
 
-    <h2 class="about-title-1 text-center font-altesse text-[12rem] leading-tight">
-      EstebanBravo
-    </h2>
+      <h2 class="about-title-1 text-center leading-tight lg:text-[10rem] text-6xl md:text-8xl font-altesse font-light mb-14 lg:leading-35 show-text">
+        EstebanBravo
+      </h2>
 
-    <div class="absolute -z-10 about-img">
-      <!-- Contenedor máscara con overflow: hidden -->
-      <div class="overflow-hidden relative h-[80vh]">
-        <div class="absolute bg-img w-full h-full bg-custom-white z-10"></div>
-        <img
-          src="./images/EstebanBravo.webp"
-          class="reveal-img h-full w-auto object-cover"
-          alt="Esteban Bravo"
-        />
+      <div class="absolute -z-10 about-img">
+        <div class="overflow-hidden relative lg:h-[80vh]">
+          <div class="absolute bg-img w-full h-full bg-custom-white z-10"></div>
+          <img
+            src="./images/EstebanBravo.webp"
+            class="reveal-img h-full w-auto object-cover"
+            alt="Esteban Bravo"
+          />
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-6 show-element">
-    <h2 class="text-6xl font-semibold">{i18n.ABOUT.NAME}</h2>
+    <div class="uppercase about-description absolute max-w-xl text-center flex flex-col gap-6 show-element max-md:mx-10 lg:px-0 px-10">
+      <h2 class="font-semibold lg:text-4xl text-3xl md:text-6xl mb-4 uppercase show-text">
+        {i18n.ABOUT.NAME}
+      </h2>
 
-    <h4 class="font-semibold text-sm">{i18n.ABOUT.ROLE}</h4>
+      <h4 class="font-semibold text-sm">{i18n.ABOUT.ROLE}</h4>
 
-    <div class="flex flex-col gap-4 text-center text-sm">
-      <p>{i18n.ABOUT.BIO_1}</p>
-      <p>{i18n.ABOUT.BIO_2}</p>
-      <p>{i18n.ABOUT.BIO_3}</p>
+      <div class="flex flex-col gap-4 text-center text-sm">
+        <p>{i18n.ABOUT.BIO_1}</p>
+        <p>{i18n.ABOUT.BIO_2}</p>
+        <p>{i18n.ABOUT.BIO_3}</p>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
