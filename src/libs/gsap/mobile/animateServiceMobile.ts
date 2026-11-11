@@ -52,7 +52,7 @@ export const animateServiceMobile = (section: HTMLElement) => {
   tl.fromTo(
     serviceText,
     {
-      y: "100vh",
+      y: "120vh",
     },
     {
       y: 0,
