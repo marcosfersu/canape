@@ -16,7 +16,21 @@ const images = [
 ];
 ---
 
-<section class="service-section bg-custom-white absolute h-screen w-full inset-0 flex flex-col items-center justify-center z-999">
+<section
+  class="service-section
+    bg-custom-white
+    absolute inset-0 h-screen w-full
+    flex flex-col items-center justify-center
+    z-999
+    max-md:relative
+    max-md:inset-auto
+    max-md:h-auto
+    max-md:min-h-screen
+    max-md:w-full
+    max-md:z-auto
+    max-md:overflow-hidden
+    max-md:py-20"
+>
   <div class="create-images flex flex-row gap-4 absolute overflow-visible">
     {images.map((image) => (
       <div class="create-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">

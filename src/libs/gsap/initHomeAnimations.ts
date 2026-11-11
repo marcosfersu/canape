@@ -15,6 +15,10 @@ import { animateContact } from "./animateContact";
 let homeTimeline: gsap.core.Timeline | null = null;
 
 export const initHomeAnimations = () => {
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  if (isMobile) return;
+
   homeTimeline?.scrollTrigger?.kill();
   homeTimeline?.kill();
   const animations = {
@@ -27,8 +31,6 @@ export const initHomeAnimations = () => {
     contact: animateContact,
     loop: animatedLoop,
   };
-
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
   const home = document.querySelector(".home") as HTMLElement;
 

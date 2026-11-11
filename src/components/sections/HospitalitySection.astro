@@ -6,8 +6,13 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<section class="hospitality-section absolute h-screen w-full inset-0">
-  <div class="hospitality-images absolute h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+<section
+  class="hospitality-section absolute h-screen w-full inset-0 max-md:relative
+    max-md:h-screen
+    max-md:inset-auto
+    flex flex-col justify-between"
+>
+  <div class="hospitality-images absolute max-md:relative max-md:h-auto h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
     <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-[80vh] overflow-hidden lg:overflow-visible">
       <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
         <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
@@ -22,7 +27,7 @@ const i18n = getI18N({ currentLocale });
       </li>
     </ul>
   </div>
-  <div class="hospitality-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
+  <div class="hospitality-text max-md:relative max-md:h-auto absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
     <div class="max-w-2xl flex flex-col items-center justify-center">
       <HeroTextIcon className="size-12 mb-4" />
       <!-- 

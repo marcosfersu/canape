@@ -3,8 +3,15 @@ import Brand from "@/assets/Brand.astro";
 import HeroText from "./HeroText.astro";
 ---
 
-<section class="hero-section absolute h-screen w-full overflow-hidden">
-  <div class="hero-bg absolute inset-0 w-full h-full bg-custom-white z-100 select-none pointer-events-none"></div>
+<section
+  class="hero-section
+    absolute h-screen w-full overflow-hidden
+    max-md:relative
+    max-md:h-screen
+    max-md:inset-auto"
+>
+  <!-- <div class="hero-bg absolute inset-0 w-full h-full bg-custom-white z-100 select-none pointer-events-none"></div> -->
+
   <div class="hero-text absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
     <HeroText />
   </div>
@@ -14,20 +21,6 @@ import HeroText from "./HeroText.astro";
   </div>
 
   <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90">
-    <!-- <video
-      autoplay
-      loop
-      muted
-      playsinline
-      class="h-auto max-w-4xl rounded-2xl shadow-2xl"
-    >
-      <source src="/hero-video.mp4" type="video/mp4" />
-    </video> -->
-    <!-- <iframe
-      class="h-auto aspect-video max-w-4xl w-full"
-      src="https://www.youtube.com/embed/Rc4LqYM65As?si=ZKauBrSrh3AVzMOn"
-      referrerpolicy="strict-origin-when-cross-origin"
-    ></iframe> -->
     <img src="/images/img-test-2.webp" alt="Test Image" />
   </div>
 </section>
