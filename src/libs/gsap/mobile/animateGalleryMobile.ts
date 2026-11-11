@@ -51,7 +51,7 @@ export const animateGalleryMobile = (
     );
   });
 
-  // La timeline siempre representa el 100% del recorrido.
+  // Mantiene el recorrido total de la galería en 100 unidades.
   tl.to({}, { duration: 100 }, 0);
 
   return tl;
