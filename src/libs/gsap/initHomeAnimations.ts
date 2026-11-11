@@ -11,16 +11,30 @@ import { animateGallery } from "./animateGallery";
 import { galleryImages, galleryImagesMobile } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
+import { animateHeroMobile } from "./mobile/animateHeroMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
+let mobileHeroTimeline: gsap.core.Timeline | null = null;
 
 export const initHomeAnimations = () => {
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
-  if (isMobile) return;
-
   homeTimeline?.scrollTrigger?.kill();
   homeTimeline?.kill();
+
+  mobileHeroTimeline?.kill();
+
+  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+  // MOBILE
+  if (isMobile) {
+    const hero = document.querySelector(".hero-section") as HTMLElement;
+
+    if (hero) {
+      mobileHeroTimeline = animateHeroMobile(hero) ?? null;
+    }
+
+    return;
+  }
+
   const animations = {
     hero: animateHero,
     hospitality: animateHospitality,

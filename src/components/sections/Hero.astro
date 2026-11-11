@@ -3,24 +3,24 @@ import Brand from "@/assets/Brand.astro";
 import HeroText from "./HeroText.astro";
 ---
 
-<section
-  class="hero-section
-    absolute h-screen w-full overflow-hidden
-    max-md:relative
-    max-md:h-screen
-    max-md:inset-auto"
->
-  <!-- <div class="hero-bg absolute inset-0 w-full h-full bg-custom-white z-100 select-none pointer-events-none"></div> -->
+<div class="hero-wrapper relative h-[300vh] max-md:h-[300vh]">
+  <section
+    class="hero-section
+      relative h-screen w-full overflow-hidden
+      max-md:sticky
+      max-md:top-0
+      max-md:h-screen"
+  >
+    <div class="hero-text absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
+      <HeroText />
+    </div>
 
-  <div class="hero-text absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
-    <HeroText />
-  </div>
+    <div class="logo absolute top-full left-1/2 w-full max-w-8xl -translate-x-1/2 px-30">
+      <Brand className="w-full" />
+    </div>
 
-  <div class="logo absolute top-full left-1/2 w-full max-w-8xl -translate-x-1/2 px-30">
-    <Brand className="w-full" />
-  </div>
-
-  <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90">
-    <img src="/images/img-test-2.webp" alt="Test Image" />
-  </div>
-</section>
+    <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90">
+      <img src="/images/img-test-2.webp" alt="Test Image" />
+    </div>
+  </section>
+</div>
