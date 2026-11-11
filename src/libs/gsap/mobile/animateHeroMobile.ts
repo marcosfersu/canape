@@ -20,11 +20,31 @@ export const animateHeroMobile = (section: HTMLElement) => {
     (el): el is HTMLElement => el !== null,
   );
 
+  // Estado inicial del header
   gsap.set(headerElements, { opacity: 0, x: 100 });
 
   if (headerMood) {
     gsap.set(headerMood, { opacity: 0, x: -100 });
   }
+
+  // Aparición independiente del scroll, después de 2 segundos
+  gsap.delayedCall(2, () => {
+    gsap.to(headerElements, {
+      opacity: 1,
+      x: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+
+    if (headerMood) {
+      gsap.to(headerMood, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+  });
 
   gsap.set(video, {
     clipPath: "inset(100% 0% 0% 0%)",
@@ -38,31 +58,8 @@ export const animateHeroMobile = (section: HTMLElement) => {
       start: "top top",
       end: "bottom bottom",
       scrub: 1,
-      // Sin pin
     },
   });
-
-  tl.to(
-    headerElements,
-    {
-      opacity: 1,
-      x: 0,
-      duration: 1,
-    },
-    0,
-  );
-
-  if (headerMood) {
-    tl.to(
-      headerMood,
-      {
-        opacity: 1,
-        x: 0,
-        duration: 1,
-      },
-      0,
-    );
-  }
 
   tl.to(
     text,

@@ -46,7 +46,9 @@ export const animateCreate = (
 
   const showText = animateShowText(section, start + 4);
 
-  tl.call(() => showText.play(), [], showText.position);
+  if (showText) {
+    tl.call(() => showText.play(), [], showText.position);
+  }
 
   if (CreateText) {
     tl.to(

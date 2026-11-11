@@ -58,10 +58,10 @@ export const animateHospitalityMobile = (section: HTMLElement) => {
     images,
     {
       clipPath: "inset(0% 0% 100% 0%)",
-      duration: 10,
+      duration: 8,
       ease: "none",
     },
-    14,
+    10,
   );
 
   // Entrada del texto
@@ -73,25 +73,25 @@ export const animateHospitalityMobile = (section: HTMLElement) => {
       duration: 10,
       ease: "none",
     },
-    15,
+    10,
   );
 
-  const showText = animateShowText(section, 20);
+  const showText = animateShowText(section, 15);
 
   if (showText) {
     tl.call(() => showText.play(), [], showText.position);
   }
 
-  // Salida del texto
-  tl.to(
-    textSection,
-    {
-      yPercent: -100,
-      duration: 10,
-      ease: "none",
-    },
-    30,
-  );
+  // // Salida del texto
+  // tl.to(
+  //   textSection,
+  //   {
+  //     yPercent: -100,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   20,
+  // );
 
   return tl;
 };

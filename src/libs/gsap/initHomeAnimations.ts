@@ -13,6 +13,7 @@ import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
 import { animateHeroMobile } from "./mobile/animateHeroMobile";
 import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
+import { animateCreateMobile } from "./mobile/animateCreateMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
 let mobileHeroTimeline: gsap.core.Timeline | null = null;
@@ -22,12 +23,6 @@ export const initHomeAnimations = () => {
   homeTimeline?.scrollTrigger?.kill();
   homeTimeline?.kill();
 
-  mobileHeroTimeline?.scrollTrigger?.kill();
-  mobileHeroTimeline?.kill();
-
-  mobileHospitalityTimeline?.scrollTrigger?.kill();
-  mobileHospitalityTimeline?.kill();
-
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
   // MOBILE
@@ -36,14 +31,11 @@ export const initHomeAnimations = () => {
     const hospitality = document.querySelector(
       ".hospitality-section",
     ) as HTMLElement;
+    const create = document.querySelector(".create-section") as HTMLElement;
 
-    if (hero) {
-      mobileHeroTimeline = animateHeroMobile(hero) ?? null;
-    }
-
-    if (hospitality) {
-      mobileHospitalityTimeline = animateHospitalityMobile(hospitality) ?? null;
-    }
+    if (hero) mobileHeroTimeline = animateHeroMobile(hero) ?? null;
+    if (hospitality) animateHospitalityMobile(hospitality);
+    if (create) animateCreateMobile(create);
 
     return;
   }
