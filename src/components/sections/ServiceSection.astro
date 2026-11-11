@@ -16,61 +16,62 @@ const images = [
 ];
 ---
 
-<section
-  class="service-section
+<div class="service-wrapper relative w-full lg:absolute max-md:h-[300vh]">
+  <section
+    class="service-section
     bg-custom-white
     absolute inset-0 h-screen w-full
     flex flex-col items-center justify-center
     z-999
-    max-md:relative
     max-md:inset-auto
-    max-md:h-auto
-    max-md:min-h-screen
+    max-md:h-screen
     max-md:w-full
     max-md:z-auto
     max-md:overflow-hidden
-    max-md:py-20"
->
-  <div class="create-images flex flex-row gap-4 absolute overflow-visible">
-    {images.map((image) => (
-      <div class="create-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">
-        <img
-          src={image}
-          alt=""
-          class="h-full w-auto max-w-none object-contain"
-        />
-      </div>
-    ))}
-  </div>
-  <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl mx-10 pointer-events-auto">
-    <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
-      <span>{i18n.SERVICES.TITLE}</span>
-    </h4>
-    <h2 class="lg:text-[10rem] text-6xl md:text-8xl font-altesse font-light mb-14 lg:leading-35 show-text">
-      <span class="block">{i18n.SERVICES.HEADING[0]}</span>
-      <span class="block font-sans uppercase lg:text-[8rem] text-3xl md:text-6xl tracking-tight font-medium">
-        {i18n.SERVICES.HEADING[1]}
-      </span>
-    </h2>
-
-    <div class="service-items w-full show-element lg:px-0 px-10">
-      <ul class="flex lg:flex-row flex-col gap-14">
-        {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }, index) => (
-          <li
-            class:list={[
-              "mb-6 text-center w-full uppercase",
-              index === 1 ? "flex-[1.3]" : "flex-1",
-            ]}
-          >
-            <h3 class="font-bold text-lg mb-2 leading-tight">{TITLE}</h3>
-            <p class:list={["text-sm", index === 1 ? "mx-5" : "mx-0"]}>
-              {DESCRIPTION}
-            </p>
-          </li>
-        ))}
-      </ul>
+    max-md:sticky
+    max-md:top-0"
+  >
+    <div class="service-images flex flex-row gap-4 absolute max-md:items-center max-md:top-0 overflow-visible max-md:h-screen">
+      {images.map((image) => (
+        <div class="service-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">
+          <img
+            src={image}
+            alt=""
+            class="h-full w-auto max-w-none object-contain"
+          />
+        </div>
+      ))}
     </div>
+    <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl mx-10 pointer-events-auto">
+      <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
+        <span>{i18n.SERVICES.TITLE}</span>
+      </h4>
+      <h2 class="lg:text-[10rem] text-6xl md:text-8xl font-altesse font-light mb-14 lg:leading-35 show-text">
+        <span class="block">{i18n.SERVICES.HEADING[0]}</span>
+        <span class="block font-sans uppercase lg:text-[8rem] text-3xl md:text-6xl tracking-tight font-medium">
+          {i18n.SERVICES.HEADING[1]}
+        </span>
+      </h2>
 
-    <ArrowIcon class="size-14 lg:mt-4" />
-  </div>
-</section>
+      <div class="service-items w-full show-element lg:px-0 px-10">
+        <ul class="flex lg:flex-row flex-col gap-14">
+          {i18n.SERVICES.ITEMS.map(({ TITLE, DESCRIPTION }, index) => (
+            <li
+              class:list={[
+                "mb-6 text-center w-full uppercase",
+                index === 1 ? "flex-[1.3]" : "flex-1",
+              ]}
+            >
+              <h3 class="font-bold text-lg mb-2 leading-tight">{TITLE}</h3>
+              <p class:list={["text-sm", index === 1 ? "mx-5" : "mx-0"]}>
+                {DESCRIPTION}
+              </p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <ArrowIcon class="size-14 lg:mt-4" />
+    </div>
+  </section>
+</div>

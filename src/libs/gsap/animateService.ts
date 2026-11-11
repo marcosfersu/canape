@@ -8,7 +8,7 @@ export const animateService = (
   const [start, end] = time;
   const duration = end - start;
 
-  const createImages = section.querySelector(".create-images") as HTMLElement;
+  const serviceImages = section.querySelector(".service-images") as HTMLElement;
   const serviceText = section.querySelector(".service-text") as HTMLElement;
 
   const showText = animateShowText(section, start + 24);
@@ -20,7 +20,7 @@ export const animateService = (
   tl.call(() => showText.play(), [], showText.position);
 
   tl.fromTo(
-    createImages,
+    serviceImages,
     {
       xPercent: 100,
     },

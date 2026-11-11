@@ -14,10 +14,9 @@ import { animateContact } from "./animateContact";
 import { animateHeroMobile } from "./mobile/animateHeroMobile";
 import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
 import { animateCreateMobile } from "./mobile/animateCreateMobile";
+import { animateServiceMobile } from "./mobile/animateServiceMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
-let mobileHeroTimeline: gsap.core.Timeline | null = null;
-let mobileHospitalityTimeline: gsap.core.Timeline | null = null;
 
 export const initHomeAnimations = () => {
   homeTimeline?.scrollTrigger?.kill();
@@ -32,10 +31,12 @@ export const initHomeAnimations = () => {
       ".hospitality-section",
     ) as HTMLElement;
     const create = document.querySelector(".create-section") as HTMLElement;
+    const service = document.querySelector(".service-section") as HTMLElement;
 
-    if (hero) mobileHeroTimeline = animateHeroMobile(hero) ?? null;
+    if (hero) animateHeroMobile(hero) ?? null;
     if (hospitality) animateHospitalityMobile(hospitality);
     if (create) animateCreateMobile(create);
+    if (service) animateServiceMobile(service);
 
     return;
   }
