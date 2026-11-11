@@ -51,7 +51,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: wrapper,
-      start: "top top",
+      start: "top 80%",
       end: "bottom bottom",
       scrub: 1,
     },
@@ -62,7 +62,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
     createText,
     {
       yPercent: -100,
-      duration: 10,
+      duration: 20,
       ease: "none",
     },
     0,
@@ -76,7 +76,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
       duration: 5,
       ease: "none",
     },
-    10,
+    5,
   );
 
   // Aparición de paréntesis e icono
@@ -104,7 +104,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
 
   // Animación de los roles
   itemsRoles.forEach((item, index) => {
-    const timeRole = 15 + index * 4;
+    const timeRole = 10 + index * 4;
 
     tl.to(
       item,

@@ -79,17 +79,17 @@ export const animateHeroMobile = (section: HTMLElement) => {
       duration: 4,
       ease: "none",
     },
-    0,
+    0.3,
   );
 
   tl.to(
     video,
     {
       clipPath: "inset(0% 0% 0% 0%)",
-      duration: 2,
+      duration: 3,
       ease: "none",
     },
-    2,
+    0,
   );
 
   tl.to(
@@ -99,7 +99,7 @@ export const animateHeroMobile = (section: HTMLElement) => {
       duration: 2,
       ease: "none",
     },
-    5,
+    3,
   );
 
   tl.to(
