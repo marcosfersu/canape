@@ -12,11 +12,11 @@ export const animateServiceMobile = (section: HTMLElement) => {
 
   if (!wrapper || !serviceImages || !serviceText) return;
 
-  const showText = animateShowText(section, 20);
+  const showText = animateShowText(section, 2);
 
   // Estado inicial
   gsap.set(serviceImages, {
-    xPercent: 50,
+    xPercent: 60,
   });
 
   console.log(serviceImages);
@@ -52,7 +52,7 @@ export const animateServiceMobile = (section: HTMLElement) => {
   tl.fromTo(
     serviceText,
     {
-      y: window.innerHeight,
+      y: "100vh",
     },
     {
       y: 0,
