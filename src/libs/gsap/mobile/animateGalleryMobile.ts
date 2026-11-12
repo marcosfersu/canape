@@ -49,7 +49,7 @@ export const animateGalleryMobile = (
           trigger: document.documentElement,
           start: start,
           end: end,
-          scrub: 1,
+          scrub: true,
         },
       },
     );
