@@ -171,14 +171,14 @@ export const galleryImagesMobile = [
     x: 70,
     width: 80,
   },
-  // // About
+  // // Journal
   // {
   //   src: "/images/about-1.webp",
-  //   section: "about",
-  //   progress: 0.65,
-  //   duration: 12,
-  //   x: 70,
-  //   width: 45,
+  //   section: "journal",
+  //   progress: 10,
+  //   duration: 20,
+  //   x: 30,
+  //   width: 65,
   // },
   // {
   //   src: "/images/about-2.webp",

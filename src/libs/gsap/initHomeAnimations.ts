@@ -16,7 +16,9 @@ import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
 import { animateCreateMobile } from "./mobile/animateCreateMobile";
 import { animateServiceMobile } from "./mobile/animateServiceMobile";
 import { animateAboutMobile } from "./mobile/animateAboutMobile";
+import { animateJournalMobile } from "./mobile/animateJournalMobile";
 import { animateLoopMobile } from "./mobile/animateLoopMobile";
+import { animateContactMobile } from "./mobile/animateContactMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
 
@@ -35,13 +37,17 @@ export const initHomeAnimations = () => {
     const create = document.querySelector(".create-section") as HTMLElement;
     const service = document.querySelector(".service-section") as HTMLElement;
     const about = document.querySelector(".about-section") as HTMLElement;
+    const journal = document.querySelector(".journal-section") as HTMLElement;
     const loop = document.querySelector(".loop-section") as HTMLElement;
+    const contact = document.querySelector(".contact-section") as HTMLElement;
 
     if (hero) animateHeroMobile(hero) ?? null;
     if (hospitality) animateHospitalityMobile(hospitality);
     if (create) animateCreateMobile(create);
     if (service) animateServiceMobile(service);
     if (about) animateAboutMobile(about);
+    if (journal) animateJournalMobile(journal);
+    if (contact) animateContactMobile(contact);
     if (loop) animateLoopMobile(loop);
 
     return;
