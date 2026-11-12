@@ -12,7 +12,13 @@ export const animateGalleryMobile = (
 
   if (!containerWidth) return;
 
-  const imageElements = images.map((image) => {
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+  if (maxScroll <= 0) return;
+
+  const imageDuration = 10;
+
+  const elements = images.map((image) => {
     const img = document.createElement("img");
 
     img.src = image.src;
@@ -26,42 +32,38 @@ export const animateGalleryMobile = (
     container.appendChild(img);
 
     gsap.set(img, {
-      xPercent: -50,
+      xPercent: -100,
       y: containerHeight,
     });
 
-    return { img, config: image };
+    const start = (image.progress / 100) * maxScroll;
+    const end = start + (image.duration / 100) * maxScroll;
+
+    gsap.fromTo(
+      img,
+      { y: containerHeight },
+      {
+        y: -containerHeight,
+        ease: "none",
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: start,
+          end: end,
+          scrub: 0.3,
+        },
+      },
+    );
+
+    return img;
   });
 
-  const update = () => {
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    if (maxScroll <= 0) return;
-
-    const scrollProgress = (window.scrollY / maxScroll) * 100;
-
-    imageElements.forEach(({ img, config }) => {
-      const progress = gsap.utils.clamp(
-        0,
-        1,
-        (scrollProgress - config.progress) / config.duration,
-      );
-
-      gsap.set(img, {
-        y: gsap.utils.interpolate(containerHeight, -containerHeight, progress),
-      });
-    });
-  };
-
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
-
-  update();
-
   return () => {
-    window.removeEventListener("scroll", update);
-    window.removeEventListener("resize", update);
-    imageElements.forEach(({ img }) => img.remove());
+    elements.forEach((img) => {
+      ScrollTrigger.getAll()
+        .filter((trigger) => trigger.trigger === document.documentElement)
+        .forEach((trigger) => trigger.kill());
+
+      img.remove();
+    });
   };
 };
