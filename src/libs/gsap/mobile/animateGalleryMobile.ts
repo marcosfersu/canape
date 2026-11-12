@@ -8,29 +8,10 @@ export const animateGalleryMobile = (
   if (!container || !images.length) return;
 
   const containerWidth = container.clientWidth;
-  const viewportHeight = window.innerHeight;
 
   if (!containerWidth) return;
 
-  // Valores fijos durante toda la animación
-  const maxScroll = document.documentElement.scrollHeight - viewportHeight;
-
-  if (maxScroll <= 0) return;
-
-  const travelDistance = viewportHeight * 1.2;
-
-  const imageElements: HTMLImageElement[] = [];
-
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: document.documentElement,
-      start: 0,
-      end: maxScroll,
-      scrub: 1,
-    },
-  });
-
-  images.forEach((image) => {
+  const imageElements = images.map((image) => {
     const img = document.createElement("img");
 
     img.src = image.src;
@@ -42,35 +23,65 @@ export const animateGalleryMobile = (
     img.style.left = `${image.x}%`;
 
     container.appendChild(img);
-    imageElements.push(img);
 
     gsap.set(img, {
       xPercent: -50,
     });
 
-    tl.fromTo(
-      img,
-      {
-        y: travelDistance,
-      },
-      {
-        y: -travelDistance,
-        duration: image.duration,
-        ease: "none",
-      },
-      image.progress,
-    );
+    return {
+      element: img,
+      setY: gsap.quickSetter(img, "y", "px"),
+      progress: image.progress / 100,
+    };
   });
 
-  // Mantiene la escala de la timeline en 100 unidades
-  tl.to({}, { duration: 100 }, 0);
+  // Distancia fija para evitar cambios por las barras del navegador.
+  const viewportHeight = window.innerHeight;
+  const travelDistance = viewportHeight * 2.4;
+
+  // Velocidad común para todas las imágenes.
+  const scrollDuration = 0.1;
+
+  let maxScroll = 0;
+
+  const update = () => {
+    const scrollY = window.scrollY;
+
+    imageElements.forEach((image) => {
+      const start = image.progress * maxScroll;
+      const progress = gsap.utils.clamp(
+        0,
+        1,
+        (scrollY - start) / (maxScroll * scrollDuration),
+      );
+
+      const y = viewportHeight * 1.2 - progress * travelDistance;
+
+      image.setY(y);
+    });
+  };
+
+  const refresh = () => {
+    maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+
+    update();
+  };
+
+  const onScroll = () => {
+    update();
+  };
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", refresh);
+
+  refresh();
 
   return () => {
-    tl.scrollTrigger?.kill();
-    tl.kill();
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", refresh);
 
-    imageElements.forEach((img) => {
-      img.remove();
+    imageElements.forEach(({ element }) => {
+      element.remove();
     });
   };
 };
