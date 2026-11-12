@@ -55,7 +55,7 @@ export const animateGalleryMobile = (
         duration: 8,
         ease: "none",
       },
-      tl.duration() * (image.progress / 100 / 3),
+      tl.duration() * (image.progress / 100 / 4),
     );
   });
 };
