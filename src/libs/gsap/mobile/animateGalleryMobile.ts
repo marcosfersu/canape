@@ -32,7 +32,7 @@ export const animateGalleryMobile = (
     container.appendChild(img);
 
     gsap.set(img, {
-      xPercent: -100,
+      xPercent: -120,
       y: containerHeight,
     });
 
