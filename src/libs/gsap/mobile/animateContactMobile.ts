@@ -13,6 +13,8 @@ export const animateContactMobile = (section: HTMLElement) => {
 
   if (!wrapper || !textSection || images.length < 3) return;
 
+  console.log(images, textSection);
+
   gsap.set(images, {
     clipPath: "inset(0% 0% 0% 0%)",
   });

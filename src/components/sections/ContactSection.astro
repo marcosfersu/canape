@@ -1,4 +1,5 @@
 ---
+import ArrowIcon from "@/assets/ArrowIcon.astro";
 import Button from "../ui/Button.astro";
 
 const LinksShaders = ["whatsapp", "mail", "instagram"];
@@ -34,10 +35,10 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
       </ul>
     </div>
 
-    <div class="contact-text absolute max-md:absolute max-md:inset-0 max-md:h-screen inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto uppercase max-w-6xl m-auto text-xl lg:text-9xl">
+    <div class="contact-text absolute max-md:absolute max-md:inset-0 max-md:h-screen inset-0 z-10 flex flex-col gap-26 items-center justify-center text-center px-6 pointer-events-auto uppercase max-w-6xl m-auto text-4xl lg:text-9xl">
       <div class="relative">
         <h2 class="show-text">
-          <span class="font-altesse capitalize w-full block lg:text-[13rem] text-6xl md:text-8xl lg:leading-35 show-text">
+          <span class="font-altesse capitalize w-full block lg:text-[13rem] text-8xl md:text-8xl lg:leading-35 show-text">
             Pasá
           </span>
           La puerta está abierta.
@@ -46,14 +47,16 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
         <img
           src="/gifs/leo.gif"
           alt="Leo"
-          class="w-32 h-auto absolute -z-10 -bottom-16 left-1/2 -translate-x-1/2 show-element"
+          class="w-32 h-auto absolute -z-10 lg:-bottom-16 left-1/2 -translate-x-1/2 show-element"
         />
       </div>
-
-      <div class="flex lg:gap-20 gap-10 show-element">
-        {LinksShaders.map((text) => (
-          <Button class="lg:text-6xl">{text}</Button>
-        ))}
+      <div class="flex flex-col items-center">
+        <div class="flex lg:gap-20 gap-10 show-element max-md:mt-10">
+          {LinksShaders.map((text) => (
+            <Button class="lg:text-6xl">{text}</Button>
+          ))}
+        </div>
+        <ArrowIcon class="text-custom-red size-14 mt-5 lg:mt-10" />
       </div>
     </div>
   </section>

@@ -12,6 +12,10 @@ export const animateHeroMobile = (section: HTMLElement) => {
   const headerBox = document.querySelector(".header-box") as HTMLElement;
   const headerMood = document.querySelector(".header-mood") as HTMLElement;
 
+  const mainNavigation = document.querySelector(
+    "#main-navigation",
+  ) as HTMLElement;
+
   if (!text || !logo || !video) return;
 
   const wrapper = section.parentElement as HTMLElement;
@@ -28,7 +32,9 @@ export const animateHeroMobile = (section: HTMLElement) => {
   }
 
   // Aparición independiente del scroll, después de 2 segundos
-  gsap.delayedCall(2, () => {
+  gsap.delayedCall(1, () => {
+    document.body.classList.remove("no-scroll");
+
     gsap.to(headerElements, {
       opacity: 1,
       x: 0,
@@ -44,6 +50,10 @@ export const animateHeroMobile = (section: HTMLElement) => {
         ease: "power2.out",
       });
     }
+  });
+
+  gsap.delayedCall(2, () => {
+    gsap.set(mainNavigation, { opacity: 1 });
   });
 
   gsap.set(video, {
