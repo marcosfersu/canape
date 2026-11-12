@@ -7,21 +7,12 @@ export const animateGalleryMobile = (
 ) => {
   if (!container || !images.length) return;
 
-  const containerHeight = container.clientHeight;
+  const containerHeight = window.innerHeight;
   const containerWidth = container.clientWidth;
 
-  if (!containerHeight || !containerWidth) return;
+  if (!containerWidth) return;
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: container,
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
-    },
-  });
-
-  images.forEach((image) => {
+  const imageElements = images.map((image) => {
     const img = document.createElement("img");
 
     img.src = image.src;
@@ -39,20 +30,38 @@ export const animateGalleryMobile = (
       y: containerHeight,
     });
 
-    tl.fromTo(
-      img,
-      { y: containerHeight },
-      {
-        y: () => -(containerHeight + img.offsetHeight),
-        duration: image.duration,
-        ease: "none",
-      },
-      image.progress,
-    );
+    return { img, config: image };
   });
 
-  // Mantiene el recorrido total de la galería en 100 unidades.
-  tl.to({}, { duration: 100 }, 0);
+  const update = () => {
+    const maxScroll =
+      document.documentElement.scrollHeight - window.innerHeight;
 
-  return tl;
+    if (maxScroll <= 0) return;
+
+    const scrollProgress = (window.scrollY / maxScroll) * 100;
+
+    imageElements.forEach(({ img, config }) => {
+      const progress = gsap.utils.clamp(
+        0,
+        1,
+        (scrollProgress - config.progress) / config.duration,
+      );
+
+      gsap.set(img, {
+        y: gsap.utils.interpolate(containerHeight, -containerHeight, progress),
+      });
+    });
+  };
+
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+
+  update();
+
+  return () => {
+    window.removeEventListener("scroll", update);
+    window.removeEventListener("resize", update);
+    imageElements.forEach(({ img }) => img.remove());
+  };
 };
