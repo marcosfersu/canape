@@ -8,8 +8,16 @@ export const animateGalleryMobile = (
   if (!container || !images.length) return;
 
   const containerWidth = container.clientWidth;
+  const viewportHeight = window.innerHeight;
 
   if (!containerWidth) return;
+
+  // Valores fijos durante toda la animación
+  const maxScroll = document.documentElement.scrollHeight - viewportHeight;
+
+  if (maxScroll <= 0) return;
+
+  const travelDistance = viewportHeight * 1.2;
 
   const imageElements: HTMLImageElement[] = [];
 
@@ -17,9 +25,8 @@ export const animateGalleryMobile = (
     scrollTrigger: {
       trigger: document.documentElement,
       start: 0,
-      end: () => document.documentElement.scrollHeight - window.innerHeight,
+      end: maxScroll,
       scrub: 1,
-      invalidateOnRefresh: true,
     },
   });
 
@@ -44,10 +51,10 @@ export const animateGalleryMobile = (
     tl.fromTo(
       img,
       {
-        y: "120vh",
+        y: travelDistance,
       },
       {
-        y: "-120vh",
+        y: -travelDistance,
         duration: image.duration,
         ease: "none",
       },
@@ -55,8 +62,7 @@ export const animateGalleryMobile = (
     );
   });
 
-  // Mantiene la escala de la timeline en 100 unidades,
-  // equivalentes al 100% del scroll de la página.
+  // Mantiene la escala de la timeline en 100 unidades
   tl.to({}, { duration: 100 }, 0);
 
   return () => {
