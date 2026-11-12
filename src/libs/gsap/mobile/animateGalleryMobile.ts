@@ -1,87 +1,68 @@
 import { gsap } from "../index";
 import type { GalleryImageConfig } from "@/libs/const/gallery.config";
 
-export const animateGalleryMobile = (
-  container: HTMLElement,
-  images: GalleryImageConfig[],
-) => {
-  if (!container || !images.length) return;
+export const animateGalleryMobile = (images: GalleryImageConfig[]) => {
+  if (!images.length) return;
 
-  const containerWidth = container.clientWidth;
+  const sections = [...new Set(images.map((image) => image.section))];
 
-  if (!containerWidth) return;
+  const timelines = sections.map((sectionName) => {
+    const section = document.querySelector(
+      `.${sectionName}-section`,
+    ) as HTMLElement;
 
-  const imageElements = images.map((image) => {
-    const img = document.createElement("img");
+    if (!section) return null;
 
-    img.src = image.src;
-    img.alt = "";
-    img.draggable = false;
-    img.className = "gallery-image";
+    const wrapper = section.parentElement as HTMLElement;
 
-    img.style.width = `${(containerWidth * (image.width ?? 25)) / 100}px`;
-    img.style.left = `${image.x}%`;
+    if (!wrapper) return null;
 
-    container.appendChild(img);
+    const sectionImages = images.filter(
+      (image) => image.section === sectionName,
+    );
 
-    gsap.set(img, {
-      xPercent: -50,
+    const viewportHeight = window.innerHeight;
+    const sectionWidth = section.clientWidth;
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: "top 0",
+        end: "bottom bottom",
+        scrub: 1,
+      },
     });
 
-    return {
-      element: img,
-      setY: gsap.quickSetter(img, "y", "px"),
-      progress: image.progress / 100,
-    };
+    sectionImages.forEach((image) => {
+      const img = document.createElement("img");
+
+      img.src = image.src;
+      img.alt = "";
+      img.draggable = false;
+      img.className = "gallery-image";
+
+      img.style.width = `${(sectionWidth * (image.width ?? 25)) / 100}px`;
+      img.style.left = `${image.x}%`;
+      img.style.top = `${image.progress}%`;
+      section.appendChild(img);
+      gsap.set(img, {
+        yPercent: 0,
+        xPercent: -50,
+      });
+
+      tl.to(
+        img,
+        {
+          yPercent: -100,
+          duration: 1,
+          ease: "none",
+        },
+        0,
+      );
+    });
+
+    return tl;
   });
 
-  // Distancia fija para evitar cambios por las barras del navegador.
-  const viewportHeight = window.screen.height;
-  const travelDistance = viewportHeight * 2.4;
-
-  // Velocidad común para todas las imágenes.
-  const scrollDuration = 0.2;
-
-  let maxScroll = 0;
-
-  const update = () => {
-    const scrollY = window.scrollY;
-
-    imageElements.forEach((image) => {
-      const start = image.progress * maxScroll;
-      const progress = gsap.utils.clamp(
-        0,
-        1,
-        (scrollY - start) / (maxScroll * scrollDuration),
-      );
-
-      const y = viewportHeight * 1.2 - progress * travelDistance;
-
-      image.setY(y);
-    });
-  };
-
-  const refresh = () => {
-    maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-
-    update();
-  };
-
-  const onScroll = () => {
-    update();
-  };
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", refresh);
-
-  refresh();
-
-  return () => {
-    window.removeEventListener("scroll", onScroll);
-    window.removeEventListener("resize", refresh);
-
-    imageElements.forEach(({ element }) => {
-      element.remove();
-    });
-  };
+  return timelines.filter(Boolean);
 };

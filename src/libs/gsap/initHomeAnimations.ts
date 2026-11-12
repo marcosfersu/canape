@@ -42,7 +42,7 @@ export const initHomeAnimations = () => {
     if (create) animateCreateMobile(create);
     if (service) animateServiceMobile(service);
     if (about) animateAboutMobile(about);
-    if (gallery) animateGalleryMobile(gallery, galleryImagesMobile);
+    if (gallery) animateGalleryMobile(galleryImagesMobile);
 
     return;
   }

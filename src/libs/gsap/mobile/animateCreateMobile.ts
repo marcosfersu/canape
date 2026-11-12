@@ -15,14 +15,20 @@ export const animateCreateMobile = (section: HTMLElement) => {
   const rolesHeading = createRoles?.querySelector<HTMLElement>("h3");
 
   const iconCreate = createRoles?.querySelector<HTMLElement>(".create-icon");
+  const img = section?.querySelector<HTMLElement>(".img") as HTMLImageElement;
 
   if (!wrapper || !createText || !createRoles || !itemsRoles?.length) {
     return;
   }
 
+  console.log(img);
+
   // Estado inicial
   gsap.set(createText, {
     yPercent: 0,
+  });
+  gsap.set(img, {
+    top: "50%",
   });
 
   gsap.set(createRoles, {
@@ -61,11 +67,21 @@ export const animateCreateMobile = (section: HTMLElement) => {
   tl.to(
     createText,
     {
-      yPercent: -100,
+      yPercent: -200,
       duration: 20,
       ease: "none",
     },
     0,
+  );
+  tl.to(
+    img,
+    {
+      top: "-100%",
+
+      duration: 10,
+      ease: "none",
+    },
+    tl.duration() * 0.2,
   );
 
   // Entrada de los roles
