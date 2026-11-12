@@ -39,6 +39,7 @@ export const animateGalleryMobile = (
 
     console.log(tl.duration());
     console.log(tl.duration() * (image.progress / 100 / 4));
+    console.log(8 + image.progress / 50);
 
     // Estado inicial
     gsap.set(img, {
@@ -52,7 +53,7 @@ export const animateGalleryMobile = (
       img,
       {
         y: -sectionHeight,
-        duration: 8,
+        duration: 8 + image.progress / 50,
         ease: "none",
       },
       tl.duration() * (image.progress / 100 / 4),
