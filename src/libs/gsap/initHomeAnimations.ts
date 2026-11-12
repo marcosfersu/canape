@@ -6,9 +6,9 @@ import { animateAbout } from "./animateAbout";
 import { animatedLoop } from "./animateLoop";
 import { animateService } from "./animateService";
 import { setupActiveNav } from "./setupActiveNav";
-import { positions, positionsMobile } from "../const/positions";
+import { positions } from "../const/positions";
 import { animateGallery } from "./animateGallery";
-import { galleryImages, galleryImagesMobile } from "../const/gallery.config";
+import { galleryImages } from "../const/gallery.config";
 import { animateJournal } from "./animateJournal";
 import { animateContact } from "./animateContact";
 import { animateHeroMobile } from "./mobile/animateHeroMobile";
@@ -16,7 +16,7 @@ import { animateHospitalityMobile } from "./mobile/animateHospitalityMobile";
 import { animateCreateMobile } from "./mobile/animateCreateMobile";
 import { animateServiceMobile } from "./mobile/animateServiceMobile";
 import { animateAboutMobile } from "./mobile/animateAboutMobile";
-import { animateGalleryMobile } from "./mobile/animateGalleryMobile";
+import { animateLoopMobile } from "./mobile/animateLoopMobile";
 
 let homeTimeline: gsap.core.Timeline | null = null;
 
@@ -35,14 +35,14 @@ export const initHomeAnimations = () => {
     const create = document.querySelector(".create-section") as HTMLElement;
     const service = document.querySelector(".service-section") as HTMLElement;
     const about = document.querySelector(".about-section") as HTMLElement;
-    const gallery = document.querySelector(".gallery-section") as HTMLElement;
+    const loop = document.querySelector(".loop-section") as HTMLElement;
 
     if (hero) animateHeroMobile(hero) ?? null;
     if (hospitality) animateHospitalityMobile(hospitality);
     if (create) animateCreateMobile(create);
     if (service) animateServiceMobile(service);
     if (about) animateAboutMobile(about);
-    if (gallery) animateGalleryMobile(galleryImagesMobile);
+    if (loop) animateLoopMobile(loop);
 
     return;
   }
@@ -85,8 +85,6 @@ export const initHomeAnimations = () => {
   });
 
   setupActiveNav(tl);
-
-  console.log(positions);
 
   Object.entries(animations).forEach(([section, animate]) => {
     animate(
