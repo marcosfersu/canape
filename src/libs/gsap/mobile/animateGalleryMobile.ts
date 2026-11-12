@@ -32,8 +32,8 @@ export const animateGalleryMobile = (
     container.appendChild(img);
 
     gsap.set(img, {
-      xPercent: -120,
-      y: containerHeight,
+      xPercent: -50,
+      y: "120vh",
     });
 
     const start = (image.progress / 100) * maxScroll;
@@ -41,9 +41,9 @@ export const animateGalleryMobile = (
 
     gsap.fromTo(
       img,
-      { y: containerHeight },
+      { y: "120vh" },
       {
-        y: -containerHeight,
+        y: "-120vh",
         ease: "none",
         scrollTrigger: {
           trigger: document.documentElement,
