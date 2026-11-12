@@ -36,11 +36,11 @@ export const animateGalleryMobile = (
   });
 
   // Distancia fija para evitar cambios por las barras del navegador.
-  const viewportHeight = window.innerHeight;
+  const viewportHeight = window.screen.height;
   const travelDistance = viewportHeight * 2.4;
 
   // Velocidad común para todas las imágenes.
-  const scrollDuration = 0.1;
+  const scrollDuration = 0.2;
 
   let maxScroll = 0;
 
