@@ -1,68 +1,61 @@
 import { gsap } from "../index";
 import type { GalleryImageConfig } from "@/libs/const/gallery.config";
 
-export const animateGalleryMobile = (images: GalleryImageConfig[]) => {
-  if (!images.length) return;
+export const animateGalleryMobile = (
+  section: HTMLElement,
+  tl: gsap.core.Timeline,
+  images: GalleryImageConfig[],
+) => {
+  if (!section || !tl || !images.length) return;
 
-  const sections = [...new Set(images.map((image) => image.section))];
+  // Extraer el nombre de la sección: create-section → create
+  const sectionName = section.className.match(
+    /(?:^|\s)([\w-]+)-section(?:\s|$)/,
+  )?.[1];
 
-  const timelines = sections.map((sectionName) => {
-    const section = document.querySelector(
-      `.${sectionName}-section`,
-    ) as HTMLElement;
+  if (!sectionName) return;
 
-    if (!section) return null;
+  // Obtener únicamente las imágenes correspondientes a esta sección
+  const sectionImages = images.filter((image) => image.section === sectionName);
 
-    const wrapper = section.parentElement as HTMLElement;
+  if (!sectionImages.length) return;
 
-    if (!wrapper) return null;
+  const sectionHeight = section.clientHeight;
+  const sectionWidth = section.clientWidth;
 
-    const sectionImages = images.filter(
-      (image) => image.section === sectionName,
-    );
+  sectionImages.forEach((image) => {
+    const img = document.createElement("img");
 
-    const viewportHeight = window.innerHeight;
-    const sectionWidth = section.clientWidth;
+    img.src = image.src;
+    img.alt = "";
+    img.draggable = false;
+    img.className = "gallery-image";
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: wrapper,
-        start: "top 0",
-        end: "bottom bottom",
-        scrub: 1,
+    img.style.width = `${(sectionWidth * (image.width ?? 25)) / 100}px`;
+    img.style.left = `${image.x}%`;
+    // img.style.top = `${image.progress}%`;
+
+    section.appendChild(img);
+
+    console.log(tl.duration());
+    console.log(tl.duration() * (image.progress / 100 / 4));
+
+    // Estado inicial
+    gsap.set(img, {
+      y: sectionHeight * (image.progress / 100),
+      yPercent: 0,
+      xPercent: -50,
+    });
+
+    // Animación vinculada a la timeline de la sección
+    tl.to(
+      img,
+      {
+        y: -sectionHeight,
+        duration: 8,
+        ease: "none",
       },
-    });
-
-    sectionImages.forEach((image) => {
-      const img = document.createElement("img");
-
-      img.src = image.src;
-      img.alt = "";
-      img.draggable = false;
-      img.className = "gallery-image";
-
-      img.style.width = `${(sectionWidth * (image.width ?? 25)) / 100}px`;
-      img.style.left = `${image.x}%`;
-      img.style.top = `${image.progress}%`;
-      section.appendChild(img);
-      gsap.set(img, {
-        yPercent: 0,
-        xPercent: -50,
-      });
-
-      tl.to(
-        img,
-        {
-          yPercent: -100,
-          duration: 1,
-          ease: "none",
-        },
-        0,
-      );
-    });
-
-    return tl;
+      tl.duration() * (image.progress / 100 / 3),
+    );
   });
-
-  return timelines.filter(Boolean);
 };

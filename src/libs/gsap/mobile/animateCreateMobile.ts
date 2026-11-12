@@ -1,5 +1,7 @@
 import { animateShowText } from "../animateShowText";
 import { gsap } from "../index";
+import { animateGalleryMobile } from "./animateGalleryMobile";
+import { galleryImagesMobile } from "@/libs/const/gallery.config";
 
 export const animateCreateMobile = (section: HTMLElement) => {
   if (!section) return;
@@ -15,23 +17,21 @@ export const animateCreateMobile = (section: HTMLElement) => {
   const rolesHeading = createRoles?.querySelector<HTMLElement>("h3");
 
   const iconCreate = createRoles?.querySelector<HTMLElement>(".create-icon");
-  const img = section?.querySelector<HTMLElement>(".img") as HTMLImageElement;
+  // const img = section?.querySelector<HTMLElement>(".img") as HTMLImageElement;
 
   if (!wrapper || !createText || !createRoles || !itemsRoles?.length) {
     return;
   }
-
-  console.log(img);
 
   // Estado inicial
   gsap.set(createText, {
     yPercent: 0,
   });
 
-  gsap.set(img, {
-    y: section.clientHeight * 0.1,
-    yPercent: 0,
-  });
+  // gsap.set(img, {
+  //   y: section.clientHeight * 0.1,
+  //   yPercent: 0,
+  // });
 
   gsap.set(createRoles, {
     yPercent: 100,
@@ -76,16 +76,18 @@ export const animateCreateMobile = (section: HTMLElement) => {
     0,
   );
 
-  tl.to(
-    img,
-    {
-      y: -section.clientHeight,
-      duration: 8,
-      ease: "none",
-    },
-    0,
-    // tl.duration() * 0.1,
-  );
+  // tl.to(
+  //   img,
+  //   {
+  //     y: -section.clientHeight,
+  //     duration: 8,
+  //     ease: "none",
+  //   },
+
+  //   tl.duration() * 0,
+  // );
+
+  animateGalleryMobile(section, tl, galleryImagesMobile);
 
   // Entrada de los roles
   tl.to(
