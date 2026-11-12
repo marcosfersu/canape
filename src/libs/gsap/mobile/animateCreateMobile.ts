@@ -27,8 +27,10 @@ export const animateCreateMobile = (section: HTMLElement) => {
   gsap.set(createText, {
     yPercent: 0,
   });
+
   gsap.set(img, {
-    top: "50%",
+    y: section.clientHeight * 0.1,
+    yPercent: 0,
   });
 
   gsap.set(createRoles, {
@@ -73,15 +75,15 @@ export const animateCreateMobile = (section: HTMLElement) => {
     },
     0,
   );
+
   tl.to(
     img,
     {
-      top: "-100%",
-
-      duration: 10,
+      y: -section.clientHeight,
+      duration: 8,
       ease: "none",
     },
-    tl.duration() * 0.2,
+    tl.duration() * 0.1,
   );
 
   // Entrada de los roles
