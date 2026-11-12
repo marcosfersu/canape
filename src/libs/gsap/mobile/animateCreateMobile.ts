@@ -83,7 +83,8 @@ export const animateCreateMobile = (section: HTMLElement) => {
       duration: 8,
       ease: "none",
     },
-    tl.duration() * 0.1,
+    0,
+    // tl.duration() * 0.1,
   );
 
   // Entrada de los roles
