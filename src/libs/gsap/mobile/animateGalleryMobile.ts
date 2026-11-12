@@ -7,18 +7,23 @@ export const animateGalleryMobile = (
 ) => {
   if (!container || !images.length) return;
 
-  const containerHeight = window.innerHeight;
   const containerWidth = container.clientWidth;
 
   if (!containerWidth) return;
 
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const imageElements: HTMLImageElement[] = [];
 
-  if (maxScroll <= 0) return;
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: document.documentElement,
+      start: 0,
+      end: () => document.documentElement.scrollHeight - window.innerHeight,
+      scrub: 1,
+      invalidateOnRefresh: true,
+    },
+  });
 
-  const imageDuration = 10;
-
-  const elements = images.map((image) => {
+  images.forEach((image) => {
     const img = document.createElement("img");
 
     img.src = image.src;
@@ -30,39 +35,35 @@ export const animateGalleryMobile = (
     img.style.left = `${image.x}%`;
 
     container.appendChild(img);
+    imageElements.push(img);
 
     gsap.set(img, {
       xPercent: -50,
-      y: "120vh",
     });
 
-    const start = (image.progress / 100) * maxScroll;
-    const end = start + (image.duration / 100) * maxScroll;
-
-    gsap.fromTo(
+    tl.fromTo(
       img,
-      { y: "120vh" },
+      {
+        y: "120vh",
+      },
       {
         y: "-120vh",
+        duration: image.duration,
         ease: "none",
-        scrollTrigger: {
-          trigger: document.documentElement,
-          start: start,
-          end: end,
-          scrub: true,
-        },
       },
+      image.progress,
     );
-
-    return img;
   });
 
-  return () => {
-    elements.forEach((img) => {
-      ScrollTrigger.getAll()
-        .filter((trigger) => trigger.trigger === document.documentElement)
-        .forEach((trigger) => trigger.kill());
+  // Mantiene la escala de la timeline en 100 unidades,
+  // equivalentes al 100% del scroll de la página.
+  tl.to({}, { duration: 100 }, 0);
 
+  return () => {
+    tl.scrollTrigger?.kill();
+    tl.kill();
+
+    imageElements.forEach((img) => {
       img.remove();
     });
   };
