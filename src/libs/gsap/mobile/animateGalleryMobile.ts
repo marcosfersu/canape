@@ -38,7 +38,7 @@ export const animateGalleryMobile = (
     section.appendChild(img);
 
     console.log(tl.duration());
-    console.log(tl.duration() * (image.progress / 100 / 4));
+    console.log(tl.duration() * (image.progress / 100 / 4), "dutarion");
     console.log(8 + image.progress / 50);
 
     // Estado inicial
