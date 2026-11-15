@@ -1,12 +1,13 @@
 ---
 import HeroTextIcon from "@/assets/HeroTextIcon.astro";
 import { getI18N } from "@/i18n/";
+import Button from "../ui/Button.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<div class="text-custom-red w-65 overflow-hidden">
+<div class="text-custom-red w-65 overflow-hidden z-10">
   <h1 class="max-w-base flex flex-col text-base uppercase text-justify leading-snug">
     <span class="flex justify-between items-center">
       <HeroTextIcon className="size-4" />
@@ -27,7 +28,17 @@ const i18n = getI18N({ currentLocale });
     </span>
   </h1>
   <div class="text-2xl font-altesse flex justify-between mt-6">
-    <h4 class="border-b cursor-pointer">{i18n.HERO.UNIVERSE}</h4>
-    <h4 class="border-b cursor-pointer">{i18n.HERO.CONTACT}</h4>
+    <Button
+      href="#service"
+      dataOffset={30}
+      mobileTarget=".service-text"
+      mobileProgress={29}
+      mobileDuration={30}
+    >
+      {i18n.HERO.UNIVERSE}
+    </Button>
+    <Button href="#contact" dataOffset="28" class="border-b cursor-pointer">
+      {i18n.HERO.CONTACT}
+    </Button>
   </div>
 </div>

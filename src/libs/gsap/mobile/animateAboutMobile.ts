@@ -41,7 +41,7 @@ export const animateAboutMobile = (section: HTMLElement) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: wrapper,
-      start: "top top",
+      start: "top 80%",
       end: "bottom bottom",
       scrub: 1,
     },
@@ -69,7 +69,7 @@ export const animateAboutMobile = (section: HTMLElement) => {
       duration: 10,
       ease: "none",
     },
-    4,
+    0,
   );
 
   // Revelado de la imagen
@@ -107,7 +107,7 @@ export const animateAboutMobile = (section: HTMLElement) => {
       duration: 10,
       ease: "none",
     },
-    16,
+    13,
   );
 
   // Aparición de los textos internos

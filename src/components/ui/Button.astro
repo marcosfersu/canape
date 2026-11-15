@@ -1,16 +1,66 @@
 ---
 interface Props {
+  href: string;
   class?: string;
+  dataOffset?: number;
+  mobileTarget?: string;
+  mobileProgress?: number;
+  mobileDuration?: number;
 }
 
-const { class: className } = Astro.props;
+const {
+  href,
+  class: className,
+  dataOffset = 0,
+  mobileTarget,
+  mobileProgress = 0,
+  mobileDuration = 30,
+} = Astro.props;
 ---
 
-<button
+<a
   class:list={[
     "font-altesse border-b border-custom-red/30 text-2xl lowercase inline cursor-pointer hover:border-custom-red",
     className,
   ]}
+  data-offset={dataOffset}
+  data-mobile-target={mobileTarget}
+  data-mobile-progress={mobileProgress}
+  data-mobile-duration={mobileDuration}
+  href={href}
 >
   <slot />
-</button>
+</a>
+
+<script>
+  import { positions } from "../../libs/const/positions";
+  import { scrollToSection } from "../../libs/gsap/scrollToSection";
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const section = link.getAttribute("href")?.replace("#", "");
+      const offset = Number(link.getAttribute("data-offset") ?? 0);
+      const mobileTarget = link.getAttribute("data-mobile-target") ?? undefined;
+
+      const mobileProgress = Number(
+        link.getAttribute("data-mobile-progress") ?? 0,
+      );
+
+      const mobileDuration = Number(
+        link.getAttribute("data-mobile-duration") ?? 30,
+      );
+
+      if (section && section in positions) {
+        scrollToSection(
+          section as keyof typeof positions,
+          offset,
+          mobileTarget,
+          mobileProgress,
+          mobileDuration,
+        );
+      }
+    });
+  });
+</script>

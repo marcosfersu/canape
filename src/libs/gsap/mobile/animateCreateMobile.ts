@@ -69,11 +69,11 @@ export const animateCreateMobile = (section: HTMLElement) => {
   tl.to(
     createText,
     {
-      yPercent: -200,
+      yPercent: -100,
       duration: 20,
       ease: "none",
     },
-    0,
+    2,
   );
 
   // tl.to(
@@ -97,7 +97,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
       duration: 5,
       ease: "none",
     },
-    5,
+    10,
   );
 
   // Aparición de paréntesis e icono
@@ -125,7 +125,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
 
   // Animación de los roles
   itemsRoles.forEach((item, index) => {
-    const timeRole = 10 + index * 4;
+    const timeRole = 12 + index * 4;
 
     tl.to(
       item,

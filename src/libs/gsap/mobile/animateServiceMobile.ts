@@ -28,11 +28,24 @@ export const animateServiceMobile = (section: HTMLElement) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: wrapper,
-      start: "top top",
+      start: "top 80%",
       end: "bottom bottom",
       scrub: 1,
     },
   });
+
+  // tl.fromTo(
+  //   wrapper,
+  //   {
+  //     yPercent: 0,
+  //   },
+  //   {
+  //     yPercent: -100,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
 
   // Movimiento horizontal de las imágenes
   tl.fromTo(

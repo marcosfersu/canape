@@ -118,7 +118,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-1.webp",
     section: "create",
-    progress: 10,
+    progress: 60,
     duration: 20,
     x: 30,
     width: 65,
@@ -126,7 +126,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-2.webp",
     section: "create",
-    progress: 70,
+    progress: 120,
     duration: 20,
     x: 60,
     width: 70,
@@ -134,7 +134,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-3.webp",
     section: "create",
-    progress: 150,
+    progress: 180,
     duration: 20,
     x: 70,
     width: 60,
@@ -142,7 +142,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-4.webp",
     section: "create",
-    progress: 100,
+    progress: 140,
     duration: 20,
     x: 30,
     width: 55,
@@ -150,7 +150,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-5.webp",
     section: "create",
-    progress: 200,
+    progress: 220,
     duration: 300,
     x: 40,
     width: 70,
@@ -158,7 +158,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-6.webp",
     section: "create",
-    progress: 280,
+    progress: 240,
     duration: 300,
     x: 50,
     width: 70,
@@ -166,11 +166,12 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-7.webp",
     section: "create",
-    progress: 250,
+    progress: 260,
     duration: 14,
     x: 70,
     width: 80,
   },
+
   // // Journal
   // {
   //   src: "/images/about-1.webp",
