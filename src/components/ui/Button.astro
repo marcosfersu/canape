@@ -1,11 +1,12 @@
 ---
 interface Props {
-  href: string;
+  href?: string;
   class?: string;
   dataOffset?: number;
   mobileTarget?: string;
   mobileProgress?: number;
   mobileDuration?: number;
+  blank?: boolean;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   mobileTarget,
   mobileProgress = 0,
   mobileDuration = 30,
+  blank = false,
 } = Astro.props;
 ---
 
@@ -28,6 +30,8 @@ const {
   data-mobile-progress={mobileProgress}
   data-mobile-duration={mobileDuration}
   href={href}
+  target={`${blank} && "_blank"`}
+  rel="noopener noreferrer"
 >
   <slot />
 </a>

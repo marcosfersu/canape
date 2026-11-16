@@ -13,29 +13,29 @@ export const animateJournalMobile = (section: HTMLElement) => {
 
   // tl.call(() => showText.play(), [], showText.position);
 
-  console.log(text);
+  // console.log(text);
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: wrapper,
-      start: "top 80%",
-      end: "bottom bottom",
-      scrub: 1,
-    },
-  });
+  // const tl = gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: wrapper,
+  //     start: "top bottom",
+  //     end: "bottom bottom",
+  //     scrub: 1,
+  //   },
+  // });
 
   // animateGalleryMobile(section, tl, galleryImagesMobile);
 
-  tl.fromTo(
-    text,
-    {
-      yPercent: 100,
-    },
-    {
-      yPercent: 0,
-      ease: "none",
-      duration: 10,
-    },
-    0,
-  );
+  // tl.fromTo(
+  //   text,
+  //   {
+  //     yPercent: 100,
+  //   },
+  //   {
+  //     yPercent: 0,
+  //     ease: "none",
+  //     duration: 10,
+  //   },
+  //   0,
+  // );
 };

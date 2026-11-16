@@ -109,7 +109,7 @@ export const galleryImages = [
     progress: 0.9,
     duration: 20,
     x: 68,
-    width: 10,
+    width: 30,
   },
 ] satisfies GalleryImageConfig[];
 

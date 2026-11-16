@@ -13,14 +13,18 @@ export const animateContactMobile = (section: HTMLElement) => {
 
   if (!wrapper || !textSection || images.length < 3) return;
 
-  console.log(images, textSection);
+  // console.log(images, textSection);
 
-  gsap.set(images, {
-    clipPath: "inset(0% 0% 0% 0%)",
-  });
+  // gsap.set(images, {
+  //   clipPath: "inset(0% 0% 0% 0%)",
+  // });
 
   gsap.set(textSection, {
     yPercent: 100,
+  });
+
+  gsap.set(images, {
+    xPercent: 300,
   });
 
   const tl = gsap.timeline({
@@ -33,38 +37,51 @@ export const animateContactMobile = (section: HTMLElement) => {
   });
 
   // Entrada de las imágenes
-  tl.fromTo(
-    images.filter((_, i) => i !== 1),
-    { y: "-100vh" },
-    {
-      y: 0,
-      duration: 10,
-      ease: "none",
-    },
-    0,
-  );
+  // tl.fromTo(
+  //   images.filter((_, i) => i !== 1),
+  //   { y: "-100vh" },
+  //   {
+  //     y: 0,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
+
+  // tl.fromTo(
+  //   images[1],
+  //   { y: "100vh" },
+  //   {
+  //     y: 0,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
 
   tl.fromTo(
-    images[1],
-    { y: "100vh" },
+    images,
     {
-      y: 0,
-      duration: 10,
+      xPercent: 300,
+    },
+    {
+      xPercent: -300,
+      duration: 30,
       ease: "none",
     },
     0,
   );
 
   // Salida de las imágenes
-  tl.to(
-    images,
-    {
-      clipPath: "inset(0% 0% 100% 0%)",
-      duration: 8,
-      ease: "none",
-    },
-    10,
-  );
+  // tl.to(
+  //   images,
+  //   {
+  //     clipPath: "inset(0% 0% 100% 0%)",
+  //     duration: 8,
+  //     ease: "none",
+  //   },
+  //   10,
+  // );
 
   // Entrada del texto
   tl.fromTo(
@@ -75,7 +92,7 @@ export const animateContactMobile = (section: HTMLElement) => {
       duration: 10,
       ease: "none",
     },
-    10,
+    22,
   );
 
   const showText = animateShowText(section, 15);

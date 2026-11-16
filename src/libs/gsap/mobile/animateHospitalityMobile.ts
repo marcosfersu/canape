@@ -13,8 +13,12 @@ export const animateHospitalityMobile = (section: HTMLElement) => {
 
   if (!wrapper || !textSection || images.length < 3) return;
 
+  // gsap.set(images, {
+  //   clipPath: "inset(0% 0% 0% 0%)",
+  // });
+
   gsap.set(images, {
-    clipPath: "inset(0% 0% 0% 0%)",
+    xPercent: 300,
   });
 
   gsap.set(textSection, {
@@ -24,45 +28,58 @@ export const animateHospitalityMobile = (section: HTMLElement) => {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: wrapper,
-      start: "top 50%",
+      start: "top bottom",
       end: "bottom bottom",
       scrub: 1,
     },
   });
 
-  // Entrada de las imágenes
   tl.fromTo(
-    images.filter((_, i) => i !== 1),
-    { y: "-100vh" },
-    {
-      y: 0,
-      duration: 10,
-      ease: "none",
-    },
-    0,
-  );
-
-  tl.fromTo(
-    images[1],
-    { y: "100vh" },
-    {
-      y: 0,
-      duration: 10,
-      ease: "none",
-    },
-    0,
-  );
-
-  // Salida de las imágenes
-  tl.to(
     images,
     {
-      clipPath: "inset(0% 0% 100% 0%)",
-      duration: 8,
+      xPercent: 300,
+    },
+    {
+      xPercent: -300,
+      duration: 30,
       ease: "none",
     },
-    10,
+    0,
   );
+
+  // Entrada de las imágenes
+  // tl.fromTo(
+  //   images.filter((_, i) => i !== 1),
+  //   { y: "-100vh" },
+  //   {
+  //     y: 0,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
+
+  // tl.fromTo(
+  //   images[1],
+  //   { y: "100vh" },
+  //   {
+  //     y: 0,
+  //     duration: 10,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
+
+  // Salida de las imágenes
+  // tl.to(
+  //   images,
+  //   {
+  //     clipPath: "inset(0% 0% 100% 0%)",
+  //     duration: 8,
+  //     ease: "none",
+  //   },
+  //   10,
+  // );
 
   // Entrada del texto
   tl.fromTo(
@@ -73,7 +90,7 @@ export const animateHospitalityMobile = (section: HTMLElement) => {
       duration: 10,
       ease: "none",
     },
-    10,
+    25,
   );
 
   const showText = animateShowText(section, 15);

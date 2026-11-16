@@ -2,14 +2,33 @@
 import ArrowIcon from "@/assets/ArrowIcon.astro";
 import Button from "../ui/Button.astro";
 
-const LinksShaders = ["whatsapp", "mail", "instagram"];
+export const LinksShaders = [
+  {
+    name: "whatsapp",
+    href: `https://wa.me/5493524410888?text=${encodeURIComponent("Hola, llegué desde la web de Canapé ✦ Tengo una idea dando vueltas y me gustaría contarles un poco más.")}`,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "mail",
+    href: "mailto:tu-correo@example.com", // Para correos se usa mailto:
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+  {
+    name: "instagram",
+    href: "https://instagram.com/holacanape",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
+];
 ---
 
-<div class="contact-wrapper relative w-full lg:absolute max-md:h-[250vh] -z-10">
+<div class="contact-wrapper relative w-full lg:absolute max-md:h-[250vh]">
   <section class="contact-section absolute h-screen w-full inset-0 max-md:sticky max-md:top-0 max-md:h-screen max-md:inset-auto max-md:overflow-hidden">
-    <div class="contact-images absolute max-md:absolute max-md:inset-0 max-md:h-screen h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
-      <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-[80vh] max-md:h-[55vh] overflow-hidden lg:overflow-visible">
-        <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
+    <div class="contact-images absolute max-md:fixed max-md:inset-0 max-md:h-screen h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+      <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-screen max-md:h-[80vh] overflow-hidden lg:overflow-visible">
+        <li class="shrink-0 w-auto lg:flex-1">
           <img
             class="w-full h-full object-cover"
             src="/images/contact-1.webp"
@@ -17,7 +36,7 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
           />
         </li>
 
-        <li class="shrink-0 w-[50vw] lg:w-auto lg:flex-1">
+        <li class="shrink-0 w-auto lg:flex-1">
           <img
             class="w-full h-full object-cover"
             src="/images/contact-2.webp"
@@ -25,7 +44,7 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
           />
         </li>
 
-        <li class="shrink-0 w-[25vw] lg:w-auto lg:flex-1">
+        <li class="shrink-0 w-auto lg:flex-1">
           <img
             class="w-full h-full object-cover"
             src="/images/contact-3.webp"
@@ -52,8 +71,10 @@ const LinksShaders = ["whatsapp", "mail", "instagram"];
       </div>
       <div class="flex flex-col items-center">
         <div class="flex lg:gap-20 gap-10 show-element max-md:mt-10">
-          {LinksShaders.map((text) => (
-            <Button class="lg:text-6xl">{text}</Button>
+          {LinksShaders.map(({ name, href }) => (
+            <Button href={href} blank class="lg:text-6xl">
+              {name}
+            </Button>
           ))}
         </div>
         <ArrowIcon class="text-custom-red size-14 mt-5 lg:mt-10" />

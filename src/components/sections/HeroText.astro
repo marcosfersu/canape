@@ -37,7 +37,14 @@ const i18n = getI18N({ currentLocale });
     >
       {i18n.HERO.UNIVERSE}
     </Button>
-    <Button href="#contact" dataOffset="28" class="border-b cursor-pointer">
+    <Button
+      href="#contact"
+      dataOffset={28}
+      mobileTarget=".contact-text"
+      mobileProgress={25}
+      mobileDuration={25}
+      class="border-b cursor-pointer"
+    >
       {i18n.HERO.CONTACT}
     </Button>
   </div>
