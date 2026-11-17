@@ -115,7 +115,7 @@ const nav = [
         [&_span]:before:duration-300
         [&_span]:hover:before:opacity-100
         [&_span]:hover:before:-translate-x-1
-        [&_span]:before:-translate-x-3
+        [&_span]:before:-translate-x-1
         [&_span]:before:inline-block
         [&_span]:after:content-[')']
         [&_span]:after:opacity-0
@@ -200,7 +200,7 @@ const nav = [
 </div>
 
 <!-- Header box -->
-<div class="fixed hidden lg:relative right-10 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
+<div class="fixed hidden lg:block right-10 bottom-10 z-50 pointer-events-auto size-4 bg-custom-red header-box"></div>
 
 <!-- Theme toggle -->
 <div class="fixed lg:left-10 right-3.5 bottom-8 [writing-mode:vertical-rl] rotate-180 lg:rotate-0 lg:[writing-mode:horizontal-tb] lg:bottom-10 z-50 pointer-events-auto">
@@ -231,14 +231,21 @@ const nav = [
       transform: translateX(-12px);
     }
 
-    header nav a.is-active span::before,
-    header nav a.is-active span::after {
-      opacity: 1;
-    }
+    /* header nav a.is-active span::before,
+                  header nav a.is-active span::after {
+                    opacity: 1;
+                  } */
 
     header nav a span::before,
     header nav a span::after {
       font-weight: 100;
+    }
+
+    @media (hover: hover) {
+      .is-active span:hover::before,
+      .is-active span:hover::after {
+        opacity: 0 !important;
+      }
     }
 
     header nav a.is-active span::before {
