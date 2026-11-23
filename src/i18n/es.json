@@ -21,9 +21,9 @@
   "HEADER": {
     "NAVIGATION": {
       "MANIFESTO": "MANIFIESTO",
-      "UNIVERSE": "UNIVERSO",
-      "EXPERIENCES": "EXPERIENCIAS",
-      "JOURNAL": "JOURNAL",
+      "CONCEPTLAB": "CONCEPT LAB",
+      "SERVICIOS": "SERVICIOS",
+      "DETRASCANAPE": "DETRÁS DE CANAPÉ",
       "CONTACT": "CONTACTO"
     },
     "SOCIAL": {
@@ -37,7 +37,7 @@
       "PT": "PT"
     },
     "THEME": {
-      "TOGGLE": "CAMBIAR EL MOOD"
+      "TOGGLE": "ELEGIR EL MOOD"
     },
     "HERO": {
       "LINE_1": "CREATIVE STUDIO",
@@ -53,8 +53,8 @@
     "LINE_3": "EXPERIENCIAS & HOSPITALIDAD",
     "LINE_4_1": "DE MENDOZA",
     "LINE_4_2": "AL MUNDO",
-    "UNIVERSE": "servicios",
-    "CONTACT": "contacto"
+    "UNIVERSE": "ver nuestros servicios",
+    "CONTACT": "Contanos tu idea"
   },
   "HOSPITALITY": {
     "TITLE_1": "El arte de recibir bien",
@@ -63,8 +63,8 @@
     "CTA": "conocé nuestro servicios"
   },
   "CREATE": {
-    "TITLE_1": "Concept Lab: Del concepto a la mesa",
-    "TITLE_2": "No hacemos eventos, creamos universos",
+    "TITLE_1": "DEL CONCEPTO A LA MESA",
+    "TITLE_2": ["No hacemos eventos,", "creamos universos"],
     "DESCRIPTION": "Desde el Concept Lab gestionamos y desarrollamos identidades para terceros, transformando ideas en experiencias tangibles que la gente recuerda.",
     "ROLES": ["Curaduría", "Dirección de Arte", "Producción", "Logística"]
   },
@@ -93,5 +93,34 @@
     "BIO_1": "Mi mirada se formó entre el diseño industrial y años de experiencia en hospitalidad y gastronomía. Entiendo cada proyecto como un todo: la idea, el espacio, el ritmo, los detalles y, sobre todo, la forma en que las personas lo viven.",
     "BIO_2": "Me interesan los lugares con carácter, las decisiones que tienen sentido y una hospitalidad generosa, donde todos puedan encontrar su lugar.",
     "BIO_3": "Canapé nace de esa manera de mirar y de hacer: mezclar lo heredado con lo inesperado para crear encuentros y atmósferas con una identidad propia."
+  },
+  "CONTACT": {
+    "TITLE": "Hablemos",
+    "SUBTITLE": "¿Tenés una idea dando vueltas?",
+    "DESCRIPTION": "Nos encantaría conocerla. Contanos qué imaginás y creemos juntos una experiencia con identidad propia.",
+    "CTA": "EMPECEMOS A CREAR",
+    "LINKS": [
+      {
+        "name": "whatsapp",
+        "label": "WHATSAPP",
+        "href": "https://wa.me/5493524410888?text=Hola%2C%20llegu%C3%A9%20desde%20la%20web%20de%20Canap%C3%A9%20%E2%9C%A6%20Tengo%20una%20idea%20dando%20vueltas%20y%20me%20gustar%C3%ADa%20contarles%20un%20poco%20m%C3%A1s.",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "name": "mail",
+        "label": "EMAIL",
+        "href": "mailto:tu-correo@example.com",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      },
+      {
+        "name": "instagram",
+        "label": "INSTAGRAM",
+        "href": "https://instagram.com/holacanape",
+        "target": "_blank",
+        "rel": "noopener noreferrer"
+      }
+    ]
   }
 }

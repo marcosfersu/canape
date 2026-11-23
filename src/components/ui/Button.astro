@@ -22,7 +22,7 @@ const {
 
 <a
   class:list={[
-    "font-altesse border-b border-custom-red/30 text-2xl lowercase inline cursor-pointer hover:border-custom-red",
+    "font-altesse animated-link text-2xl lowercase inline cursor-pointer",
     className,
   ]}
   data-offset={dataOffset}
@@ -35,6 +35,34 @@ const {
 >
   <slot />
 </a>
+
+<style>
+  .animated-link {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .animated-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-custom-red);
+    transform: scaleX(1);
+    transform-origin: left;
+    transition:
+      transform 0.3s ease,
+      height 0.3s ease;
+  }
+
+  .animated-link:hover::after {
+    transform: scaleX(0);
+    transform-origin: right;
+    height: 2px;
+  }
+</style>
 
 <script>
   import { positions } from "../../libs/const/positions";

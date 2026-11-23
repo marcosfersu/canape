@@ -28,7 +28,6 @@ export const animateGallery = (
 
     img.style.left = `${image.x}%`;
 
-    console.log(img);
     container.appendChild(img);
 
     // Inicio del recorrido

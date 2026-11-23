@@ -7,12 +7,13 @@ const i18n = getI18N({ currentLocale });
 
 <div class="about-wrapper relative w-full lg:absolute max-md:h-[300vh]">
   <section
-    class="about-section absolute h-screen w-full inset-0 flex items-center justify-center overflow-hidden
+    class="about-section absolute h-screen w-full inset-0 flex items-center justify-center
       max-md:sticky
       max-md:top-0
       max-md:inset-auto
       max-md:h-screen
-      max-md:w-full"
+      max-md:w-full
+      max-md:overflow-hidden"
   >
     <div class="inset-0 z-10 flex flex-col items-center justify-center relative text-center max-w-2xl px-6 pointer-events-auto">
       <p class="about-head text-center max-w-md lg:text-2xl text-xs uppercase tracking-widest font-light mb-4">
@@ -24,8 +25,8 @@ const i18n = getI18N({ currentLocale });
       </h2>
 
       <div class="absolute -z-10 about-img">
-        <div class="overflow-hidden relative max-md:w-[80vw] h-full lg:h-[80vh]">
-          <div class="absolute bg-img w-full h-full bg-custom-white z-10"></div>
+        <div class="relative max-md:w-[80vw] h-full lg:h-[80vh]">
+          <div class="absolute bg-img w-full h-full bg-custom-white z-10 lg:hidden"></div>
           <img
             src="./images/EstebanBravo.webp"
             class="reveal-img h-full w-auto object-cover"
@@ -35,8 +36,8 @@ const i18n = getI18N({ currentLocale });
       </div>
     </div>
 
-    <div class="uppercase about-description absolute lg:max-w-xl w-full text-center flex flex-col gap-6 show-element max-md:mx-10 lg:px-0 px-10">
-      <h2 class="font-semibold lg:text-4xl text-3xl md:text-6xl mb-4 uppercase show-text">
+    <div class="about-description absolute inset-0 z-20 flex flex-col items-center justify-center uppercase text-center max-md:flex max-md:flex-col max-md:px-10 lg:max-w-xl w-full mx-auto gap-6 px-10 pointer-events-none">
+      <h2 class="font-semibold lg:text-6xl text-3xl md:text-6xl mb-4 uppercase">
         {i18n.ABOUT.NAME}
       </h2>
 

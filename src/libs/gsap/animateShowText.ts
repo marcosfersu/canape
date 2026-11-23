@@ -28,7 +28,7 @@ export const animateShowText = (section: HTMLElement, position: number) => {
 
       showTl.fromTo(
         split.lines,
-        { yPercent: 100 },
+        { yPercent: 110 },
         {
           yPercent: 0,
           duration: 0.7,
@@ -41,7 +41,7 @@ export const animateShowText = (section: HTMLElement, position: number) => {
       // Si es un elemento general, animamos el bloque entero
       showTl.fromTo(
         el,
-        { yPercent: 100 },
+        { yPercent: 110 },
         {
           yPercent: 0,
           duration: 0.7,

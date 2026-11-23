@@ -51,6 +51,8 @@ export const scrollToSection = (
     const position = positions[section][0] + offset;
     const progress = position / positions.loop[1];
 
+    console.log(position, offset);
+
     targetScroll = trigger.start + (trigger.end - trigger.start) * progress;
   }
 

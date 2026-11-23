@@ -1,11 +1,11 @@
 import { positions } from "../const/positions.ts";
 
 const positionsNav = {
-  hero: [positions.hero[0], positions.hero[1]],
-  hospitality: [positions.hospitality[0] + 2, positions.hospitality[1] + 2],
+  hero: [positions.hero[0], positions.hospitality[1] + 2],
   create: [positions.create[0] + 2, positions.create[1] + 2],
   service: [positions.service[0] + 2, positions.service[1] + 2],
   about: [positions.about[0] + 2, positions.about[1] + 2],
+  contact: [positions.contact[0] + 2, positions.contact[1] + 2],
   loop: [positions.loop[0] + 2, positions.loop[1] + 2],
 } as const;
 
@@ -32,18 +32,26 @@ export const setupActiveNav = (tl: gsap.core.Timeline) => {
     });
   };
 
-  (
-    Object.entries(positionsNav) as [Section, readonly [number, number]][]
-  ).forEach(([section, [start, end]]) => {
-    tl.call(() => setActiveNav(section), [], start);
+  const sections = Object.entries(positionsNav) as [
+    Section,
+    readonly [number, number],
+  ][];
 
-    tl.call(
-      () => {
-        setActiveNav(section);
-      },
-      [],
-      end,
-    );
+  let previousTime = tl.time();
+
+  tl.eventCallback("onUpdate", () => {
+    const currentTime = tl.time();
+    const isScrollingDown = currentTime > previousTime;
+
+    const currentSection = isScrollingDown
+      ? [...sections].reverse().find(([, [start]]) => currentTime >= start)
+      : sections.find(([, [, end]]) => currentTime <= end);
+
+    if (currentSection) {
+      setActiveNav(currentSection[0]);
+    }
+
+    previousTime = currentTime;
   });
 
   setActiveNav("hero");

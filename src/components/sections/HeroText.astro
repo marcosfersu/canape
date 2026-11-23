@@ -5,6 +5,8 @@ import Button from "../ui/Button.astro";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
+
+const whatsapp = i18n.CONTACT.LINKS.find((link) => link.name === "whatsapp");
 ---
 
 <div class="text-custom-red w-65 overflow-hidden z-10">
@@ -29,7 +31,9 @@ const i18n = getI18N({ currentLocale });
   </h1>
   <div class="text-2xl font-altesse flex justify-between mt-6">
     <Button
+      class="text-lg"
       href="#service"
+      blank
       dataOffset={30}
       mobileTarget=".service-text"
       mobileProgress={29}
@@ -38,12 +42,12 @@ const i18n = getI18N({ currentLocale });
       {i18n.HERO.UNIVERSE}
     </Button>
     <Button
-      href="#contact"
+      class="text-lg"
+      href={whatsapp?.href}
       dataOffset={28}
       mobileTarget=".contact-text"
       mobileProgress={25}
       mobileDuration={25}
-      class="border-b cursor-pointer"
     >
       {i18n.HERO.CONTACT}
     </Button>

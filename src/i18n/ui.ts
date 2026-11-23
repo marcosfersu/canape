@@ -9,9 +9,9 @@ export const defaultLang = "es";
 export const ui = {
   es: {
     "nav.manifesto": "MANIFIESTO",
-    "nav.universe": "UNIVERSO",
-    "nav.experiences": "EXPERIENCIAS",
-    "nav.journal": "JOURNAL",
+    "nav.conceptLab": "CONCEPT LAB",
+    "nav.experiences": "SERVICIOS",
+    "nav.journal": "DETRÁS DE CANAPÉ",
     "nav.contact": "CONTACTO",
     "nav.instagram": "INSTAGRAM",
     "nav.email": "MAIL@CANAPE.COM",
@@ -27,7 +27,7 @@ export const ui = {
 
   en: {
     "nav.manifesto": "MANIFESTO",
-    "nav.universe": "UNIVERSE",
+    "nav.conceptLab": "CONCEPT LAB",
     "nav.experiences": "EXPERIENCES",
     "nav.journal": "JOURNAL",
     "nav.contact": "CONTACT",
@@ -45,7 +45,7 @@ export const ui = {
 
   pt: {
     "nav.manifesto": "MANIFESTO",
-    "nav.universe": "UNIVERSO",
+    "nav.conceptLab": "CONCEPT LAB",
     "nav.experiences": "EXPERIÊNCIAS",
     "nav.journal": "JOURNAL",
     "nav.contact": "CONTATO",

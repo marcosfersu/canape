@@ -11,9 +11,7 @@ export const animateService = (
   const serviceImages = section.querySelector(".service-images") as HTMLElement;
   const serviceText = section.querySelector(".service-text") as HTMLElement;
 
-  const showText = animateShowText(section, start + 24);
-
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const showText = animateShowText(section, start);
 
   if (!showText) return;
 
@@ -27,23 +25,21 @@ export const animateService = (
     {
       xPercent: -100,
       ease: "none",
-      duration: isMobile ? 40 : 25,
+      duration: 26,
     },
-    start + (isMobile ? -2 : 2),
+    start + 8,
   );
 
-  tl.fromTo(
-    serviceText,
-    {
-      y: window.innerHeight,
-    },
-    {
-      y: 0,
-      ease: "none",
-      duration: 10,
-    },
-    start + 22,
-  );
+  if (serviceText) {
+    tl.fromTo(
+      serviceText,
+      {
+        yPercent: 100,
+      },
+      { yPercent: -130, ease: "none", duration: 10 },
+      start + 4,
+    );
+  }
 
   tl.fromTo(
     section,

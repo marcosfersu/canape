@@ -14,19 +14,20 @@ const i18n = getI18N({ currentLocale });
   >
     <div class="create-text absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
       <div class="lg:max-w-4xl flex flex-col items-center justify-center">
-        <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
+        <h4 class="lg:text-sm text-xs uppercase tracking-widest font-semibold mb-4 show-text">
           {i18n.CREATE.TITLE_1}
         </h4>
 
-        <h2 class="lg:text-4xl text-3xl md:text-6xl font-bold mb-4 uppercase show-text">
-          {i18n.CREATE.TITLE_2}
+        <h2 class="lg:text-5xl text-3xl md:text-6xl font-bold mb-4 uppercase flex flex-col">
+          <span class="show-text">{i18n.CREATE.TITLE_2[0]}</span>
+          <span class="show-text">{i18n.CREATE.TITLE_2[1]}</span>
         </h2>
 
-        <p class="lg:text-base text-sm opacity-80 mb-6 uppercase lg:px-2 show-text">
+        <!-- <p class="lg:text-base text-sm opacity-80 mb-6 uppercase lg:px-2 show-text">
           {i18n.CREATE.DESCRIPTION}
-        </p>
+        </p> -->
       </div>
-      <ArrowIcon class="text-custom-red size-14 lg:mt-10" />
+      <ArrowIcon class="text-custom-red size-14 lg:mt-5" />
     </div>
 
     <div class="create-roles absolute inset-0 z-10 px-6 pointer-events-auto flex flex-col items-center justify-center overflow-hidden">

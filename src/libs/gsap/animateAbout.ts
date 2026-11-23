@@ -28,7 +28,7 @@ export const animateAbout = (
     start,
   );
 
-  gsap.set(img, { opacity: 0 });
+  // gsap.set(img, { opacity: 0 });
 
   const showText = animateShowText(section, start + 20);
 
@@ -36,15 +36,12 @@ export const animateAbout = (
 
   tl.call(() => showText.play(), [], showText.position);
 
-  tl.fromTo(
+  tl.to(
     [head, title1],
     {
-      y: "100vw",
-    },
-    {
       y: "-100vw",
+      duration: 10,
       ease: "none",
-      duration: 20,
     },
     start,
   );
@@ -56,31 +53,27 @@ export const animateAbout = (
       duration: 10,
       ease: "none",
     },
-    start + 8.3,
+    start,
   );
-
-  tl.set(img, { opacity: 1 }, start + 8.3);
+  // -tl.set(img, { opacity: 1 }, start);
   tl.to(
     img,
     {
-      clipPath: "inset(0% 0% 100% 0%)",
+      y: "-100vw",
       duration: 10,
       ease: "none",
     },
-    start + 16,
+    start,
   );
 
-  tl.fromTo(
+  tl.to(
     description,
-    {
-      y: "100vw",
-    },
     {
       y: "-100vw",
       ease: "none",
       duration: 20,
     },
-    start + 16,
+    start + 6,
   );
 
   tl.to(

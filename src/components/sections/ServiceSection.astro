@@ -6,6 +6,7 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 
 const images = [
+  "/images/service-0.webp",
   "/images/service-1.webp",
   "/images/service-2.webp",
   "/images/service-3.webp",
@@ -13,17 +14,17 @@ const images = [
   "/images/service-5.webp",
   "/images/service-6.webp",
   "/images/service-7.webp",
+  "/images/service-8.webp",
 ];
 ---
 
-<div class="service-wrapper relative w-full lg:absolute max-md:h-[330vh] bg-amber-700">
+<div class="service-wrapper relative w-full lg:absolute max-md:h-[330vh]">
   <section
     id="service"
     class="service-section
     bg-custom-white
     absolute inset-0 h-screen w-full
     flex flex-col items-center justify-center
-    z-999
     max-md:inset-auto
     max-md:h-screen
     max-md:w-full

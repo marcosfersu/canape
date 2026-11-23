@@ -17,6 +17,7 @@ export const animateHero = (
   const header = document.querySelector("header") as HTMLElement;
   const headerBox = document.querySelector(".header-box") as HTMLElement;
   const headerMood = document.querySelector(".header-mood") as HTMLElement;
+  const textLeft = document.querySelector(".header-text-left") as HTMLElement;
 
   if (!text || !logo || !video) return;
 
@@ -31,6 +32,9 @@ export const animateHero = (
 
   if (headerMood) {
     gsap.set(headerMood, { opacity: 0, x: -100 });
+  }
+  if (textLeft) {
+    gsap.set(textLeft, { opacity: 0, x: -100 });
   }
 
   gsap.set(video, {
@@ -53,6 +57,14 @@ export const animateHero = (
 
     if (headerMood) {
       gsap.to(headerMood, {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out",
+      });
+    }
+    if (textLeft) {
+      gsap.to(textLeft, {
         opacity: 1,
         x: 0,
         duration: 1,
