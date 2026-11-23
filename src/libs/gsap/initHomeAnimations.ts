@@ -48,7 +48,7 @@ export const initHomeAnimations = () => {
     if (about) animateAboutMobile(about);
     if (journal) animateJournalMobile(journal);
     if (contact) animateContactMobile(contact);
-    if (loop) animateLoopMobile(loop);
+    // if (loop) animateLoopMobile(loop);
 
     return;
   }
