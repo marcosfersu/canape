@@ -53,7 +53,7 @@ export const animateGalleryMobile = (
       img,
       {
         y: -sectionHeight,
-        duration: 8 + image.progress / 50,
+        duration: 8 + image.progress / 40,
         ease: "none",
       },
       tl.duration() * (image.progress / 100 / 4),

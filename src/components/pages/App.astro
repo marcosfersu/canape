@@ -51,4 +51,14 @@ import ContactSection from "../sections/ContactSection.astro";
   }
 
   document.addEventListener("astro:page-load", init);
+
+  let resizeTimeout: ReturnType<typeof setTimeout>;
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+
+    resizeTimeout = setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  });
 </script>

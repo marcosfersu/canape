@@ -12,14 +12,14 @@ export const animateHero = (
   const bg = section.querySelector(".hero-bg") as HTMLElement;
   const text = section.querySelector(".hero-text") as HTMLElement;
   const logo = section.querySelector(".logo") as HTMLElement;
-  const video = section.querySelector(".hero-video") as HTMLElement;
+  // const video = section.querySelector(".hero-video") as HTMLElement;
 
   const header = document.querySelector("header") as HTMLElement;
   const headerBox = document.querySelector(".header-box") as HTMLElement;
   const headerMood = document.querySelector(".header-mood") as HTMLElement;
   const textLeft = document.querySelector(".header-text-left") as HTMLElement;
 
-  if (!text || !logo || !video) return;
+  if (!text || !logo) return;
 
   const [start, end] = time;
 
@@ -37,9 +37,9 @@ export const animateHero = (
     gsap.set(textLeft, { opacity: 0, x: -100 });
   }
 
-  gsap.set(video, {
-    clipPath: "inset(100% 0% 0% 0%)",
-  });
+  // gsap.set(video, {
+  //   clipPath: "inset(100% 0% 0% 0%)",
+  // });
 
   // Intro callbacks
   gsap.delayedCall(0.5, () => {
@@ -102,26 +102,26 @@ export const animateHero = (
   );
 
   // Video reveal
-  tl.to(
-    video,
-    {
-      clipPath: "inset(0% 0% 0% 0%)",
-      duration: 5,
-      ease: "none",
-    },
-    start + 4,
-  );
+  // tl.to(
+  //   video,
+  //   {
+  //     clipPath: "inset(0% 0% 0% 0%)",
+  //     duration: 5,
+  //     ease: "none",
+  //   },
+  //   start + 4,
+  // );
 
   // Video hide
-  tl.to(
-    video,
-    {
-      clipPath: "inset(0% 0% 100% 0%)",
-      duration: 5,
-      ease: "none",
-    },
-    start + 10,
-  );
+  // tl.to(
+  //   video,
+  //   {
+  //     clipPath: "inset(0% 0% 100% 0%)",
+  //     duration: 5,
+  //     ease: "none",
+  //   },
+  //   start + 10,
+  // );
 
   // Text scale up
   tl.to(

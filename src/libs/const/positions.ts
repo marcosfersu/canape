@@ -1,12 +1,12 @@
 export const positions = {
   hero: [0, 16],
   hospitality: [16, 41],
-  create: [41, 71],
-  service: [71, 101],
-  about: [101, 121],
-  journal: [121, 131],
-  contact: [131, 161],
-  loop: [161, 171],
+  create: [41, 64],
+  service: [64, 94],
+  about: [94, 114],
+  journal: [114, 124],
+  contact: [124, 154],
+  loop: [154, 164],
 } as const;
 
 export const positionsMobile = {

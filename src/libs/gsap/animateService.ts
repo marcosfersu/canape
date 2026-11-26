@@ -11,7 +11,7 @@ export const animateService = (
   const serviceImages = section.querySelector(".service-images") as HTMLElement;
   const serviceText = section.querySelector(".service-text") as HTMLElement;
 
-  const showText = animateShowText(section, start);
+  const showText = animateShowText(section, start + 2);
 
   if (!showText) return;
 

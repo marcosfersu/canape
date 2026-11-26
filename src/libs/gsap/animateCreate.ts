@@ -65,7 +65,7 @@ export const animateCreate = (
       ease: "none",
       duration: 5,
     },
-    start + 15,
+    start + 11,
   );
 
   if (rolesHeading && iconCreate) {
@@ -77,7 +77,7 @@ export const animateCreate = (
         "--pseudo-tx-after": "-1rem",
         duration: 0.5,
       },
-      start + 15,
+      start + 11,
     );
 
     tl.to(
@@ -86,12 +86,12 @@ export const animateCreate = (
         opacity: 1,
         duration: 0.5,
       },
-      start + 15,
+      start + 11,
     );
   }
 
   itemsRoles?.forEach((item, index) => {
-    const timeRole = start + 15 + index * 4;
+    const timeRole = start + 11 + index * 4;
 
     tl.to(
       item,

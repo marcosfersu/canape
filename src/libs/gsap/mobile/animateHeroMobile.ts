@@ -6,7 +6,7 @@ export const animateHeroMobile = (section: HTMLElement) => {
 
   const text = section.querySelector(".hero-text") as HTMLElement;
   const logo = section.querySelector(".logo") as HTMLElement;
-  const video = section.querySelector(".hero-video") as HTMLElement;
+  // const video = section.querySelector(".hero-video") as HTMLElement;
 
   const header = document.querySelector("header") as HTMLElement;
   const headerBox = document.querySelector(".header-box") as HTMLElement;
@@ -16,7 +16,7 @@ export const animateHeroMobile = (section: HTMLElement) => {
     "#main-navigation",
   ) as HTMLElement;
 
-  if (!text || !logo || !video) return;
+  if (!text || !logo) return;
 
   const wrapper = section.parentElement as HTMLElement;
 
@@ -56,9 +56,9 @@ export const animateHeroMobile = (section: HTMLElement) => {
     gsap.set(mainNavigation, { opacity: 1 });
   });
 
-  gsap.set(video, {
-    clipPath: "inset(100% 0% 0% 0%)",
-  });
+  // gsap.set(video, {
+  //   clipPath: "inset(100% 0% 0% 0%)",
+  // });
 
   animateHeroTyping(0.3, 0.04, 0.35, 8);
 
@@ -92,25 +92,25 @@ export const animateHeroMobile = (section: HTMLElement) => {
     0.3,
   );
 
-  tl.to(
-    video,
-    {
-      clipPath: "inset(0% 0% 0% 0%)",
-      duration: 3,
-      ease: "none",
-    },
-    0,
-  );
+  // tl.to(
+  //   video,
+  //   {
+  //     clipPath: "inset(0% 0% 0% 0%)",
+  //     duration: 3,
+  //     ease: "none",
+  //   },
+  //   0,
+  // );
 
-  tl.to(
-    video,
-    {
-      clipPath: "inset(0% 0% 100% 0%)",
-      duration: 2,
-      ease: "none",
-    },
-    3,
-  );
+  // tl.to(
+  //   video,
+  //   {
+  //     clipPath: "inset(0% 0% 100% 0%)",
+  //     duration: 2,
+  //     ease: "none",
+  //   },
+  //   3,
+  // );
 
   tl.to(
     text,

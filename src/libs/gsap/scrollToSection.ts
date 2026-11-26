@@ -12,7 +12,7 @@ export const scrollToSection = (
   mobileProgress = 0,
   mobileDuration = 30,
 ) => {
-  const isMobile = window.matchMedia("(max-width: 767px)").matches;
+  const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
   ScrollTrigger.refresh();
 

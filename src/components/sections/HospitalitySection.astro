@@ -7,25 +7,25 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 ---
 
-<div class="hospitality-wrapper relative w-full lg:absolute max-md:h-[250vh]">
-  <section class="hospitality-section absolute h-screen w-full inset-0 max-md:sticky max-md:top-0 max-md:h-screen max-md:inset-auto max-md:overflow-hidden flex flex-col justify-between">
-    <div class="hospitality-images lg:absolute max-md:fixed max-md:inset-0 max-md:h-screen h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
-      <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-screen max-md:h-[80vh] overflow-hidden lg:overflow-visible">
-        <li class="shrink-0 w-auto max-md:max-w-[100vw] lg:flex-1">
+<div class="hospitality-wrapper relative w-full lg:absolute max-lg:h-[250vh]">
+  <section class="hospitality-section absolute h-screen w-full inset-0 max-lg:sticky max-lg:top-0 max-lg:h-screen max-lg:inset-auto max-lg:overflow-hidden flex flex-col justify-between">
+    <div class="hospitality-images lg:absolute max-lg:fixed max-lg:inset-0 max-lg:h-screen h-screen inset-0 z-0 flex justify-center items-center pointer-events-none">
+      <ul class="flex justify-center gap-4 lg:mx-4 mx-0 h-96 lg:h-screen max-lg:h-[80vh] overflow-hidden lg:overflow-visible">
+        <li class="shrink-0 w-auto max-lg:max-w-[100vw] lg:flex-1">
           <img class="w-full h-full object-cover" src="/images/3.webp" alt="" />
         </li>
 
-        <li class="shrink-0 w-auto max-md:max-w-[100vw] lg:flex-1">
+        <li class="shrink-0 w-auto max-lg:max-w-[100vw] lg:flex-1">
           <img class="w-full h-full object-cover" src="/images/1.webp" alt="" />
         </li>
 
-        <li class="shrink-0 w-auto max-md:max-w-[100vw] lg:flex-1">
+        <li class="shrink-0 w-auto max-lg:max-w-[100vw] lg:flex-1">
           <img class="w-full h-full object-cover" src="/images/4.webp" alt="" />
         </li>
       </ul>
     </div>
 
-    <div class="hospitality-text absolute max-md:absolute max-md:inset-0 max-md:h-screen inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
+    <div class="hospitality-text absolute max-lg:absolute max-lg:inset-0 max-lg:h-screen inset-0 z-10 flex flex-col items-center justify-center text-center px-6 pointer-events-auto">
       <div class="max-w-2xl flex flex-col items-center justify-center">
         <HeroTextIcon className="size-12 mb-4" />
 

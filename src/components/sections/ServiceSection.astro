@@ -18,22 +18,22 @@ const images = [
 ];
 ---
 
-<div class="service-wrapper relative w-full lg:absolute max-md:h-[330vh]">
+<div class="service-wrapper relative w-full lg:absolute max-lg:h-[330vh]">
   <section
     id="service"
     class="service-section
     bg-custom-white
     absolute inset-0 h-screen w-full
     flex flex-col items-center justify-center
-    max-md:inset-auto
-    max-md:h-screen
-    max-md:w-full
-    max-md:z-auto
-    max-md:overflow-hidden
-    max-md:sticky
-    max-md:top-0"
+    max-lg:inset-auto
+    max-lg:h-screen
+    max-lg:w-full
+    max-lg:z-auto
+    max-lg:overflow-hidden
+    max-lg:sticky
+    max-lg:top-0"
   >
-    <div class="service-images flex flex-row gap-4 lg:absolute fixed max-md:items-center max-md:top-0 overflow-visible max-md:h-screen">
+    <div class="service-images flex flex-row gap-4 lg:absolute fixed max-lg:items-center max-lg:top-0 overflow-visible max-lg:h-screen">
       {images.map((image) => (
         <div class="service-image h-[calc(80vh)] gap-4 pointer-events-none shrink-0">
           <img
@@ -44,7 +44,7 @@ const images = [
         </div>
       ))}
     </div>
-    <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl mx-10 max-md:pb-15 pointer-events-auto">
+    <div class="service-text inset-0 z-10 flex flex-col items-center justify-center text-center max-w-7xl mx-10 max-lg:pb-15 pointer-events-auto">
       <h4 class="lg:text-2xl text-xs uppercase tracking-widest font-light mb-4 show-text">
         <span>{i18n.SERVICES.TITLE}</span>
       </h4>

@@ -3,13 +3,13 @@ import Brand from "@/assets/Brand.astro";
 import HeroText from "./HeroText.astro";
 ---
 
-<div class="hero-wrapper relative w-full lg:absolute max-md:h-[300vh]">
+<div class="hero-wrapper relative w-full lg:absolute max-lg:h-[300vh]">
   <section
     class="hero-section
       relative h-screen w-full overflow-hidden
-      max-md:sticky
-      max-md:top-0
-      max-md:h-screen
+      max-lg:sticky
+      max-lg:top-0
+      max-lg:h-screen
       z-10"
   >
     <div class="hero-text absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
@@ -20,8 +20,8 @@ import HeroText from "./HeroText.astro";
       <Brand className="w-full" />
     </div>
 
-    <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90 z-0">
+    <!-- <div class="hero-video pointer-events-none absolute inset-0 flex items-center justify-center max-w-5xl m-auto scale-90 z-0">
       <img src="/images/img-test-2.webp" alt="Test Image" />
-    </div>
+    </div> -->
   </section>
 </div>
