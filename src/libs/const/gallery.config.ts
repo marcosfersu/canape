@@ -118,7 +118,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-1.webp",
     section: "create",
-    progress: 100,
+    progress: 50,
     duration: 200,
     x: 30,
     width: 65,
@@ -126,7 +126,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-2.webp",
     section: "create",
-    progress: 130,
+    progress: 80,
     duration: 40,
     x: 60,
     width: 70,
@@ -134,7 +134,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-3.webp",
     section: "create",
-    progress: 180,
+    progress: 100,
     duration: 40,
     x: 70,
     width: 60,
@@ -142,7 +142,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-4.webp",
     section: "create",
-    progress: 150,
+    progress: 140,
     duration: 40,
     x: 30,
     width: 55,
@@ -150,7 +150,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-5.webp",
     section: "create",
-    progress: 220,
+    progress: 180,
     duration: 40,
     x: 40,
     width: 70,
@@ -158,7 +158,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-6.webp",
     section: "create",
-    progress: 240,
+    progress: 200,
     duration: 40,
     x: 50,
     width: 70,
@@ -166,7 +166,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-7.webp",
     section: "create",
-    progress: 260,
+    progress: 220,
     duration: 40,
     x: 70,
     width: 80,

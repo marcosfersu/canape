@@ -97,7 +97,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
       duration: 5,
       ease: "none",
     },
-    10,
+    6,
   );
 
   // Aparición de paréntesis e icono
@@ -110,7 +110,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
         "--pseudo-tx-after": "-1rem",
         duration: 0.5,
       },
-      10,
+      6,
     );
 
     tl.to(
@@ -119,7 +119,7 @@ export const animateCreateMobile = (section: HTMLElement) => {
         opacity: 1,
         duration: 0.5,
       },
-      10,
+      6,
     );
   }
 
