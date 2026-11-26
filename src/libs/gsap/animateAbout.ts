@@ -28,9 +28,13 @@ export const animateAbout = (
     start,
   );
 
+  gsap.set(img, {
+    clipPath: "inset(100% 0% 0% 0%)",
+  });
+
   // gsap.set(img, { opacity: 0 });
 
-  const showText = animateShowText(section, start + 20);
+  const showText = animateShowText(section, start + 5);
 
   if (!showText) return;
 
@@ -40,7 +44,7 @@ export const animateAbout = (
     [head, title1],
     {
       y: "-100vw",
-      duration: 10,
+      duration: 12,
       ease: "none",
     },
     start,
@@ -67,13 +71,23 @@ export const animateAbout = (
   );
 
   tl.to(
+    img,
+    {
+      clipPath: "inset(0% 0% 0% 0%)",
+      duration: 3,
+      ease: "none",
+    },
+    start,
+  );
+
+  tl.to(
     description,
     {
       y: "-100vw",
       ease: "none",
       duration: 20,
     },
-    start + 6,
+    start + 8,
   );
 
   tl.to(

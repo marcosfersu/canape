@@ -36,7 +36,7 @@ const i18n = getI18N({ currentLocale });
       </div>
     </div>
 
-    <div class="about-description absolute inset-0 z-20 flex flex-col items-center justify-center uppercase text-center max-lg:flex max-lg:flex-col max-lg:px-10 lg:max-w-xl w-full mx-auto gap-6 px-10 pointer-events-none">
+    <div class="about-description absolute show-text inset-0 z-20 flex flex-col items-center justify-center uppercase text-center max-lg:flex max-lg:flex-col max-lg:px-10 lg:max-w-xl w-full mx-auto gap-6 px-10 pointer-events-none">
       <h2 class="font-semibold lg:text-6xl text-3xl md:text-6xl mb-4 uppercase">
         {i18n.ABOUT.NAME}
       </h2>
@@ -44,9 +44,15 @@ const i18n = getI18N({ currentLocale });
       <h4 class="font-semibold text-sm">{i18n.ABOUT.ROLE}</h4>
 
       <div class="flex flex-col gap-4 text-center text-sm">
-        <p>{i18n.ABOUT.BIO_1}</p>
-        <p>{i18n.ABOUT.BIO_2}</p>
-        <p>{i18n.ABOUT.BIO_3}</p>
+        <div>
+          <p>{i18n.ABOUT.BIO_1}</p>
+        </div>
+        <div>
+          <p>{i18n.ABOUT.BIO_2}</p>
+        </div>
+        <div>
+          <p>{i18n.ABOUT.BIO_3}</p>
+        </div>
       </div>
     </div>
   </section>
