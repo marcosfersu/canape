@@ -38,7 +38,6 @@ export const initHomeAnimations = () => {
     const service = document.querySelector(".service-section") as HTMLElement;
     const about = document.querySelector(".about-section") as HTMLElement;
     const journal = document.querySelector(".journal-section") as HTMLElement;
-    const loop = document.querySelector(".loop-section") as HTMLElement;
     const contact = document.querySelector(".contact-section") as HTMLElement;
 
     if (hero) animateHeroMobile(hero) ?? null;
@@ -48,7 +47,6 @@ export const initHomeAnimations = () => {
     if (about) animateAboutMobile(about);
     if (journal) animateJournalMobile(journal);
     if (contact) animateContactMobile(contact);
-    // if (loop) animateLoopMobile(loop);
 
     return;
   }
