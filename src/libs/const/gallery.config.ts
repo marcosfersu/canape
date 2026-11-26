@@ -150,7 +150,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-5.webp",
     section: "create",
-    progress: 180,
+    progress: 200,
     duration: 40,
     x: 40,
     width: 70,
@@ -158,7 +158,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-6.webp",
     section: "create",
-    progress: 200,
+    progress: 210,
     duration: 40,
     x: 50,
     width: 70,
@@ -166,7 +166,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-7.webp",
     section: "create",
-    progress: 220,
+    progress: 230,
     duration: 40,
     x: 70,
     width: 80,
