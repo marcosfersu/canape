@@ -131,7 +131,7 @@ export const animateHero = (
       duration: 4,
       ease: "none",
     },
-    start + 10,
+    start + 5,
   );
 
   // Section exit

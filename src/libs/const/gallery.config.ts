@@ -142,7 +142,7 @@ export const galleryImagesMobile = [
   {
     src: "/images/create-4.webp",
     section: "create",
-    progress: 140,
+    progress: 160,
     duration: 40,
     x: 30,
     width: 55,
